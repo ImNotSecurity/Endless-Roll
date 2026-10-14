@@ -128,9 +128,61 @@ select{background:var(--surface2);border:1px solid var(--line);border-radius:8px
 #jpFx .jpt{font:900 clamp(2.6rem,12vw,6rem) var(--f-display);letter-spacing:.08em;background:linear-gradient(90deg,#ffd34d,#ff6bd6,#7cf4ff,#ffd34d);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px #ffb800);animation:vslide 1.2s linear infinite,jpbump .5s ease-out}
 @keyframes jpbump{from{transform:scale(.4)}to{transform:scale(1)}}
 #jpFx .jpr{font:700 clamp(1rem,4vw,1.5rem) var(--f-display);color:#fff;text-shadow:0 0 12px #000,0 0 6px #000;text-align:center;padding:0 16px}
-.home{position:fixed;inset:0;z-index:400;overflow:auto;background:radial-gradient(ellipse at 50% 0%,#5a1a8a 0%,#2b0a4a 45%,#0d0618 100%);color:#fff;display:flex;justify-content:center}
+.home{position:fixed;inset:0;z-index:400;overflow:auto;background:transparent;color:#fff;display:flex;justify-content:center}
 .home[hidden]{display:none}
 body.homeopen{overflow:hidden}
+.homebg{position:fixed;inset:0;z-index:399;display:none;overflow:hidden;background:radial-gradient(ellipse at 50% -10%,#6a1fa0 0%,#2b0a4a 42%,#0a0414 100%)}
+body.homeopen .homebg{display:block}
+.homebg .au{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(70px);opacity:.38;mix-blend-mode:screen;animation:auf 22s ease-in-out infinite alternate}
+.homebg .au.a1{background:#ff3bd4;left:-25vmax;top:-30vmax}
+.homebg .au.a2{background:#3bd8ff;right:-30vmax;top:5vmax;animation-delay:-8s;animation-duration:28s}
+.homebg .au.a3{background:#ffb83b;left:10vmax;bottom:-45vmax;opacity:.28;animation-delay:-14s}
+@keyframes auf{from{transform:translate(0,0) scale(1)}to{transform:translate(8vmax,6vmax) scale(1.2)}}
+.homebg .stars{position:absolute;inset:0}
+.homebg .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:twk 3s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.15}to{opacity:1}}
+.homebg .fl{position:absolute;bottom:-12%;font:900 clamp(1.4rem,5vw,3rem) var(--f-mono);opacity:0;animation:flup linear infinite;text-shadow:0 0 14px currentColor}
+@keyframes flup{0%{transform:translateY(0) rotate(-6deg);opacity:0}12%{opacity:.34}85%{opacity:.2}100%{transform:translateY(-118vh) rotate(8deg);opacity:0}}
+.homebg .grid{position:absolute;left:-50%;right:-50%;bottom:-8%;height:46%;background:linear-gradient(transparent,#ff6bd622),repeating-linear-gradient(90deg,#ffffff14 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,#ffffff14 0 1px,transparent 1px 40px);transform:perspective(380px) rotateX(62deg);transform-origin:50% 100%;mask-image:linear-gradient(transparent,#000 70%);-webkit-mask-image:linear-gradient(transparent,#000 70%);opacity:.7}
+.hero{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;margin-top:6px}
+.hero-k{font:800 .74rem var(--f-display);letter-spacing:.5em;color:#bfe8ff;text-transform:uppercase;padding-left:.5em;text-shadow:0 0 10px #3bd8ff}
+.hero .home-title{font-size:clamp(2.8rem,14vw,4.8rem);line-height:1;filter:drop-shadow(0 0 22px #ff6bd688)}
+.hero-box{position:relative;margin:10px 0 2px;width:min(340px,92%);padding:16px 12px 12px;border-radius:20px;background:linear-gradient(180deg,#ffffff1c,#ffffff08);border:1px solid #ffffff44;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 10px 40px #0008,inset 0 1px 0 #ffffff55;overflow:hidden}
+.hero-box::before{content:"";position:absolute;inset:-60% -20%;background:conic-gradient(from 0deg,transparent,#ffffff22,transparent 30%);animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-box>*{position:relative}
+.hero-num{white-space:nowrap;font:900 clamp(1.5rem,7.5vw,2.5rem) var(--f-mono);letter-spacing:.04em;color:var(--hc,#fff);text-shadow:0 0 18px var(--hc,#fff);min-height:1.2em;transition:color .2s}
+.hero-num.land{animation:hland .5s ease-out}
+@keyframes hland{0%{transform:scale(1.35);filter:brightness(2)}100%{transform:scale(1);filter:none}}
+.hero-lab{font:800 .8rem var(--f-display);letter-spacing:.3em;text-transform:uppercase;color:var(--hc,#fff);min-height:1.2em}
+.ribbon{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;width:100%}
+.ribbon span{font:800 .68rem var(--f-display);letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:var(--rc);border:1px solid var(--rc);background:#00000044;box-shadow:0 0 10px color-mix(in srgb,var(--rc) 35%,transparent)}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%}
+.hstats div{background:#ffffff12;border:1px solid #ffffff2e;border-radius:12px;padding:8px 4px;display:flex;flex-direction:column;gap:1px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hstats b{font:800 1.05rem var(--f-mono);color:#ffe27a}.hstats small{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#d9c2f5}
+.hcta{position:relative;width:100%;border:0;border-radius:18px;padding:18px 20px 22px;line-height:1.25;font:900 1.4rem var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:#2b0a3d;background:linear-gradient(180deg,#fff0a0,#ffc61a 55%,#f09a00);box-shadow:0 6px 0 #8a5a00,0 0 36px #ffb80088;cursor:pointer;overflow:hidden}
+.hcta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,#ffffffaa,transparent);animation:shn 3s ease-in-out infinite}
+@keyframes shn{0%,40%{left:-60%}100%{left:130%}}
+@keyframes ctap{50%{transform:scale(1.025)}}
+.hcta small{display:block;line-height:1.4;padding-bottom:2px;font:600 .75rem var(--f-body,inherit);letter-spacing:.04em;text-transform:none;opacity:.8;margin-top:2px}
+.hcta:active{transform:translateY(4px);box-shadow:0 2px 0 #8a5a00,0 0 20px #ffb80088}
+.hcta:disabled{filter:grayscale(.7);cursor:wait}
+.hcard{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:linear-gradient(180deg,#ffffff1a,#ffffff0a);box-shadow:0 4px 18px #0006;transition:transform .15s,border-color .15s}
+.hcard:hover:not(:disabled){transform:translateY(-2px)}
+.home-grid.two{grid-template-columns:1fr 1fr}
+.home-grid.two .hcard{grid-template-columns:1fr;text-align:center;padding:14px 10px}
+.home-grid.two .hcard .hi{grid-row:auto}
+.home-grid.two .hcard.wide{grid-column:span 2;grid-template-columns:52px 1fr;text-align:left}
+.home-grid.two .hcard.wide .hi{grid-row:span 2}
+.parade{width:calc(100% + 36px);overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.parade-t{display:flex;gap:10px;width:max-content;animation:pmv 38s linear infinite}
+.parade-t span{width:54px;height:54px;flex:none;filter:drop-shadow(0 4px 6px #0008);animation:pbob 2.4s ease-in-out infinite alternate}
+.parade-t span:nth-child(2n){animation-delay:-1.2s}
+@keyframes pmv{to{transform:translateX(-50%)}}
+@keyframes pbob{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.homebg .au,.homebg .fl,.homebg .stars i,.hero-box::before,.hcta,.hcta::after,.parade-t,.parade-t span{animation:none}}
+@media (max-width:420px){.hstats b{font-size:.9rem}.hcta{font-size:1.2rem}}
+
 .home-in{width:min(560px,100%);padding:40px 18px 40px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 .home-title{font:900 clamp(2.4rem,11vw,4rem) var(--f-display);letter-spacing:.04em;text-transform:uppercase;background:linear-gradient(90deg,#ffd34d,#ff6bd6,#7cf4ff,#ffd34d);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:vslide 6s linear infinite}
 .home-sub{color:#e5d2ff;margin-bottom:8px}
@@ -361,12 +413,23 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
 #unl .ub{background:#fff;color:#1b1f2a;border-radius:16px;max-width:380px;width:100%;padding:22px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 #unl h3{margin:0 0 6px;font-size:20px}#unl p{margin:0 0 16px;font-size:14px;line-height:1.5}#unl .ubt{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 #unl .ubn{font-size:11px;letter-spacing:.14em;color:#7a3cff;font-weight:800;margin-bottom:4px}
+#trToast{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:95;background:#e0a400;color:#2a1c00;border:0;border-radius:999px;padding:12px 22px;font:800 14px/1.2 inherit;box-shadow:0 8px 28px rgba(0,0,0,.4);cursor:pointer;animation:claimp 1.1s ease-in-out infinite}#trToast[hidden]{display:none}
+.trh{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.trok{color:#1d7a45}.trno{color:#a33}.trgive{display:flex;align-items:center;gap:10px}.trgive .cimg{width:48px;height:48px;flex:0 0 48px}
+.bossdeal{border-color:#c4122f;box-shadow:0 0 0 2px rgba(196,18,47,.25)}
+.hbrow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:13px}.hbrow button.on{background:#222;color:#fff}
+.hcnt{position:fixed;top:18px;left:0;right:0;text-align:center;color:#fff;font-weight:700;letter-spacing:.06em;z-index:3}.hskip{position:fixed;bottom:22px;right:22px;z-index:3;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 18px;font:600 13px inherit;cursor:pointer}
+.hfx.multi{gap:10px}.hfx .mgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;max-width:min(96vw,900px)}
+.hfx .mcell{width:var(--sz);display:flex;flex-direction:column;align-items:center;gap:4px}.hfx .mst{position:relative;width:var(--sz);aspect-ratio:1}
+.hfx .mnm{display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transition:opacity .6s ease .4s;font-size:11px;line-height:1.2}.hfx.rev .mnm{opacity:1}
+.hfx .mnm span{color:#ffd34d;letter-spacing:.14em;text-transform:uppercase;font-size:9px}
+#pane-tr{scroll-margin-top:10px}
 </style>
 
 <button class="adminbtn" id="adminBtn" type="button">Admin</button>
 <button class="casinobtn locked" id="casinoBtn" type="button">Enter the casino</button>
 <div class="whiteout" id="whiteout"></div>
-<div class="home" id="home"></div>
+<div class="homebg" id="homeBg" aria-hidden="true"></div><div class="home" id="home"></div>
 <div class="casino" id="casino" hidden role="dialog" aria-label="Casino"><div class="casbox" id="casinoBox"></div></div>
 <div class="cine" id="cine" hidden role="dialog" aria-label="Rare roll"><div class="cine-art" id="cineArt"></div><div class="cine-txt" id="cineTxt"></div><button class="cine-skip" id="cineSkip" type="button">Skip</button></div>
 <div class="adminmodal" id="admin" hidden role="dialog" aria-label="Admin panel"><div class="adminbox" id="adminBox"></div></div>
@@ -419,6 +482,7 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
       <button class="tab" role="tab" id="tab-col" aria-selected="false" aria-controls="pane-col" data-tab="col">Badge guide</button>
       <button class="tab" role="tab" id="tab-hist" aria-selected="false" aria-controls="pane-hist" data-tab="hist">History</button>
       <button class="tab" role="tab" id="tab-odds" aria-selected="false" aria-controls="pane-odds" data-tab="odds">Odds</button>
+      <button class="tab" role="tab" id="tab-tr" aria-selected="false" aria-controls="pane-tr" data-tab="tr">Trader</button>
     </div>
 
     <div id="pane-store" class="pane" role="tabpanel" aria-labelledby="tab-store"></div>
@@ -448,6 +512,7 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
 
     <div id="pane-aw" class="pane" role="tabpanel" aria-labelledby="tab-aw" hidden></div>
 
+    <div id="pane-tr" class="pane" role="tabpanel" aria-labelledby="tab-tr" hidden></div>
     <div id="pane-odds" class="pane" role="tabpanel" aria-labelledby="tab-odds" hidden>
       <div class="odds">
         <div class="sums" id="sums"></div>
@@ -622,45 +687,45 @@ const TIER_EP={trash:2,common:10,uncommon:50,rare:300,epic:1500,anomaly:5000,myt
 const POT_W=[1,0.75,0.75,0.5,0.3];   /* the strongest potion counts fully, then 75%, 75%, 50%, 30% */
 const potLuck=arr=>arr.map(a=>a.luck).sort((x,y)=>y-x).reduce((t,x,i)=>t+x*POT_W[Math.min(i,POT_W.length-1)],0);
 const POTIONS=[
- {id:'pot1',name:'Murky Tonic',luck:6,rolls:3,cost:60,desc:'A cloudy brew that nudges the odds.'},
- {id:'pot2',name:'Luck Potion',luck:18,rolls:4,cost:500,desc:'Clear, sweet and a little fizzy.'},
- {id:'pot3',name:'Fortune Draught',luck:50,rolls:5,cost:2000,desc:'Tastes like a winning ticket.'},
- {id:'pot4',name:'Elixir of Fate',luck:180,rolls:6,cost:10000,desc:'Bends the next few rolls.'},
- {id:'pot5',name:'Starlight Brew',luck:900,rolls:5,cost:60000,desc:'Bottled from a clear night sky.'},
- {id:'pot6',name:'Essence of Destiny',luck:3000,rolls:4,cost:300000,desc:'Pour it out and the dice listen.'}
+ {id:'pot1',name:'Murky Tonic',luck:5,rolls:2,cost:80,desc:'A cloudy brew that nudges the odds.'},
+ {id:'pot2',name:'Luck Potion',luck:14,rolls:3,cost:650,desc:'Clear, sweet and a little fizzy.'},
+ {id:'pot3',name:'Fortune Draught',luck:40,rolls:4,cost:2600,desc:'Tastes like a winning ticket.'},
+ {id:'pot4',name:'Elixir of Fate',luck:145,rolls:5,cost:13000,desc:'Bends the next few rolls.'},
+ {id:'pot5',name:'Starlight Brew',luck:720,rolls:4,cost:78000,desc:'Bottled from a clear night sky.'},
+ {id:'pot6',name:'Essence of Destiny',luck:2400,rolls:3,cost:390000,desc:'Pour it out and the dice listen.'}
 ];
 const ITEMS=[
- {id:'it1',name:'Lucky Penny',luck:2,cost:40,desc:'Found heads up.'},
- {id:'it2',name:'Four-Leaf Clover',luck:4,cost:150,desc:'Rare, and a bit squashed.'},
- {id:'it3',name:"Rabbit's Foot",luck:8,cost:500,desc:'Worked out better for you than for the rabbit.'},
- {id:'it4',name:'Horseshoe',luck:16,cost:1600,desc:'Nailed above the door.'},
- {id:'it5',name:'Loaded Dice',luck:32,cost:5000,desc:'Weighted toward six.'},
- {id:'it6',name:'Wishing Well',luck:64,cost:60000,desc:'Costs a coin, returns a favour.'},
- {id:'it7',name:"Fortune's Coin",luck:130,cost:250000,desc:'Lands on its edge every time.'},
- {id:'it8',name:'Shooting Star',luck:260,cost:600000,desc:'Wish quickly.'},
- {id:'it9',name:"Genie's Lamp",luck:520,cost:3000000,desc:'Three wishes, no rules lawyers.'},
- {id:'it10',name:'Golden Goose',luck:1000,cost:15000000,desc:'Lays winning numbers.'},
- {id:'it11',name:"Philosopher's Stone",luck:2000,cost:80000000,desc:'Turns odds into gold.'},
- {id:'it12',name:'Loom of Fate',luck:4000,cost:400000000,desc:'Weaves the next roll before you make it.'}
+ {id:'it1',name:'Lucky Penny',luck:3,cost:40,desc:'Found heads up.'},
+ {id:'it2',name:'Four-Leaf Clover',luck:6,cost:150,desc:'Rare, and a bit squashed.'},
+ {id:'it3',name:"Rabbit's Foot",luck:12,cost:500,desc:'Worked out better for you than for the rabbit.'},
+ {id:'it4',name:'Horseshoe',luck:24,cost:1600,desc:'Nailed above the door.'},
+ {id:'it5',name:'Loaded Dice',luck:48,cost:5000,desc:'Weighted toward six.'},
+ {id:'it6',name:'Wishing Well',luck:96,cost:60000,desc:'Costs a coin, returns a favour.'},
+ {id:'it7',name:"Fortune's Coin",luck:195,cost:250000,desc:'Lands on its edge every time.'},
+ {id:'it8',name:'Shooting Star',luck:390,cost:600000,desc:'Wish quickly.'},
+ {id:'it9',name:"Genie's Lamp",luck:780,cost:3000000,desc:'Three wishes, no rules lawyers.'},
+ {id:'it10',name:'Golden Goose',luck:1500,cost:15000000,desc:'Lays winning numbers.'},
+ {id:'it11',name:"Philosopher's Stone",luck:3000,cost:80000000,desc:'Turns odds into gold.'},
+ {id:'it12',name:'Loom of Fate',luck:6000,cost:400000000,desc:'Weaves the next roll before you make it.'}
 ];
 const ACCS=[
- {id:'ri1',slot:'ring',name:'Copper Ring',luck:1.5,cost:100,desc:'Turns your finger slightly green.'},
- {id:'ri2',slot:'ring',name:'Silver Ring',luck:8,cost:1200,desc:'Polished by many winners.'},
- {id:'ri3',slot:'ring',name:'Gold Ring',luck:40,cost:60000,desc:'Heavy with good fortune.'},
- {id:'ri4',slot:'ring',name:'Platinum Ring',luck:200,cost:1500000,desc:'Too valuable to lose, too lucky to sell.'},
- {id:'ri5',slot:'ring',name:'Mythril Ring',luck:1000,cost:8000000,desc:'Light as a feather, loud as a jackpot.'},
- {id:'am1',slot:'amulet',name:'Wooden Amulet',luck:2.5,cost:150,desc:'Carved by a patient hand.'},
- {id:'am2',slot:'amulet',name:'Jade Amulet',luck:12,cost:3000,desc:'Cool to the touch.'},
- {id:'am3',slot:'amulet',name:'Starfall Amulet',luck:70,cost:120000,desc:'Forged from a fallen star.'},
- {id:'am4',slot:'amulet',name:'Eclipse Amulet',luck:350,cost:3000000,desc:'Worn when the sun forgets itself.'},
- {id:'am5',slot:'amulet',name:'Celestial Amulet',luck:1800,cost:20000000,desc:'The heavens roll on your side.'},
- {id:'ch1',slot:'charm',name:"Scavenger's Charm",trash:8,cost:500,desc:'Trash rolls pay +8 EP.'},
- {id:'ch2',slot:'charm',name:'Stopwatch Charm',cd:0.3,cost:1200,desc:'Shortens the cooldown by 0.3s.'},
- {id:'ch3',slot:'charm',name:'Magpie Charm',mult:0.25,cost:6000,desc:'Earn 25% more EP from every roll.'},
- {id:'ch4',slot:'charm',name:"Gambler's Charm",luck:25,cost:150000,desc:'Always bets on itself.'},
- {id:'ch5',slot:'charm',name:'Grand Magpie Charm',mult:0.75,cost:1500000,desc:'Earn 75% more EP from every roll.'},
- {id:'ch6',slot:'charm',name:'Fortune Charm',luck:500,cost:30000000,desc:'The house always loses.'},
- {id:'ch7',slot:'charm',name:'Void Charm',luck:3000,cost:500000000,desc:'Stares back, and the dice flinch.'}
+ {id:'ri1',slot:'ring',name:'Copper Ring',luck:4,cost:100,desc:'Turns your finger slightly green.'},
+ {id:'ri2',slot:'ring',name:'Silver Ring',luck:20,cost:1200,desc:'Polished by many winners.'},
+ {id:'ri3',slot:'ring',name:'Gold Ring',luck:100,cost:60000,desc:'Heavy with good fortune.'},
+ {id:'ri4',slot:'ring',name:'Platinum Ring',luck:500,cost:1500000,desc:'Too valuable to lose, too lucky to sell.'},
+ {id:'ri5',slot:'ring',name:'Mythril Ring',luck:2500,cost:8000000,desc:'Light as a feather, loud as a jackpot.'},
+ {id:'am1',slot:'amulet',name:'Wooden Amulet',luck:6,cost:150,desc:'Carved by a patient hand.'},
+ {id:'am2',slot:'amulet',name:'Jade Amulet',luck:30,cost:3000,desc:'Cool to the touch.'},
+ {id:'am3',slot:'amulet',name:'Starfall Amulet',luck:175,cost:120000,desc:'Forged from a fallen star.'},
+ {id:'am4',slot:'amulet',name:'Eclipse Amulet',luck:875,cost:3000000,desc:'Worn when the sun forgets itself.'},
+ {id:'am5',slot:'amulet',name:'Celestial Amulet',luck:4500,cost:20000000,desc:'The heavens roll on your side.'},
+ {id:'ch1',slot:'charm',name:"Scavenger's Charm",trash:12,cost:500,desc:'Trash rolls pay +12 EP.'},
+ {id:'ch2',slot:'charm',name:'Stopwatch Charm',cd:0.45,cost:1200,desc:'Shortens the cooldown by 0.45s.'},
+ {id:'ch3',slot:'charm',name:'Magpie Charm',mult:0.4,cost:6000,desc:'Earn 40% more EP from every roll.'},
+ {id:'ch4',slot:'charm',name:"Gambler's Charm",luck:62,cost:150000,desc:'Always bets on itself.'},
+ {id:'ch5',slot:'charm',name:'Grand Magpie Charm',mult:1.1,cost:1500000,desc:'Earn 110% more EP from every roll.'},
+ {id:'ch6',slot:'charm',name:'Fortune Charm',luck:1250,cost:30000000,desc:'The house always loses.'},
+ {id:'ch7',slot:'charm',name:'Void Charm',luck:7500,cost:500000000,desc:'Stares back, and the dice flinch.'}
 ];
 const UPS=[
  {id:'quick',name:'Quick Hands',max:5,costs:[200,1500,10000,60000,400000],desc:'Shortens the roll cooldown by 0.2s per level.',eff:l=>'Cooldown '+Math.max(MIN_CD,BASE_CD-QUICK_STEP*l).toFixed(1)+'s'},
@@ -702,7 +767,7 @@ function analyze(n){ const ids=idsOf(n), ep=epOfIds(ids); return {n,ids,ep,top:t
 const $=id=>document.getElementById(id);
 const fmt=n=>n.toLocaleString('en-US');
 const KEY='endless-roll-v4';
-const fresh0=()=>({rolls:0,ep:0,life:0,best:null,tiers:{},badges:{},hist:[],bag:{},active:[],owned:{},equip:{},lv:{},rb:0,run:{},q:null,mats:{},awake:{},fx:{},mute:false,cprice:0,cmult:0,queued:null,slots:0,pets:{},petAct:null,pxp:{},petEq:[],spare:{},vars:{},jp:0,daily:{last:'',streak:0},tix:{},nextVar:'',skipCine:false,fb:0,fbAt:0,seenU:null});
+const fresh0=()=>({rolls:0,ep:0,life:0,best:null,tiers:{},badges:{},hist:[],bag:{},active:[],owned:{},equip:{},lv:{},rb:0,run:{},q:null,mats:{},awake:{},fx:{},mute:false,cprice:0,cmult:0,queued:null,slots:0,pets:{},petAct:null,pxp:{},petEq:[],spare:{},vars:{},jp:0,daily:{last:'',streak:0},tix:{},nextVar:'',skipCine:false,fb:0,fbAt:0,seenU:null,tr:null,abCd:{},whistle:0});
 let S=fresh0(), LOCAL0=null;
 try{ const raw=localStorage.getItem(KEY); if(raw){ const o=JSON.parse(raw); if(o&&typeof o.rolls==='number'){ LOCAL0=o; S=Object.assign(fresh0(),o); if(!o.run) S.run=Object.assign({},S.badges); delete S.lv.auto; } } }catch(e){}
 let saveT=0, cloudT=0;
@@ -726,7 +791,7 @@ function rbMult(){ return 1+RB_LUCK*S.rb; }
 const cdMs=()=>ADM.noCd?100:Math.max(MIN_CD,BASE_CD-QUICK_STEP*(S.lv.quick||0)-eqSum('cd')-petBonus('cd')-RB_CD*S.rb)*1000*(boosted()?0.5:1);
 const epMult=()=>(1+SIPHON_STEP*(S.lv.siphon||0)+eqSum('mult')+petBonus('ep')+RB_EP*S.rb)*(boosted()?2:1);
 const trashBonus=()=>5*(S.lv.scrap||0)+eqSum('trash');
-const POT_FRAC={pot1:0.0005,pot2:0.002,pot3:0.005,pot4:0.01,pot5:0.02,pot6:0.03};
+const POT_FRAC={pot1:0.00065,pot2:0.0026,pot3:0.0065,pot4:0.013,pot5:0.026,pot6:0.039};
 const potSlots=()=>MAX_POTS+(S.slots||0);
 const SLOT_MAX=3;
 const slotCost=()=>Math.round(Math.max(100000,qRef()*0.08)*Math.pow(2,S.slots||0));
@@ -766,7 +831,7 @@ function showRoll(res,fresh,rollNo,gain,animate,parts){
     ro.textContent=fmt(res.n);
     $('tierchip').textContent=TL[res.tier]+' · '+topLabel(res);
     $('rollno').textContent='Roll #'+fmt(rollNo);
-    $('epline').innerHTML='<b>+'+fe(gain)+' EP</b> &middot; '+TL[res.tier]+' roll '+fe(parts.tier)+' + '+res.ids.length+(res.ids.length===1?' badge ':' badges ')+fe(parts.badge)+(parts.bonus?' + new badge bonus '+fe(parts.bonus):'')+(parts.prize?' + casino prize '+fe(parts.prize):'')+(parts.variant?' &middot; <b class="vtag v-'+parts.variant.id+'">'+parts.variant.name+' \u00d7'+parts.variant.m+'</b>':'');
+    $('epline').innerHTML='<b>+'+fe(gain)+' EP</b> &middot; '+TL[res.tier]+' roll '+fe(parts.tier)+' + '+res.ids.length+(res.ids.length===1?' badge ':' badges ')+fe(parts.badge)+(parts.bonus?' + new badge bonus '+fe(parts.bonus):'')+(parts.prize?' + casino prize '+fe(parts.prize):'')+(parts.variant?' &middot; '+(parts.variants||[parts.variant]).map(v=>'<b class="vtag v-'+v.id+'">'+v.name+' \u00d7'+v.m+'</b>').join(' ')+((parts.variants||[]).length>1?' = \u00d7'+(+(parts.variants.reduce((x,v)=>x*v.m,1)).toFixed(2)):''):'');
     ['shiny','gold','rainbow','eternal'].forEach(v=>ro.classList.remove('v-'+v)); if(parts.variant) ro.classList.add('v-'+parts.variant.id);
     $('chips').innerHTML=res.ids.length
       ? res.ids.slice().sort((a,b)=>B[b].ep-B[a].ep).map(i=>'<span class="chip" data-tier="'+B[i].tier+'" title="'+B[i].desc.replace(/"/g,'&quot;')+'">'+B[i].name+'<i>+'+fe(B[i].ep)+'</i>'+(fresh.indexOf(i)>=0?'<em>New \u00d72</em>':'')+'</span>').join('')
@@ -868,15 +933,21 @@ function doRoll(animate,onDone){
   });
   let prize=0;
   if(S.queued){ const tq=S.queued; res=analyze(numberOfTier(TIERS.indexOf(tq))); prize=Math.round(qRef()*(CASINO_BONUS[tq]||0)); S.queued=null; }
+  if(S.petForce){ res=analyze(numberOfTier(TIERS.indexOf(S.petForce))); S.petForce=''; }
   if(ADM.force>=0) res=analyze(numberOfTier(ADM.force));
   const fresh=res.ids.filter(i=>!S.badges[B[i].k]);
   const parts=epParts(res,fresh);
   parts.prize=prize;
-  let vm=1; const rv=Math.random(); let vr=null, cum=0;
-  for(const v of VARIANTS){ cum+=v.p; if(rv<cum){ vr=v; break; } }
-  if(S.nextVar){ vr=VARIANTS.find(v=>v.id===S.nextVar)||vr; S.nextVar=''; }
-  if(ADM.vr) vr=VARIANTS.find(v=>v.id===ADM.vr)||vr;
-  if(vr){ vm=vr.m; parts.variant=vr; }
+  /* each mutation rolls on its own, so they can stack (rare); a mutation also has a small chance to drag a second one along */
+  let vm=1; const vrs=[];
+  for(const v of VARIANTS){ if(Math.random()<v.p) vrs.push(v); }
+  if(vrs.length===1&&Math.random()<0.05){ const o=VARIANTS.filter(v=>v!==vrs[0]); const w=o.map(v=>1/v.m); let r=Math.random()*w.reduce((x,y)=>x+y,0), k=0; while(k<o.length-1&&r>=w[k]){ r-=w[k]; k++; } vrs.push(o[k]); }
+  if(S.nextVar){ const f=VARIANTS.find(v=>v.id===S.nextVar); if(f&&vrs.indexOf(f)<0) vrs.push(f); S.nextVar=''; }
+  if(ADM.vr){ const f=VARIANTS.find(v=>v.id===ADM.vr); if(f&&vrs.indexOf(f)<0) vrs.push(f); }
+  vrs.sort((x,y)=>VARIANTS.indexOf(x)-VARIANTS.indexOf(y));
+  const vr=vrs[0]||null;
+  vrs.forEach(v=>{ vm*=v.m; });
+  if(vr){ parts.variant=vr; parts.variants=vrs; }
   let pm=1; if(petProc('pp6',0.06)){ pm=2; notes.push('Gold Magpie: Shiny Find (EP \u00d72)'); }
   const gain=Math.round(parts.sum*epMult()*(S.fx.wish>0?3:1)*vm*pm)+prize;
   for(const k in S.fx){ if(S.fx[k]>0) S.fx[k]--; }
@@ -887,9 +958,9 @@ function doRoll(animate,onDone){
     $('readout').classList.remove('tease','mystery');
     commit(res,gain,fresh);
     if(res.tier!=='godlike'&&res.tier!=='secret') tierFx(res.tier);
-    if(vr){ S.vars[vr.id]=(S.vars[vr.id]||0)+1; jingle(vr.jg); }
+    vrs.forEach(v=>{ S.vars[v.id]=(S.vars[v.id]||0)+1; });
     jackpotAdd(res,vr);
-    if(notes.length||vr) showDrop((vr?vr.name.toUpperCase()+' roll! EP \u00d7'+vr.m+(notes.length?' \u00b7 ':''):'')+notes.join(' \u00b7 '));
+    if(notes.length||vr) showDrop((vr?vrs.map(v=>v.name.toUpperCase()).join(' + ')+' roll! EP \u00d7'+(+vm.toFixed(2))+(notes.length?' \u00b7 ':''):'')+notes.join(' \u00b7 '));
     current={res,fresh,gain,parts};
     showRoll(res,fresh,S.rolls,gain,false,parts);
     qEvent('roll',{res,gain,fresh});
@@ -945,7 +1016,7 @@ function renderHeader(){
 }
 function renderAll(){
   renderHeader();
-  if(tab==='store') renderStore(); else if(tab==='q') renderQuests(); else if(tab==='aw') renderAwakening(); else if(tab==='pets') renderPets(); else if(tab==='rb') renderRebirth(); else if(tab==='col') renderCollection(); else if(tab==='hist') renderHist(); else renderOdds();
+  if(tab==='store') renderStore(); else if(tab==='q') renderQuests(); else if(tab==='aw') renderAwakening(); else if(tab==='pets') renderPets(); else if(tab==='rb') renderRebirth(); else if(tab==='col') renderCollection(); else if(tab==='hist') renderHist(); else if(tab==='tr') renderTrader(); else renderOdds();
 }
 
 
@@ -978,7 +1049,12 @@ const ICONS={
  pp7:sv('<path d="M8 12l14 8M56 12L42 20" stroke="#8a3a10" stroke-width="3"/><path d="M8 8l16 14-6 12zM56 8L40 22l6 12z" fill="#ee7a2a" stroke="#8a3a10" stroke-width="3"/><path d="M10 30c0-10 10-14 22-14s22 4 22 14c0 16-10 28-22 28S10 46 10 30z" fill="#ee7a2a" stroke="#8a3a10" stroke-width="3"/><path d="M32 58c-8 0-14-8-14-16 8 0 10 6 14 6s6-6 14-6c0 8-6 16-14 16z" fill="#fff4e0"/>'+eyes(32,34,9,3)+'<ellipse cx="32" cy="48" rx="3" ry="2.200" fill="#222"/><path d="M52 12c4 2 6 6 4 10-4-1-5-4-4-10z" fill="#ffb347"/>'),
  pp8:sv('<path d="M14 20l6 8M50 20l-6 8" stroke="#445a7a" stroke-width="3"/><path d="M14 10l14 8h8l14-8v32c0 10-8 16-18 16S14 52 14 42z" fill="#7a96c2" stroke="#2c3e5e" stroke-width="3"/><circle cx="24" cy="28" r="9" fill="#fff" stroke="#2c3e5e" stroke-width="2.500"/><circle cx="40" cy="28" r="9" fill="#fff" stroke="#2c3e5e" stroke-width="2.500"/><circle cx="24" cy="28" r="4" fill="#222"/><circle cx="40" cy="28" r="4" fill="#222"/><path d="M29 34l3 5 3-5z" fill="#f0b030" stroke="#8a6a00" stroke-width="1.500"/><path d="M34 42l-6 8h5l-3 8 9-11h-5l3-5z" fill="#ffe14a" stroke="#a87a00" stroke-width="1.500"/>'),
  pp9:sv('<path d="M16 16l-6-12 14 8zM48 16l6-12-14 8z" fill="#e8d36a" stroke="#8a6a00" stroke-width="2.500"/><path d="M10 34c0-14 10-22 22-22s22 8 22 22c0 14-8 24-22 24S10 48 10 34z" fill="#8a5ad8" stroke="#3a1a7a" stroke-width="3"/><ellipse cx="32" cy="46" rx="13" ry="9" fill="#c8a8f4" stroke="#3a1a7a" stroke-width="2.500"/><circle cx="27" cy="46" r="1.800" fill="#3a1a7a"/><circle cx="37" cy="46" r="1.800" fill="#3a1a7a"/><path d="M20 32l7-3M44 32l-7-3" stroke="#3a1a7a" stroke-width="2.500"/><circle cx="24" cy="34" r="3" fill="#ffe27a"/><circle cx="40" cy="34" r="3" fill="#ffe27a"/><path d="M32 14l1.800 3.800 4.200.6-3 3 .7 4.200L32 23.600l-3.700 2 .7-4.200-3-3 4.200-.6z" fill="#ffe27a" stroke="#a87a00" stroke-width="1"/>'),
- pp10:sv('<path d="M32 8c6 8 4 14 0 16 8 0 12-8 10-14 10 8 14 20 8 32-4-4-8-4-10-2 6 6 4 14-8 20-12-6-14-14-8-20-2-2-6-2-10 2-6-12-2-24 8-32-2 6 2 14 10 14-4-2-6-8 0-16z" fill="#ff7a2a" stroke="#a2300a" stroke-width="3"/><path d="M32 30c6 6 6 14 0 24-6-10-6-18 0-24z" fill="#ffd34d"/><circle cx="32" cy="22" r="6" fill="#ffb84a" stroke="#a2300a" stroke-width="2"/><circle cx="30" cy="21" r="1.500" fill="#222"/><circle cx="35" cy="21" r="1.500" fill="#222"/><path d="M32 24l3 2-3 2z" fill="#a2300a"/>')
+ pp10:sv('<path d="M32 8c6 8 4 14 0 16 8 0 12-8 10-14 10 8 14 20 8 32-4-4-8-4-10-2 6 6 4 14-8 20-12-6-14-14-8-20-2-2-6-2-10 2-6-12-2-24 8-32-2 6 2 14 10 14-4-2-6-8 0-16z" fill="#ff7a2a" stroke="#a2300a" stroke-width="3"/><path d="M32 30c6 6 6 14 0 24-6-10-6-18 0-24z" fill="#ffd34d"/><circle cx="32" cy="22" r="6" fill="#ffb84a" stroke="#a2300a" stroke-width="2"/><circle cx="30" cy="21" r="1.500" fill="#222"/><circle cx="35" cy="21" r="1.500" fill="#222"/><path d="M32 24l3 2-3 2z" fill="#a2300a"/>'),
+ e4:sv('<defs><clipPath id="hhl"><path d="M0 0H33L29 14l6 8-5 9 6 8-4 10 2 8-4 7H0z"/></clipPath><clipPath id="hhr"><path d="M64 0H33L29 14l6 8-5 9 6 8-4 10 2 8-4 7H64z"/></clipPath></defs><ellipse cx="32" cy="36" rx="19" ry="24" fill="#fff6d0" clip-path="url(#hhl)"/><ellipse cx="32" cy="36" rx="19" ry="24" fill="#3a0a12" clip-path="url(#hhr)"/><path d="M33 12L29 14l6 8-5 9 6 8-4 10 2 8-4 7" fill="none" stroke="#fff" stroke-width="2"/><ellipse cx="32" cy="36" rx="19" ry="24" fill="none" stroke="#c9a227" stroke-width="3" clip-path="url(#hhl)"/><ellipse cx="32" cy="36" rx="19" ry="24" fill="none" stroke="#ff3b2a" stroke-width="3" clip-path="url(#hhr)"/><ellipse cx="22" cy="8" rx="10" ry="3" fill="none" stroke="#ffd60a" stroke-width="2.5"/><path d="M44 14l3-9 4 7M52 16l4-7 1 8" fill="none" stroke="#ff3b2a" stroke-width="3"/><path d="M40 52c-2-6 3-8 2-13 4 3 6 8 3 13z" fill="#ff7a2a"/><circle cx="18" cy="30" r="2" fill="#9cd8ff"/><circle cx="24" cy="46" r="1.5" fill="#ffd60a"/>'),
+ pp11:sv('<path d="M14 32c-9-4-12 6-6 12 5-1 8-4 10-8z" fill="#7a0f1e" stroke="#3b0710" stroke-width="2"/><path d="M50 32c9-4 12 6 6 12-5-1-8-4-10-8z" fill="#7a0f1e" stroke="#3b0710" stroke-width="2"/><path d="M44 52c9 3 12-5 8-9" fill="none" stroke="#c1121f" stroke-width="3"/><path d="M52 40l4 5-7 0z" fill="#c1121f"/><ellipse cx="32" cy="38" rx="16" ry="15" fill="#d62828" stroke="#5a0a14" stroke-width="3"/><path d="M20 28l-5-14 11 8zM44 28l5-14-11 8z" fill="#2b0a0f" stroke="#5a0a14" stroke-width="2"/><path d="M23 34l7 2-7 4zM41 34l-7 2 7 4z" fill="#ffd60a" stroke="#5a0a14" stroke-width="1.5"/><path d="M24 45q8 7 16 0z" fill="#1a0508"/><path d="M28 45l2 4 2-4zM34 45l2 4 2-4z" fill="#fff"/><path d="M26 24q6-4 12 0" fill="none" stroke="#ff6b6b" stroke-width="2" opacity=".6"/>'),
+ pp12:sv('<ellipse cx="32" cy="9" rx="11" ry="3.500" fill="none" stroke="#ffd60a" stroke-width="3"/><path d="M19 34C6 22 1 36 6 45c6 2 11-2 15-7z" fill="#fff" stroke="#9cc7ff" stroke-width="2"/><path d="M45 34c13-12 18 2 13 11-6 2-11-2-15-7z" fill="#fff" stroke="#9cc7ff" stroke-width="2"/><path d="M9 38l7 2M11 43l7 1M55 38l-7 2M53 43l-7 1" stroke="#cfe3ff" stroke-width="1.5"/><circle cx="32" cy="35" r="15" fill="#fffdf0" stroke="#d9b94a" stroke-width="3"/><path d="M24 33q3 3 6 0M34 33q3 3 6 0" fill="none" stroke="#5a4a1a" stroke-width="2"/><path d="M28 41q4 3 8 0" fill="none" stroke="#5a4a1a" stroke-width="2"/><circle cx="23" cy="39" r="2.500" fill="#ffb3c1" opacity=".7"/><circle cx="41" cy="39" r="2.500" fill="#ffb3c1" opacity=".7"/><path d="M20 22q12-8 24 0" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>'),
+ pp13:sv('<defs><radialGradient id="dwg"><stop offset="0" stop-color="#2a0050"/><stop offset="1" stop-color="#05000d"/></radialGradient></defs><circle cx="32" cy="32" r="24" fill="url(#dwg)" stroke="#ff2bd6" stroke-width="3"/><path d="M32 10c14 0 22 12 18 24-3 9-14 14-22 8-8-6-4-18 6-18 7 0 9 8 3 10" fill="none" stroke="#7a2bff" stroke-width="3"/><path d="M14 22c4-6 10-9 16-10" fill="none" stroke="#d98bff" stroke-width="2" opacity=".7"/><ellipse cx="32" cy="32" rx="9" ry="5.500" fill="#ff2b4a" stroke="#ffd0d8" stroke-width="1.500"/><ellipse cx="32" cy="32" rx="2.500" ry="5" fill="#0a0010"/><ellipse cx="32" cy="32" rx="30" ry="9" fill="none" stroke="#ffd0ff" stroke-width="1.500" opacity=".75" transform="rotate(-25 32 32)"/><circle cx="50" cy="14" r="5" fill="#4aa3ff" stroke="#fff" stroke-width="1"/><path d="M47 13l3 2 -2 3" fill="none" stroke="#0a0010" stroke-width="1.500"/><circle cx="12" cy="48" r="1.500" fill="#fff"/><circle cx="54" cy="46" r="1.200" fill="#fff"/>'),
+ whistle:sv('<circle cx="50" cy="16" r="6" fill="none" stroke="#d8a82a" stroke-width="3"/><path d="M44 20l-8 8" stroke="#d8a82a" stroke-width="2.5"/><path d="M8 30h28a13 13 0 1 1 0 26H21A13 13 0 0 1 8 43z" fill="#c9d3dd" stroke="#5a6672" stroke-width="3"/><rect x="6" y="26" width="24" height="9" rx="3" fill="#aab6c2" stroke="#5a6672" stroke-width="3"/><circle cx="38" cy="44" r="7" fill="#5a6672"/><circle cx="38" cy="44" r="3.500" fill="#e8eef3"/><path d="M12 38h12" stroke="#fff" stroke-width="2" opacity=".6"/><path d="M54 36q5 5 0 12M58 33q8 8 0 18" fill="none" stroke="#9a5aff" stroke-width="2.200"/>')
 };
 
 /* ---------- more pictures ---------- */
@@ -1049,13 +1125,17 @@ const PETS=[
  {id:'pp7',name:'Ember Fox',rar:'Rare',luck:0.15,desc:'Warm paws, warmer odds.',ab:'Cinder Rerun: 3% chance each roll to roll again and keep the better number.'},
  {id:'pp8',name:'Storm Owl',rar:'Epic',cd:0.25,desc:'Rolls arrive with thunder.',ab:'Thunderclap: 5% chance each roll that there is no cooldown.'},
  {id:'pp9',name:'Star Dragon',rar:'Epic',luck:0.30,desc:'Hoards wishes instead of gold.',ab:'Star Wish: 3% chance each roll to triple your luck for that roll.'},
- {id:'pp10',name:'Fate Phoenix',rar:'Mythic',luck:0.25,ep:0.25,desc:'Rises whenever luck runs out.',ab:'Rebirth Flame: 25% chance to reroll a Trash or Common roll for free.'}
+ {id:'pp10',name:'Fate Phoenix',rar:'Mythic',luck:0.25,ep:0.25,desc:'Rises whenever luck runs out.',ab:'Rebirth Flame: 25% chance to reroll a Trash or Common roll for free.'},
+ {id:'pp11',name:'Infernal Demon',rar:'Divine',luck:0.4,ep:1.0,cd:0.2,desc:'Bargains hard and pays in EP.'},
+ {id:'pp12',name:'Angel',rar:'Divine',luck:0.5,ep:0.3,desc:'A blessing you can call on.',ab:'Divine Light: pay EP and your next roll is guaranteed Godlike. Cooldown 1:30.',act:{t:'godlike',frac:0.06,base:5000000,name:'Divine Light',cd:90}},
+ {id:'pp13',name:'Destroyer of Worlds',rar:'Cosmic',luck:0.75,ep:0.5,cd:0.3,hid:true,desc:'What was hidden behind the question marks.',ab:'World Ender: pay a huge amount of EP and your next roll is guaranteed Secret. Cooldown 2:30.',act:{t:'secret',frac:1.1,base:25000000,name:'World Ender',cd:150}}
 ];
 const PETD={}; PETS.forEach(p=>PETD[p.id]=p);
 const EGGS=[
  {id:'e1',name:'Meadow Egg',frac:0.005,floor:2000,w:{pp1:30,pp2:28,pp3:26,pp4:8,pp5:6,pp6:1.5,pp7:0.5},desc:'Mostly common pets. A good first egg.'},
  {id:'e2',name:'Starlit Egg',frac:0.03,floor:60000,w:{pp1:8,pp2:8,pp3:8,pp4:22,pp5:22,pp6:14,pp7:10,pp8:6,pp9:2},desc:'Uncommon and rare pets show up a lot.'},
- {id:'e3',name:'Void Egg',frac:0.12,floor:1500000,w:{pp4:6,pp5:8,pp6:20,pp7:22,pp8:20,pp9:18,pp10:6},desc:'The best odds. Only good pets hatch here.'}
+ {id:'e3',name:'Void Egg',frac:0.12,floor:1500000,w:{pp4:6,pp5:8,pp6:20,pp7:22,pp8:20,pp9:18,pp10:6},desc:'The best odds. Only good pets hatch here.'},
+ {id:'e4',name:'Heaven and Hell Egg',rb:6,frac:0.8,floor:80000000,w:{pp11:75,pp12:24.5,pp13:0.5},desc:'Heaven, hell, and something worse. Needs Rebirth 6. Costs 80M EP or more.'}
 ];
 const eggCost=e=>Math.round(Math.max(e.floor,qRef()*e.frac));
 if(!S.pxp) S.pxp={};
@@ -1071,7 +1151,7 @@ function petTick(){
 }
 function petEff(p,lv){ const m=1+PET_LV_STEP*(lv-1), o=[];
   if(p.luck) o.push('+'+Math.round(p.luck*m*100)+'% luck'); if(p.ep) o.push('+'+Math.round(p.ep*m*100)+'% EP'); if(p.cd) o.push('\u2212'+(p.cd*m).toFixed(2).replace(/0$/,'')+'s cooldown'); return o.join(', '); }
-function eggOdds(e){ let t=0; for(const k in e.w) t+=e.w[k]; return '<ul class="eggodds">'+PETS.filter(p=>e.w[p.id]).map(p=>{ const v=e.w[p.id]/t*100; return '<li>'+p.name+' <b>'+(v<10?+v.toFixed(1):Math.round(v))+'%</b></li>'; }).join('')+'</ul>'; }
+function eggOdds(e){ let t=0; for(const k in e.w) t+=e.w[k]; return '<ul class="eggodds">'+PETS.filter(p=>e.w[p.id]).map(p=>{ const v=e.w[p.id]/t*100; return '<li>'+(p.hid&&!S.pets[p.id]?'??????':p.name)+' <b>'+(v<10||Math.abs(v*2-Math.round(v*2))<1e-9&&v!==Math.round(v)?+v.toFixed(1):Math.round(v))+'%</b></li>'; }).join('')+'</ul>'; }
 let hatching=null, lastHatch=null;
 const RARS=['Common','Uncommon','Rare','Epic','Mythic'];
 const spareOf=r=>PETS.filter(p=>p.rar===r).reduce((t,p)=>t+(S.spare[p.id]||0),0);
@@ -1108,7 +1188,7 @@ function hatchFx(eggId,got,done){
   const at=(ms,f)=>timers.push(setTimeout(f,ms));
   const close=()=>{ if(closed) return; closed=true; timers.forEach(clearTimeout); clearInterval(ti); ov.classList.remove('on'); setTimeout(()=>{ ov.remove(); done(); },reduce?10:500); };
   const reveal=()=>{ clearInterval(ti); ov.classList.add('fl'); egg.style.display='none'; ov.classList.add('rev');
-    tx.innerHTML='<b>'+p.name+'</b><span>'+p.rar+'</span>'; jingle(p.rar==='Mythic'?8:p.rar==='Epic'?6:p.rar==='Rare'?4:p.rar==='Uncommon'?2:0); bt.hidden=false; bt.focus(); ov.addEventListener('click',close); };
+    tx.innerHTML='<b>'+p.name+'</b><span>'+p.rar+'</span>'; jingle(p.rar==='Mythic'||p.rar==='Divine'||p.rar==='Cosmic'?8:p.rar==='Epic'?6:p.rar==='Rare'?4:p.rar==='Uncommon'?2:0); bt.hidden=false; bt.focus(); ov.addEventListener('click',close); };
   requestAnimationFrame(()=>ov.classList.add('on'));
   if(reduce){ at(300,reveal); return; }
   at(800,()=>{ egg.classList.add('wob'); let k=0; ti=setInterval(()=>{ tickSfx(220+k*14,0.06); k++; },230); });
@@ -1116,33 +1196,60 @@ function hatchFx(eggId,got,done){
   at(3300,()=>{ egg.classList.add('k2'); tickSfx(95,0.14); });
   at(4000,reveal);
 }
+function hatchMulti(eggId,ids,done){
+  const n=ids.length, sz=n<=3?'min(150px,28vw)':n<=5?'min(120px,28vw)':'min(96px,17vw)';
+  const CRK='<svg class="crk" viewBox="0 0 64 64" aria-hidden="true"><path class="c1" d="M32 12l-4 8 6 6-5 8"/><path class="c2" d="M32 12l5 7-6 6 6 7-5 8M28 21l-8 5M36 31l9 2"/></svg>';
+  const ov=document.createElement('div'); ov.className='hfx multi';
+  ov.innerHTML='<div class="flash"></div><div class="mgrid" style="--sz:'+sz+'">'+ids.map(id=>{ const p=PETD[id]; return '<div class="mcell"><div class="mst"><div class="heg">'+ICONS[eggId]+CRK+'</div><div class="hpet">'+ICONS[id]+'</div></div><div class="mnm"><b>'+p.name+'</b><span>'+p.rar+'</span></div></div>'; }).join('')+'</div><button type="button" class="hbtn" hidden>Continue</button>';
+  document.body.appendChild(ov);
+  const eggs=[].slice.call(ov.querySelectorAll('.heg')), bt=ov.querySelector('.hbtn');
+  let closed=false, timers=[], ti=0; const at=(ms,f)=>timers.push(setTimeout(f,ms));
+  const close=()=>{ if(closed) return; closed=true; timers.forEach(clearTimeout); clearInterval(ti); ov.classList.remove('on'); setTimeout(()=>{ ov.remove(); done(); },reduce?10:500); };
+  const best=ids.reduce((b,id)=>PRANK[PETD[id].rar]>PRANK[PETD[b].rar]?id:b,ids[0]);
+  const reveal=()=>{ clearInterval(ti); ov.classList.add('fl'); eggs.forEach(e=>{ e.style.display='none'; }); ov.classList.add('rev'); const r=PETD[best].rar;
+    jingle(r==='Mythic'||r==='Divine'||r==='Cosmic'?8:r==='Epic'?6:r==='Rare'?4:r==='Uncommon'?2:0); bt.hidden=false; bt.focus(); ov.addEventListener('click',close); at(3500+450*n,close); };
+  requestAnimationFrame(()=>ov.classList.add('on'));
+  if(reduce){ at(300,reveal); return; }
+  const T=n*120;
+  at(800,()=>{ eggs.forEach(e=>e.classList.add('wob')); let k=0; ti=setInterval(()=>{ tickSfx(220+k*14,0.06); k++; },230); });
+  at(2600+T/2,()=>{ eggs.forEach(e=>{ e.classList.remove('wob'); e.classList.add('shake','k1'); }); tickSfx(120,0.12); });
+  at(3300+T,()=>{ eggs.forEach(e=>e.classList.add('k2')); tickSfx(95,0.14); });
+  at(4000+T,reveal);
+}
+let hbN=1;
+const hatchOpts=()=>{ const o=[1]; if(S.rb>=2) o.push(3); if(S.rb>=4) o.push(5); if(S.rb>=6) o.push(10); return o; };
 function hatch(eid){
-  const e=EGGS.find(x=>x.id===eid); if(!e||hatching) return;
-  const c=eggCost(e), useT=S.tix[eid]>0; if(!useT&&S.ep<c) return;
-  if(useT) S.tix[eid]--; else S.ep-=c;
-  let t=0; for(const k in e.w) t+=e.w[k]; let r=Math.random()*t, got=null;
-  for(const k in e.w){ r-=e.w[k]; if(r<0){ got=k; break; } } if(!got) got=Object.keys(e.w)[0];
-  const had=S.pets[got]?petLv(got):0; let refund=0;
-  if(!S.pets[got]){ S.pets[got]=1; S.pxp[got]=0; if(S.petEq.length<petSlots()) S.petEq.push(got); }
-  else S.spare[got]=(S.spare[got]||0)+1;
-  hatching={egg:e.id,got}; save(); renderAll(); tickSfx(300,0.08);
-  hatchFx(e.id,got,()=>{ hatching=null; lastHatch={got,had,refund}; const p=PETD[got];
-    setNote(had===0?'New pet: '+p.name+'!':'Duplicate '+p.name+'. It was added to your spare pets.'); save(); renderAll(); });
+  const e=EGGS.find(x=>x.id===eid); if(!e||hatching||(e.rb||0)>S.rb) return;
+  const n=hatchOpts().indexOf(hbN)>=0?hbN:1;
+  const c=eggCost(e), tix=S.tix[eid]||0, useT=Math.min(tix,n), pay=(n-useT)*c; if(S.ep<pay) return;
+  S.tix[eid]=tix-useT; S.ep-=pay;
+  let t=0; for(const k in e.w) t+=e.w[k];
+  const res=[]; for(let q=0;q<n;q++){ let r=Math.random()*t, got=null; for(const k in e.w){ r-=e.w[k]; if(r<0){ got=k; break; } } res.push(got||Object.keys(e.w)[0]); }
+  let best=res[0]; res.forEach(id=>{ if(PRANK[PETD[id].rar]>PRANK[PETD[best].rar]) best=id; });
+  const had=S.pets[best]?petLv(best):0, cnt={}, fresh=[];
+  res.forEach(id=>{ cnt[id]=(cnt[id]||0)+1;
+    if(!S.pets[id]){ S.pets[id]=1; S.pxp[id]=0; fresh.push(id); if(S.petEq.length<petSlots()) S.petEq.push(id); } else S.spare[id]=(S.spare[id]||0)+1; });
+  const batch=Object.keys(cnt).map(id=>PETD[id].name+' \u00d7'+cnt[id]).join(', ');
+  hatching={egg:e.id,got:best}; save(); renderAll(); tickSfx(300,0.08);
+  const fin=()=>{ hatching=null; lastHatch={got:best,had,refund:0,n,batch}; const p=PETD[best];
+    setNote(n>1?'Hatched '+n+' eggs'+(fresh.length?'. New: '+fresh.map(id=>PETD[id].name).join(', '):'. No new pets.'):(had===0?'New pet: '+p.name+'!':'Duplicate '+p.name+'. It was added to your spare pets.')); save(); renderAll(); };
+  if(n>1) hatchMulti(e.id,res,fin); else hatchFx(e.id,best,fin);
 }
 function renderPets(){
   const have=PETS.filter(p=>petLv(p.id)>0).length, sl=petSlots();
   let h='<div class="luckbox"><span class="big">Pets '+have+' of '+PETS.length+'</span><small>Hatch eggs to find pets. Equipped pets give you a permanent bonus, even across rebirths, and they level up as you roll: every roll gives each equipped pet 1 XP, and every level adds '+Math.round(PET_LV_STEP*100)+'% of its bonus (up to level '+PET_MAXLV+'). A duplicate becomes a spare pet. You can feed a spare to its pet for a level\'s worth of XP, or fuse three spares of the same rarity into a pet of the next rarity.</small>'
     +'<small>Pet slots: '+S.petEq.slice(0,sl).length+' of '+sl+' used. You get a second slot at Rebirth 4 and a third at Rebirth 6.</small></div>';
-  h+='<div class="sec"><h2>Eggs</h2><div class="grid">'+EGGS.map(e=>{
-    const c=eggCost(e);
-    return '<div class="card"><div class="cimg egg">'+ICONS[e.id]+'</div><div class="card-h"><h3>'+e.name+'</h3><span class="slot">Egg</span></div><p>'+e.desc+'</p>'+eggOdds(e)+buyRow('hatch',e.id,'Hatch',(S.ep>=c||S.tix[e.id]>0)&&!hatching,S.tix[e.id]>0?'Ticket \u00d7'+S.tix[e.id]+' (free)':fe(c)+' EP')+'</div>'; }).join('')+'</div></div>';
-  if(lastHatch&&!hatching){ const p=PETD[lastHatch.got]; h+='<div class="hatchres"><div class="cimg big">'+ICONS[p.id]+'</div><div><b>'+p.name+'</b> <span class="slot">'+p.rar+'</span><br><small>'+(lastHatch.had===0?'New pet!':'Duplicate. Added to your spare pets.')+'</small></div></div>'; }
+  const ho=hatchOpts(), hn=ho.indexOf(hbN)>=0?hbN:1;
+  h+='<div class="sec"><h2>Eggs</h2>'+(ho.length>1?'<div class="hbrow"><span>Hatch at once:</span>'+ho.map(k=>'<button type="button" class="buy alt'+(k===hn?' on':'')+'" data-act="hb" data-id="'+k+'">\u00d7'+k+'</button>').join('')+'<small style="color:var(--muted)">More options unlock as you rebirth. Tickets are used first.</small></div>':'')+'<div class="grid">'+EGGS.map(e=>{
+    const c=eggCost(e), tx=S.tix[e.id]||0, pay=(hn-Math.min(tx,hn))*c;
+    return '<div class="card"><div class="cimg egg">'+ICONS[e.id]+'</div><div class="card-h"><h3>'+e.name+'</h3><span class="slot">Egg</span></div><p>'+e.desc+'</p>'+eggOdds(e)+buyRow('hatch',e.id,hn>1?'Hatch \u00d7'+hn:'Hatch',S.ep>=pay&&!hatching&&S.rb>=(e.rb||0),S.rb<(e.rb||0)?'Unlocks at Rebirth '+e.rb:tx>0?'Ticket \u00d7'+tx+' (free)'+(pay>0?' + '+fe(pay)+' EP':''):fe(pay)+' EP')+'</div>'; }).join('')+'</div></div>';
+  if(lastHatch&&!hatching){ const p=PETD[lastHatch.got]; h+='<div class="hatchres"><div class="cimg big">'+ICONS[p.id]+'</div><div><b>'+p.name+'</b> <span class="slot">'+p.rar+'</span><br><small>'+(lastHatch.had===0?'New pet!':'Duplicate. Added to your spare pets.')+(lastHatch.n>1?'<br>Batch of '+lastHatch.n+': '+lastHatch.batch:'')+'</small></div></div>'; }
   h+=renderFuse();
   h+='<div class="sec"><h2>Your pets</h2><div class="grid">'+PETS.map(p=>{
     const inf=petInfo(S.pxp[p.id]||0), lv=S.pets[p.id]?inf.lv:0, on=S.petEq.slice(0,sl).indexOf(p.id)>=0;
     if(!lv) return '<div class="card locked"><div class="cimg dim">'+ICONS[p.id]+'</div><div class="card-h"><h3>???</h3><span class="slot">'+p.rar+'</span></div><p>Not found yet.</p></div>';
     const full=S.petEq.slice(0,sl).length>=sl;
-    return '<div class="card'+(on?' owned':'')+'"><div class="cimg">'+ICONS[p.id]+'</div><div class="card-h"><h3>'+p.name+'</h3><span class="slot">'+p.rar+' &middot; Lv '+lv+'</span></div><p>'+p.desc+'</p>'+(p.ab?'<p class="abil2"><b>Ability:</b> '+p.ab+' Chances grow with level.</p>':'')+'<div class="ex">'+petEff(p,lv)+'</div>'
+    return '<div class="card'+(on?' owned':'')+'"><div class="cimg">'+ICONS[p.id]+'</div><div class="card-h"><h3>'+p.name+'</h3><span class="slot">'+p.rar+' &middot; Lv '+lv+'</span></div><p>'+p.desc+'</p>'+(p.ab?'<p class="abil2"><b>Ability:</b> '+p.ab+(p.act?'':' Chances grow with level.')+'</p>':'')+'<div class="ex">'+petEff(p,lv)+'</div>'
       +'<div class="xpbar" title="'+(inf.need?inf.cur+' of '+inf.need+' rolls to the next level':'Max level')+'"><i style="width:'+(inf.need?Math.round(inf.cur/inf.need*100):100)+'%"></i></div><small class="xpt">'+(inf.need?inf.cur+' / '+inf.need+' rolls to level '+(lv+1):'Max level')+'</small>'
       +'<div class="buyrow"><span class="price">'+(on?'Equipped':'Owned')+'</span><button type="button" class="buy alt" data-act="'+(on?'punequip':'pequip')+'" data-id="'+p.id+'"'+((!on&&full)?' disabled':'')+'>'+(on?'Unequip':full?'Slots full':'Equip')+'</button></div></div>'; }).join('')+'</div></div>';
   $('pane-pets').innerHTML=h;
@@ -1150,7 +1257,8 @@ function renderPets(){
 $('pane-pets').addEventListener('click',e=>{
   const b=e.target.closest('button[data-act]'); if(!b||b.disabled) return;
   const id=b.dataset.id, a=b.dataset.act;
-  if(a==='hatch') hatch(id);
+  if(a==='hb'){ hbN=+id; renderAll(); }
+  else if(a==='hatch') hatch(id);
   else if(a==='fuse') fuse(+id);
   else if(a==='feed') feed(id);
   else if(a==='pequip'&&petLv(id)&&S.petEq.indexOf(id)<0&&S.petEq.length<petSlots()){ S.petEq.push(id); save(); renderAll(); }
@@ -1176,7 +1284,7 @@ function renderStore(){
   if(S.rb>=4){ const full=(S.slots||0)>=SLOT_MAX; h+='<div class="potrow"><span class="tagx">Potion slots '+potSlots()+' of '+(MAX_POTS+SLOT_MAX)+'</span>'+(full?'':'<button type="button" class="buy alt" data-act="slot"'+(S.ep>=slotCost()?'':' disabled')+'>Buy a slot &middot; '+fe(slotCost())+' EP</button>')+'</div>'; }
   h+='</div>';
 
-  h+='<div class="sec"><h2>Luck potions</h2><p>Single use. Drink one to add luck for the next few rolls. Potions give a lot of luck for a short time, so they are cheap for what they do. You can have up to '+potSlots()+' active at once, and the weaker ones work at less strength: 75% for the 2nd and 3rd, 50% for the 4th and 30% for the 5th. Rebirths keep your potions.</p><div class="grid">'
+  h+='<div class="sec"><h2>Luck potions</h2><p>Single use. Drink one to add luck for the next few rolls. Potions give a burst of luck for a few rolls. They only pay for themselves when your rolls are worth a lot, so lucky items are the steadier investment. You can have up to '+potSlots()+' active at once, and the weaker ones work at less strength: 75% for the 2nd and 3rd, 50% for the 4th and 30% for the 5th. Rebirths keep your potions.</p><div class="grid">'
     +POTIONS.map(p=>'<div class="card">'+imgFor(p.id)+'<div class="card-h"><h3>'+p.name+'</h3><span class="slot">Potion</span></div><p>'+p.desc+'</p><div class="ex">'+fmtLuck(p.luck)+' luck for '+p.rolls+' rolls'+(S.bag[p.id]?' &middot; in bag: '+S.bag[p.id]:'')+'</div>'+buyRow('buy',p.id,'Buy',S.ep>=potCost(p),fe(potCost(p))+' EP')+'</div>').join('')
     +'</div></div>';
 
@@ -1281,7 +1389,7 @@ function rollNumber(L){
   if(rb===0&&!S.fb){
     if(S.rolls>60) S.fb=1;
     else { if(!S.fbAt) S.fbAt=18+Math.floor(Math.random()*11);
-      if(S.rolls>=S.fbAt){ S.fb=1; setTimeout(()=>showDrop('Lucky start! A beginner boost just landed you a good number.'),1500); return numberOfTier(4); } }
+      if(S.rolls>=S.fbAt){ S.fb=1; return numberOfTier(4); } }
   }
   if(!free&&rb<=2&&Math.random()<0.01) return numberOfTier(limit);   /* the one-in-a-hundred best case */
   if(!free&&(rb===3||rb===4)&&Math.random()<0.08) return numberOfTier(6);   /* a small Mythic chance so the badges those rebirths ask for stay reachable */
@@ -1349,8 +1457,123 @@ function sfxBoom(kind){
   }catch(e){}
 }
 
+/* special sounds: bell, cash register, chink */
+function bell(c,f,at,vol,dec){
+  dec=dec||0.9;
+  [[1,1],[2.76,0.5],[5.4,0.25],[8.93,0.12]].forEach(([r,a])=>{
+    const o=c.createOscillator(), g=c.createGain(); o.type='sine'; o.frequency.value=f*r;
+    g.gain.setValueAtTime(0.0001,at); g.gain.exponentialRampToValueAtTime(Math.max(0.0002,vol*a),at+0.004); g.gain.exponentialRampToValueAtTime(0.0001,at+dec/(1+(r-1)*0.35));
+    o.connect(g); g.connect(c.destination); o.start(at); o.stop(at+dec+0.05);
+  });
+}
+function sfxBell3(){ const c=ac(); if(!c) return; try{ const t=c.currentTime; [0,0.2,0.4].forEach(d=>bell(c,880,t+d,0.22)); }catch(e){} }
+function sfxCoin(){
+  const c=ac(); if(!c) return;
+  try{
+    const t=c.currentTime, len=Math.floor(c.sampleRate*0.06), buf=c.createBuffer(1,len,c.sampleRate), d=buf.getChannelData(0);
+    for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2);
+    const src=c.createBufferSource(), bp=c.createBiquadFilter(), g=c.createGain(); bp.type='bandpass'; bp.frequency.value=2200; g.gain.value=0.5;
+    src.buffer=buf; src.connect(bp); bp.connect(g); g.connect(c.destination); src.start(t);
+    bell(c,196,t,0.2,0.12);
+    bell(c,2093,t+0.07,0.2,0.9); bell(c,2637,t+0.12,0.14,0.9);
+  }catch(e){}
+}
+function sfxChink(){ const c=ac(); if(!c) return; try{ const t=c.currentTime; bell(c,3100,t,0.14,0.14); bell(c,4700,t+0.02,0.08,0.1); }catch(e){} }
+
 /* ---------- cinematic intro ---------- */
-const ART=(()=>{
+Object.assign(ICONS,(function(sv,LG,RG,SPK){
+  const star5=(cx,cy,R,r,rot)=>{ const p=[]; for(let i=0;i<10;i++){ const a=rot+i*Math.PI/5, d=i%2?r:R; p.push([cx+d*Math.cos(a),cy+d*Math.sin(a)]); } return p; };
+  const pts=a=>a.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+  const I={};
+  /* horseshoe */
+  I.it4='<defs>'+LG('h4','#f4f8ff','#7a8590',1)+'</defs><ellipse cx="32" cy="58" rx="20" ry="3.5" fill="#000" opacity=".22"/>'
+   +'<path d="M17 8v25a15 15 0 0 0 30 0V8" fill="none" stroke="#4a535e" stroke-width="11" stroke-linecap="butt"/>'
+   +'<path d="M17 8v25a15 15 0 0 0 30 0V8" fill="none" stroke="url(#h4)" stroke-width="8" stroke-linecap="butt"/>'
+   +'<path d="M14.500 10v23a17.500 17.500 0 0 0 5 12" fill="none" stroke="#fff" stroke-width="1.600" opacity=".7"/>'
+   +'<rect x="11.500" y="6" width="11" height="5" rx="1.500" fill="#5a636e"/><rect x="41.500" y="6" width="11" height="5" rx="1.500" fill="#5a636e"/>'
+   +[[17,16],[17,27],[21,40],[32,47],[43,40],[47,27],[47,16]].map(p=>'<ellipse cx="'+p[0]+'" cy="'+p[1]+'" rx="1.800" ry="2.400" fill="#2a3038"/><ellipse cx="'+(p[0]-.4)+'" cy="'+(p[1]-.6)+'" rx=".6" ry=".9" fill="#fff" opacity=".6"/>').join('')
+   +'<path d="M50 48l1.200 2.800 2.800 1.200-2.800 1.200L50 56l-1.200-2.800-2.800-1.200 2.800-1.200z" fill="#fff" opacity=".9"/>';
+  /* wishing well */
+  I.it6='<defs>'+LG('w6r','#d6805a','#7a3420',1)+LG('w6s','#d0d4da','#7d848e',1)+LG('w6w','#8fe3ff','#1c6aa8',1)+LG('w6b','#c49a68','#6a4524')+RG('w6g','#9fe8ff','#9fe8ff')+'</defs>'
+   +'<ellipse cx="32" cy="59" rx="25" ry="3.800" fill="#000" opacity=".25"/>'
+   +'<rect x="13" y="15" width="4.500" height="36" rx="1.500" fill="url(#w6b)" stroke="#4a2c14" stroke-width="1"/><rect x="46.500" y="15" width="4.500" height="36" rx="1.500" fill="url(#w6b)" stroke="#4a2c14" stroke-width="1"/>'
+   +'<path d="M5 22L32 4l27 18-3.500 3L32 10.500 8.500 25z" fill="url(#w6r)" stroke="#5a2410" stroke-width="1.500"/><path d="M12 23l20-13M20 25l12-9M44 23L32 12.500M50 25L32 15" stroke="#f0a27a" stroke-width=".8" opacity=".7"/>'
+   +'<rect x="14" y="25" width="36" height="3.200" rx="1" fill="url(#w6b)" stroke="#4a2c14" stroke-width=".8"/>'
+   +'<path d="M32 28v9" stroke="#e8d8b0" stroke-width="1.100"/><path d="M27.500 37h9l-1.200 6.500h-6.600z" fill="#9a7440" stroke="#3a2812" stroke-width="1"/><path d="M28.500 39h7" stroke="#d8b078" stroke-width=".8"/>'
+   +'<path d="M9 44v9c0 4.500 10.500 7 23 7s23-2.500 23-7v-9z" fill="url(#w6s)" stroke="#4d535c" stroke-width="1.500"/>'
+   +'<path d="M9 49h46M9 54.500h46M20 44v5M34 44v5M46 44v5M14 49v5.500M27 49v5.500M41 49v5.500M51 49v5M22 54.500v4.500M36 54.500v5M48 54.500v4" stroke="#5d646e" stroke-width=".8" opacity=".75" fill="none"/>'
+   +'<ellipse cx="32" cy="44" rx="23" ry="7.500" fill="#b4bac2" stroke="#4d535c" stroke-width="1.500"/><ellipse cx="32" cy="44" rx="18" ry="5.500" fill="url(#w6w)" stroke="#2a4a6a" stroke-width="1"/>'
+   +'<ellipse cx="32" cy="44.500" rx="11" ry="3" fill="none" stroke="#fff" stroke-width=".7" opacity=".65"/><circle cx="32" cy="44" r="12" fill="url(#w6g)" opacity=".5"/>'
+   +'<path d="M39 40.500l1 2.300 2.300 1-2.300 1-1 2.300-1-2.300-2.300-1 2.300-1z" fill="#fff"/><circle cx="25.500" cy="45" r="2.100" fill="#ffd34d" stroke="#8a6a00" stroke-width=".7"/><circle cx="25" cy="44.400" r=".7" fill="#fff"/>';
+  /* fortune's coin */
+  I.it7='<defs>'+LG('c7a','#fff6bc','#d9981a')+LG('c7e','#a8700a','#ffd75a',1)+RG('c7g','#ffe27a','#ffe27a')+'</defs>'
+   +'<ellipse cx="32" cy="59" rx="19" ry="3.500" fill="#000" opacity=".25"/><circle cx="32" cy="32" r="29" fill="url(#c7g)" opacity=".55"/>'
+   +'<ellipse cx="37" cy="32" rx="16" ry="24" fill="url(#c7e)" stroke="#7a5200" stroke-width="1.200"/>'
+   +[0,1,2,3,4,5,6,7,8,9,10].map(i=>'<path d="M'+(26+i*1.200)+' '+(10.500+Math.abs(i-5)*.5)+'L'+(31+i*1.100)+' '+(53.500-Math.abs(i-5)*.5)+'" stroke="#8a5e08" stroke-width=".6" opacity=".55"/>').join('')
+   +'<ellipse cx="29" cy="32" rx="16" ry="24" fill="url(#c7a)" stroke="#8a6200" stroke-width="1.600"/>'
+   +'<ellipse cx="29" cy="32" rx="13" ry="20.500" fill="none" stroke="#b07a08" stroke-width="1.100"/><ellipse cx="29" cy="32" rx="14.800" ry="22.300" fill="none" stroke="#fff3b0" stroke-width=".9" stroke-dasharray="1.200 2.300"/>'
+   +'<path d="M29 17l3.200 9.200 9.600.6-7.500 6 2.600 9.200-7.900-5.200-7.900 5.200 2.600-9.200-7.500-6 9.600-.6z" fill="#e0a21a" stroke="#8a6200" stroke-width="1"/><path d="M29 20l2 6.400-2 .6z" fill="#fff3b0" opacity=".7"/>'
+   +'<path d="M17 20q4-8 12-9" fill="none" stroke="#fff" stroke-width="2.200" opacity=".75" stroke-linecap="round"/>'+SPK(52,12,4.500,'#fff6c0')+SPK(10,50,2.800,'#fff6c0');
+  /* shooting star */
+  const S8=star5(42,24,17,7.200,-Math.PI/2); let f8='';
+  for(let i=0;i<10;i++){ const a=S8[i], b=S8[(i+1)%10]; f8+='<polygon points="42,24 '+pts([a,b])+'" fill="'+(i%2?'#ffb000':'#fff2a0')+'"/>'; }
+  I.it8='<defs><linearGradient id="s8t" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffe27a" stop-opacity="0"/></linearGradient>'+RG('s8g','#ffe9a0','#ffe9a0')+'</defs>'
+   +'<path d="M44 28L2 60l3.500 2L48 32z" fill="url(#s8t)" opacity=".75"/><path d="M38 32L10 62" stroke="url(#s8t)" stroke-width="3" opacity=".55"/><path d="M48 34L28 62" stroke="url(#s8t)" stroke-width="2" opacity=".5"/>'
+   +'<circle cx="42" cy="24" r="24" fill="url(#s8g)" opacity=".65"/>'
+   +'<polygon points="'+pts(S8)+'" fill="#ffd34d" stroke="#a86800" stroke-width="1.800"/>'+f8+'<polygon points="'+pts(S8)+'" fill="none" stroke="#a86800" stroke-width="1.600"/>'
+   +'<circle cx="42" cy="24" r="3.200" fill="#fff"/>'+SPK(10,22,3,'#fff6c0')+SPK(22,10,2.200,'#fff6c0')+SPK(58,50,3,'#fff6c0');
+  /* genie's lamp */
+  I.it9='<defs>'+LG('l9a','#fff3a8','#c8860e',1)+LG('l9b','#ffe27a','#a8740a')+'<linearGradient id="l9s" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7ae8ff"/><stop offset=".6" stop-color="#9a8aff" stop-opacity=".8"/><stop offset="1" stop-color="#b08aff" stop-opacity="0"/></linearGradient>'+RG('l9g','#7ae8ff','#7ae8ff')+'</defs>'
+   +'<ellipse cx="32" cy="60" rx="22" ry="3.200" fill="#000" opacity=".25"/><circle cx="34" cy="14" r="14" fill="url(#l9g)" opacity=".5"/>'
+   +'<path d="M30 28c-9-3 4-8-2-14-3-3 1-9 6-12 2 5-3 8 0 12 3 3 8 6 2 14z" fill="url(#l9s)" transform="translate(3 0)"/>'+SPK(22,10,3,'#e8fbff')+SPK(48,8,2.200,'#e8fbff')
+   +'<path d="M4 30c0-3 6-4 10-1l6 6-4 6c-6 0-12-4-12-11z" fill="url(#l9b)" stroke="#6a4a00" stroke-width="1.500"/><path d="M5 31c3-1 6 0 9 3" stroke="#fff" stroke-width=".8" opacity=".6" fill="none"/>'
+   +'<path d="M54 36c9-3 10 11 1 13" fill="none" stroke="#7a5200" stroke-width="5"/><path d="M54 36c9-3 10 11 1 13" fill="none" stroke="#e0a21a" stroke-width="3"/>'
+   +'<path d="M14 40c0-9 10-13 22-13s20 6 18 14c-2 9-11 15-21 15S14 49 14 40z" fill="url(#l9a)" stroke="#6a4a00" stroke-width="1.800"/>'
+   +'<ellipse cx="35" cy="28" rx="9.500" ry="3.200" fill="url(#l9b)" stroke="#6a4a00" stroke-width="1.300"/><path d="M33 26c1-6 5-6 6 0z" fill="url(#l9b)" stroke="#6a4a00" stroke-width="1.100"/><circle cx="36" cy="22" r="2.600" fill="#4ad0e0" stroke="#1d7a7a" stroke-width="1"/><circle cx="35.200" cy="21.200" r=".8" fill="#fff"/>'
+   +'<path d="M18 43q18 8 36-2" fill="none" stroke="#8a5a00" stroke-width="1.100"/><path d="M19 38q16 6 33-1" fill="none" stroke="#8a5a00" stroke-width=".8" opacity=".7"/>'
+   +'<circle cx="26" cy="45" r="2.400" fill="#4ad0e0" stroke="#1d6a7a" stroke-width=".9"/><circle cx="35" cy="47" r="2.700" fill="#e8344a" stroke="#6a0a1a" stroke-width=".9"/><circle cx="44" cy="45" r="2.400" fill="#4ad07a" stroke="#1d6a3a" stroke-width=".9"/>'
+   +'<path d="M22 36c4-5 12-6 18-4" fill="none" stroke="#fff" stroke-width="2" opacity=".7" stroke-linecap="round"/>'
+   +'<path d="M24 54h26l4 5H20z" fill="url(#l9b)" stroke="#6a4a00" stroke-width="1.300"/>';
+  /* golden goose */
+  I.it10='<defs>'+LG('g10a','#fff4a8','#d89a10',1)+LG('g10b','#ffe27a','#b8820a')+RG('g10g','#ffe27a','#ffe27a')+'</defs>'
+   +'<ellipse cx="30" cy="60" rx="24" ry="3.500" fill="#000" opacity=".25"/><circle cx="32" cy="32" r="30" fill="url(#g10g)" opacity=".4"/>'
+   +'<ellipse cx="52" cy="53" rx="7.500" ry="9.500" fill="url(#g10a)" stroke="#8a6a00" stroke-width="1.100"/><path d="M48 49q2-4 5-4" stroke="#fff" stroke-width="1.500" fill="none" opacity=".8"/>'
+   +'<path d="M24 52l-2 8h9zM36 52l-2 8h9z" fill="#ee7a2a" stroke="#8a4a00" stroke-width=".9"/><path d="M26 50v4M37 50v4" stroke="#c85a10" stroke-width="2"/>'
+   +'<path d="M12 36l-10-7 1 14z" fill="url(#g10b)" stroke="#8a6a00" stroke-width="1.100"/>'
+   +'<path d="M7 42c0-10 10-16 22-14 9 1 13 7 13 13 0 8-8 14-20 14C14 55 7 49 7 42z" fill="url(#g10a)" stroke="#8a6a00" stroke-width="1.600"/>'
+   +'<path d="M32 36c4-9 3-16 8-21" stroke="#8a6a00" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M32 36c4-9 3-16 8-21" stroke="url(#g10a)" stroke-width="7.500" stroke-linecap="round" fill="none"/>'
+   +'<path d="M14 40c6-7 18-5 23 3-8 7-19 6-23-3z" fill="url(#g10b)" stroke="#a87a0a" stroke-width="1.100"/><path d="M19 41l12 1M18 44l14 0M21 47l11-2" stroke="#b8820a" stroke-width=".8" opacity=".8"/>'
+   +'<circle cx="42" cy="13" r="7.500" fill="url(#g10a)" stroke="#8a6a00" stroke-width="1.500"/><path d="M48 12l11 3-11 4z" fill="#ee7a2a" stroke="#8a4a00" stroke-width="1"/><circle cx="44.500" cy="11" r="1.800" fill="#222"/><circle cx="45" cy="10.400" r=".6" fill="#fff"/>'
+   +'<path d="M12 36q8-8 20-7" stroke="#fff" stroke-width="2" fill="none" opacity=".6" stroke-linecap="round"/>'+SPK(56,28,3.500,'#fff6c0')+SPK(8,18,2.600,'#fff6c0');
+  /* philosopher's stone */
+  I.it11='<defs>'+RG('p11g','#ff6b80','#ff6b80')+'</defs>'
+   +'<circle cx="32" cy="32" r="30.500" fill="none" stroke="#d8a82a" stroke-width=".9" opacity=".8" stroke-dasharray="2 2"/><path d="M32 3l27 46H5z" fill="none" stroke="#d8a82a" stroke-width=".9" opacity=".6"/><path d="M32 61L5 15h54z" fill="none" stroke="#d8a82a" stroke-width=".9" opacity=".45"/>'
+   +'<circle cx="32" cy="32" r="26" fill="url(#p11g)" opacity=".55"/>'
+   +'<polygon points="32,10 14,20 32,30" fill="#ff9aa8"/><polygon points="32,10 50,20 32,30" fill="#ff5a72"/><polygon points="14,20 14,42 32,30" fill="#c01830"/><polygon points="50,20 50,42 32,30" fill="#a00f28"/><polygon points="14,42 32,56 32,30" fill="#8a0a20"/><polygon points="50,42 32,56 32,30" fill="#d6283e"/>'
+   +'<polygon points="32,10 50,20 50,42 32,56 14,42 14,20" fill="none" stroke="#5a0a18" stroke-width="2"/><path d="M14 20l18 10 18-10M32 30v26" stroke="#ffc0c8" stroke-width=".8" opacity=".7" fill="none"/>'
+   +'<path d="M20 22l8-5" stroke="#fff" stroke-width="2" opacity=".8" stroke-linecap="round"/>'+SPK(54,10,4.500,'#fff')+SPK(8,50,3,'#fff6c0')+SPK(56,52,2,'#fff6c0');
+  /* loom of fate */
+  const warp=[]; for(let x=17;x<=47;x+=3.100) warp.push(x);
+  I.it12='<defs>'+LG('l12w','#c49a68','#6a4524',1)+LG('l12c','#a58cff','#ff6b9a')+RG('l12g','#c2b2ff','#c2b2ff')+'</defs>'
+   +'<circle cx="32" cy="32" r="31" fill="url(#l12g)" opacity=".5"/>'
+   +'<rect x="5" y="5" width="8" height="54" rx="2" fill="url(#l12w)" stroke="#4a2c14" stroke-width="1.100"/><rect x="51" y="5" width="8" height="54" rx="2" fill="url(#l12w)" stroke="#4a2c14" stroke-width="1.100"/>'
+   +'<rect x="5" y="5" width="54" height="8" rx="2" fill="url(#l12w)" stroke="#4a2c14" stroke-width="1.100"/><rect x="5" y="51" width="54" height="8" rx="2" fill="url(#l12w)" stroke="#4a2c14" stroke-width="1.100"/>'
+   +warp.map((x,i)=>'<path d="M'+x.toFixed(1)+' 13V51" stroke="'+(i%2?'#7ad8ff':'#a58cff')+'" stroke-width="1.300" opacity=".95"/>').join('')
+   +'<rect x="14" y="36" width="36" height="14" fill="url(#l12c)" opacity=".92"/>'
+   +[39,42,45,48].map(y=>'<path d="M14 '+y+'H50" stroke="#fff" stroke-width=".7" opacity=".4"/>').join('')
+   +'<path d="M14 43q4.500-6 9 0t9 0 9 0 9 0" fill="none" stroke="#fff" stroke-width="1.200" opacity=".75"/>'
+   +'<path d="M14 36h36" stroke="#fff" stroke-width="1.200" opacity=".8"/>'
+   +'<path d="M16 28l26-5 4.500 3.500-26 6z" fill="#e0a868" stroke="#5a3a1a" stroke-width="1.100"/><path d="M42 23l4.500 3.500" stroke="#3a2812" stroke-width="1.500"/><path d="M16 28q-6 3-10 1" stroke="#ff6b9a" stroke-width="1.300" fill="none"/>'
+   +'<circle cx="32" cy="9" r="2.800" fill="#e0a868" stroke="#5a3a1a" stroke-width=".9"/>'+SPK(55,32,2.800,'#fff')+SPK(9,20,2.200,'#fff');
+  const out={};
+  for(const k in I) out[k]=sv(I[k]);
+  /* awakened versions: the same picture with an aura, a ring and extra sparkles */
+  ['it7','it8','it9','it12'].forEach((k,i)=>{ const g='aw'+k;
+    out[k+'a']=sv('<defs>'+RG(g,'#fff7bf','#ffe27a')+'</defs><circle cx="32" cy="32" r="31.500" fill="url(#'+g+')" opacity=".85"/>'+I[k]
+      +'<circle cx="32" cy="32" r="30.500" fill="none" stroke="#fff2a8" stroke-width=".9" stroke-dasharray="1.200 3" opacity=".9"/>'+SPK(8,8,3.200,'#fffbe0')+SPK(56,56,3.200,'#fffbe0')+SPK(57,9,2.200,'#fff')+SPK(7,56,2,'#fff')); });
+  return out;
+})(sv,LG,RG,SPK));
+const ART_OLD=(()=>{
   const P=Math.PI, pt=(r,a,cx=100,cy=100)=>[(cx+r*Math.cos(a)).toFixed(1),(cy+r*Math.sin(a)).toFixed(1)];
   const star=(x,y,s)=>'<path d="M'+x+' '+(y-s)+'L'+(x+s*0.28)+' '+(y-s*0.28)+' '+(x+s)+' '+y+' '+(x+s*0.28)+' '+(y+s*0.28)+' '+x+' '+(y+s)+' '+(x-s*0.28)+' '+(y+s*0.28)+' '+(x-s)+' '+y+' '+(x-s*0.28)+' '+(y-s*0.28)+'Z" fill="#fff"/>';
   /* godlike */
@@ -1390,6 +1613,109 @@ const ART=(()=>{
    +'<circle cx="100" cy="100" r="3" fill="#000"/></svg>';
   return {godlike,secret};
 })();
+const ART_NEW=(()=>{
+  const P=Math.PI, f1=n=>(+n).toFixed(1);
+  const pt=(r,a,cx=100,cy=100)=>[f1(cx+r*Math.cos(a)),f1(cy+r*Math.sin(a))];
+  const star=(x,y,s,c,o)=>'<path d="M'+x+' '+(y-s)+'L'+f1(x+s*0.22)+' '+f1(y-s*0.22)+' '+(x+s)+' '+y+' '+f1(x+s*0.22)+' '+f1(y+s*0.22)+' '+x+' '+(y+s)+' '+f1(x-s*0.22)+' '+f1(y+s*0.22)+' '+(x-s)+' '+y+' '+f1(x-s*0.22)+' '+f1(y-s*0.22)+'Z" fill="'+(c||'#fff')+'" opacity="'+(o||1)+'"/>';
+  /* seeded pseudo random so the art is always identical */
+  let sd=7; const rnd=()=>{ sd=(sd*9301+49297)%233280; return sd/233280; };
+  /* ===================== GODLIKE ===================== */
+  let rays='', ticks='', runes='';
+  for(let i=0;i<48;i++){ const a=i*P/24, long=i%3===0, p1=pt(40,a), p2=pt(long?99:(i%2?72:84),a); rays+='<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke-width="'+(long?1.6:0.7)+'"/>'; }
+  for(let i=0;i<72;i++){ const a=i*P/36, p1=pt(91,a), p2=pt(i%6===0?85:88,a); ticks+='<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'"/>'; }
+  for(let i=0;i<12;i++){ const a=i*P/6+0.2, p=pt(80,a); runes+='<path d="M'+p[0]+' '+f1(+p[1]-3.5)+'l2.5 3.5-2.5 3.5-2.5-3.5z" fill="none"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r=".7" fill="#fff" stroke="none"/>'; }
+  const feather=(x,y,ang,L,w,fill)=>'<g transform="translate('+x+' '+y+') rotate('+ang+')"><path d="M0 0C'+f1(L*.25)+' '+f1(-w)+' '+f1(L*.75)+' '+f1(-w*.85)+' '+L+' 0C'+f1(L*.75)+' '+f1(w*.85)+' '+f1(L*.25)+' '+f1(w)+' 0 0Z" fill="'+fill+'" stroke="#fff" stroke-width=".45"/><path d="M2 0L'+f1(L*.94)+' 0" stroke="#7fb9d4" stroke-width=".5" opacity=".8"/>'+(w>5?'<path d="M'+f1(L*.2)+' 0L'+f1(L*.5)+' '+f1(-w*.7)+'M'+f1(L*.35)+' 0L'+f1(L*.62)+' '+f1(w*.62)+'" stroke="#9fd0e6" stroke-width=".35" opacity=".7" fill="none"/>':'')+'</g>';
+  let wing='';
+  for(let i=0;i<10;i++){ wing+=feather(88,88,-178+i*10.5,74-Math.abs(i-3)*2.2,8.6,'url(#gdw2)'); }
+  for(let i=0;i<9;i++){ wing+=feather(89,92,-170+i*11.5,58-Math.abs(i-3)*2,7.4,'url(#gdw1)'); }
+  for(let i=0;i<8;i++){ wing+=feather(90,95,-160+i*12.5,40-Math.abs(i-3)*1.5,6,'url(#gdw0)'); }
+  for(let i=0;i<7;i++){ wing+=feather(91,96,-150+i*13,24,4.2,'#fff'); }
+  let pleats='';
+  for(let k=0;k<7;k++){ const x=88+k*4; pleats+='<path d="M'+x+' 112Q'+f1(x+(k-3)*2.4)+' 140 '+f1(70+k*10)+' 176" fill="none" stroke="#8fd6ea" stroke-width=".7" opacity=".75"/>'; }
+  let clouds='';
+  [[30,184,34,9],[78,190,38,10],[128,186,36,9],[172,182,30,8],[100,196,60,9]].forEach(c=>{ clouds+='<ellipse cx="'+c[0]+'" cy="'+c[1]+'" rx="'+c[2]+'" ry="'+c[3]+'"/>'; });
+  let sp=''; for(let i=0;i<26;i++){ const a=rnd()*P*2, r=48+rnd()*52, p=pt(r,a); sp+=star(+p[0],+p[1],1+rnd()*2.4,'#fff',.55+rnd()*.45); }
+  const godlike='<svg viewBox="0 0 200 200" aria-hidden="true"><defs>'
+   +'<radialGradient id="gdg"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset=".3" stop-color="#b9f6ff" stop-opacity=".7"/><stop offset=".65" stop-color="#3ec8ee" stop-opacity=".28"/><stop offset="1" stop-color="#0a6a9a" stop-opacity="0"/></radialGradient>'
+   +'<linearGradient id="gdw0" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e5fbff"/></linearGradient>'
+   +'<linearGradient id="gdw1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4feff"/><stop offset="1" stop-color="#a9e6f7"/></linearGradient>'
+   +'<linearGradient id="gdw2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d3f4ff"/><stop offset="1" stop-color="#5fc3e8"/></linearGradient>'
+   +'<linearGradient id="gdb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#d5f5ff"/><stop offset="1" stop-color="#7fd0ea"/></linearGradient>'
+   +'<linearGradient id="gdgold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6c4"/><stop offset=".5" stop-color="#ffd34d"/><stop offset="1" stop-color="#b8860b"/></linearGradient>'
+   +'<radialGradient id="gdo"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#9ff0ff"/><stop offset="1" stop-color="#2ab8e8" stop-opacity="0"/></radialGradient>'
+   +'<radialGradient id="gdsk"><stop offset="0" stop-color="#f1d3b5"/><stop offset="1" stop-color="#e0b894"/></radialGradient>'
+   +'<filter id="gdbl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.6"/></filter><filter id="gdbl2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter></defs>'
+   +'<circle cx="100" cy="100" r="99" fill="url(#gdg)"/>'
+   +'<g stroke="#d6faff" opacity=".6">'+rays+'</g>'
+   +'<circle cx="100" cy="100" r="92" fill="none" stroke="#aef3ff" stroke-width=".8" opacity=".9"/><circle cx="100" cy="100" r="76" fill="none" stroke="#aef3ff" stroke-width=".6" stroke-dasharray="1 3" opacity=".8"/><g stroke="#e8ffff" stroke-width=".6" opacity=".9">'+ticks+'</g><g stroke="#e8ffff" stroke-width=".7" opacity=".9">'+runes+'</g>'
+   +'<circle cx="100" cy="92" r="46" fill="#bff6ff" opacity=".45" filter="url(#gdbl2)"/>'
+   +'<g>'+wing+'</g><g transform="translate(200 0) scale(-1 1)">'+wing+'</g>'
+   +'<path d="M100 76C86 82 80 104 70 176L130 176C120 104 114 82 100 76Z" fill="url(#gdb)" stroke="#fff" stroke-width=".6"/>'+pleats
+   +'<path d="M86 104Q100 112 114 104L116 112Q100 121 84 112Z" fill="url(#gdgold)" stroke="#8a6a00" stroke-width=".5"/><path d="M98 114L96 136M102 114L104 136" stroke="url(#gdgold)" stroke-width="3"/><path d="M94 136h12l-2 9h-8z" fill="url(#gdgold)" stroke="#8a6a00" stroke-width=".4"/><circle cx="100" cy="113" r="4" fill="#ff5d8f" stroke="#fff" stroke-width=".8"/><circle cx="99" cy="111.800" r="1.200" fill="#fff"/>'
+   +'<path d="M90 88L58 100 54 108 62 110 92 98ZM110 88L142 100 146 108 138 110 108 98Z" fill="url(#gdb)" stroke="#fff" stroke-width=".5"/>'
+   +'<circle cx="100" cy="122" r="17" fill="url(#gdo)" filter="url(#gdbl)"/><circle cx="100" cy="122" r="7" fill="#fff"/><g stroke="#fff" stroke-width=".8">'+[0,1,2,3,4,5,6,7].map(i=>{const a=pt(12,i*P/4,100,122),b=pt(21,i*P/4,100,122);return '<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'"/>';}).join('')+'</g>'
+   +'<path d="M93 80L100 84 107 80 105 74H95Z" fill="url(#gdgold)" stroke="#8a6a00" stroke-width=".4"/>'
+   +'<path d="M87 62C86 52 92 48 100 48 108 48 114 52 113 62 113 66 112 70 110 72L100 80 90 72C88 70 87 66 87 62Z" fill="#fff4cf"/>'
+   +'<ellipse cx="100" cy="64" rx="10.500" ry="12.500" fill="url(#gdsk)"/><path d="M89 60C89 50 97 46 101 46 108 46 112 52 111 60 108 54 102 52 96 54 92 55 90 58 89 60Z" fill="#fff4cf"/><path d="M93.500 62Q96.500 64 99 62M101 62Q103.500 64 106.500 62" fill="none" stroke="#7a5a44" stroke-width="1"/><path d="M98 66.500Q100 68 102 66.500" fill="none" stroke="#c98b78" stroke-width=".9"/><path d="M95 70Q100 73 105 70" fill="none" stroke="#c98b78" stroke-width=".8" opacity=".7"/>'
+   +'<ellipse cx="100" cy="40" rx="24" ry="6.500" fill="none" stroke="#fff" stroke-width="5" opacity=".5" filter="url(#gdbl)"/><ellipse cx="100" cy="40" rx="24" ry="6.500" fill="none" stroke="url(#gdgold)" stroke-width="2.600"/><ellipse cx="100" cy="40" rx="24" ry="6.500" fill="none" stroke="#fff" stroke-width=".6"/>'
+   +'<ellipse cx="100" cy="40" rx="15" ry="4" fill="none" stroke="#ffe9a8" stroke-width="1" opacity=".9"/>'
+   +[[100,30,5],[84,33,3.200],[116,33,3.200],[72,38,2.200],[128,38,2.200]].map(s=>'<path d="M'+(s[0]-s[2]*.6)+' 36L'+s[0]+' '+(36-s[2]*2.4)+'L'+(s[0]+s[2]*.6)+' 36Z" fill="url(#gdgold)" stroke="#8a6a00" stroke-width=".3"/>').join('')
+   +'<g fill="#bdeeff" opacity=".55" filter="url(#gdbl)">'+clouds+'</g><g fill="#cfeffa" opacity=".5">'+clouds+'</g>'
+   +'<g>'+sp+'</g>'
+   +'<g opacity=".95">'+star(100,40,12,'#fff')+star(150,50,5,'#fff')+star(46,62,4,'#e8ffff')+'</g>'
+   +'<ellipse cx="100" cy="40" rx="42" ry="1.200" fill="#fff" opacity=".85"/>'
+   +'</svg>';
+  /* ===================== SECRET (the eye) ===================== */
+  let veins='', fibres='', fibres2='', lash='', cracks='', embers='', dr='', cosmos='';
+  const eye='M8 100C44 40 156 40 192 100 156 160 44 160 8 100Z';
+  for(let i=0;i<26;i++){ const a=(i<13?P+ (i+0.5)*P/26*1.0:(i-13+0.5)*P/26*1.0 + 0), edge=i%2; /* veins spreading from the corners and from the iris */ }
+  const vein=(x1,y1,x2,y2,w,o)=>{ const mx=(x1+x2)/2+(rnd()-.5)*10, my=(y1+y2)/2+(rnd()-.5)*8; return '<path d="M'+f1(x1)+' '+f1(y1)+'Q'+f1(mx)+' '+f1(my)+' '+f1(x2)+' '+f1(y2)+'" stroke-width="'+w+'" opacity="'+o+'"/>'; };
+  for(let i=0;i<20;i++){ const s=i<10?-1:1, y=100+(rnd()-.5)*40, x1=s<0?14+rnd()*6:186-rnd()*6, x2=s<0?58+rnd()*14:142-rnd()*14, y2=100+(y-100)*0.45+(rnd()-.5)*14; veins+=vein(x1,y,x2,y2,0.5+rnd()*0.9,0.45+rnd()*0.4); if(rnd()<.6) veins+=vein(x2,y2,x2+(s<0?1:-1)*(8+rnd()*8),y2+(rnd()-.5)*18,0.4,0.4); }
+  for(let i=0;i<64;i++){ const a=i*P/32, r1=17+rnd()*3, r2=29+rnd()*3, p1=pt(r1,a), p2=pt(r2,a); fibres+='<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke-width="'+(0.4+rnd()*0.7)+'" opacity="'+(0.4+rnd()*0.5)+'"/>'; }
+  for(let i=0;i<40;i++){ const a=i*P/20+0.08, p1=pt(23,a), p2=pt(31,a); fibres2+='<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke-width=".5"/>'; }
+  for(let i=0;i<30;i++){ const x=18+i*5.8, yy=100-47*Math.sin((x-8)/184*P)*0.99, dir=x<100?-1:1, len=4+rnd()*5; lash+='<path d="M'+f1(x)+' '+f1(yy)+'q'+f1(dir*1.5)+' '+f1(-len*0.6)+' '+f1(dir*(2.5+i%3))+' '+f1(-len)+'" fill="none" stroke-width="'+(0.6+rnd()*.6)+'"/>'; }
+  for(let i=0;i<7;i++){ const a=i*P/3.5+0.25, p1=pt(99,a), p2=pt(86,a+0.1), p3=pt(76,a-0.07), p4=pt(66,a+0.09); cracks+='<polyline points="'+p1.join(',')+' '+p2.join(',')+' '+p3.join(',')+' '+p4.join(',')+'" fill="none" stroke="#ffb0c0" stroke-width="'+(0.7+rnd()*0.6)+'" opacity=".8"/>'; }
+  for(let i=0;i<30;i++){ embers+='<circle cx="'+f1(8+rnd()*184)+'" cy="'+f1(20+rnd()*160)+'" r="'+f1(0.5+rnd()*1.5)+'" fill="'+(rnd()<.5?'#ff9db0':'#ffd0d9')+'" opacity="'+f1(0.4+rnd()*0.6)+'"/>'; }
+  for(let i=0;i<24;i++){ const a=i*P/12, p=pt(95,a); dr+='<path d="M'+p[0]+' '+f1(+p[1]-3)+'l2.2 3-2.2 3-2.2-3z" fill="none" stroke="#ff8aa0" stroke-width=".6"/>'; }
+  for(let i=0;i<14;i++){ cosmos+=star(f1(97+rnd()*6),f1(86+rnd()*28),0.6+rnd()*0.9,'#ffd0e6',.5+rnd()*.5); }
+  let rr=''; for(let i=0;i<8;i++){ const a=i*P/4, p1=pt(98,a), p2=pt(104,a); }
+  const secret='<svg viewBox="0 0 200 200" aria-hidden="true"><defs>'
+   +'<radialGradient id="scg"><stop offset="0" stop-color="#ff2d55" stop-opacity=".95"/><stop offset=".45" stop-color="#9a0030" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>'
+   +'<radialGradient id="scs" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fff0f3"/><stop offset=".55" stop-color="#ffd0d9"/><stop offset=".85" stop-color="#e88aa0"/><stop offset="1" stop-color="#8a1030"/></radialGradient>'
+   +'<radialGradient id="sci" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#5a0014"/><stop offset=".35" stop-color="#d4143e"/><stop offset=".62" stop-color="#ff5d4a"/><stop offset=".82" stop-color="#ffb24a"/><stop offset="1" stop-color="#6a0018"/></radialGradient>'
+   +'<radialGradient id="scp" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1a0030"/><stop offset=".7" stop-color="#05000c"/><stop offset="1" stop-color="#000"/></radialGradient>'
+   +'<linearGradient id="scl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></linearGradient>'
+   +'<clipPath id="scc"><path d="'+eye+'"/></clipPath><clipPath id="scpc"><ellipse cx="100" cy="100" rx="7.500" ry="29"/></clipPath>'
+   +'<filter id="scbl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter><filter id="scbl2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter></defs>'
+   +'<circle cx="100" cy="100" r="99" fill="url(#scg)"/>'
+   +'<g fill="none" opacity=".85"><circle cx="100" cy="100" r="95" stroke="#ff3b5c" stroke-width=".8" stroke-dasharray="1 4"/><circle cx="100" cy="100" r="90" stroke="#ff6b87" stroke-width=".5"/><g stroke="#ff8aa0">'+dr+'</g></g>'
+   +'<g stroke="#ff6b87" stroke-width=".6" opacity=".5" fill="none">'+[0,1,2,3,4,5,6,7,8,9,10,11].map(i=>{const a=i*P/6,p1=pt(54,a),p2=pt(94,a);return '<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'"/>';}).join('')+'</g>'
+   +cracks
+   +'<path d="'+eye+'" fill="#ff2d55" opacity=".5" filter="url(#scbl2)"/>'
+   +'<path d="'+eye+'" fill="url(#scs)"/>'
+   +'<g clip-path="url(#scc)">'
+     +'<g stroke="#c0183e" fill="none">'+veins+'</g>'
+     +'<ellipse cx="100" cy="100" rx="52" ry="40" fill="#ff2d55" opacity=".18" filter="url(#scbl)"/>'
+     +'<circle cx="100" cy="100" r="35" fill="#4a0010" opacity=".5" filter="url(#scbl)"/>'
+     +'<circle cx="100" cy="100" r="32" fill="url(#sci)"/>'
+     +'<g stroke="#ffd9a8" opacity=".7">'+fibres+'</g><g stroke="#4a0010" opacity=".55">'+fibres2+'</g>'
+     +'<circle cx="100" cy="100" r="32" fill="none" stroke="#2a0008" stroke-width="3"/><circle cx="100" cy="100" r="31" fill="none" stroke="#ff8a6a" stroke-width=".6" opacity=".8"/>'
+     +'<circle cx="100" cy="100" r="19" fill="none" stroke="#ffe0a0" stroke-width="1.300" opacity=".75"/><circle cx="100" cy="100" r="17" fill="none" stroke="#7a0020" stroke-width=".8" opacity=".8"/>'
+     +'<ellipse cx="100" cy="100" rx="8.500" ry="30" fill="#ff2d55" opacity=".5" filter="url(#scbl)"/>'
+     +'<ellipse cx="100" cy="100" rx="7.500" ry="29" fill="url(#scp)"/>'
+     +'<g clip-path="url(#scpc)"><g>'+cosmos+'</g><path d="M92 100Q100 70 108 100Q100 130 92 100Z" fill="#6a1a8a" opacity=".35"/></g>'
+     +'<ellipse cx="100" cy="100" rx="7.500" ry="29" fill="none" stroke="#ff9db0" stroke-width=".6" opacity=".7"/>'
+     +'<ellipse cx="111" cy="86" rx="6" ry="4.600" fill="#fff" opacity=".92" transform="rotate(-25 111 86)"/><circle cx="88" cy="114" r="2.600" fill="#fff" opacity=".6"/><circle cx="116" cy="94" r="1.300" fill="#fff"/>'
+     +'<rect x="0" y="0" width="200" height="200" fill="url(#scl)"/>'
+   +'</g>'
+   +'<path d="'+eye+'" fill="none" stroke="#12000a" stroke-width="5"/><path d="'+eye+'" fill="none" stroke="#ff2d55" stroke-width="2"/><path d="M14 98C50 50 150 50 186 98" fill="none" stroke="#ff9db0" stroke-width=".7" opacity=".7"/><path d="M14 102C50 150 150 150 186 102" fill="none" stroke="#ff6b87" stroke-width=".6" opacity=".6"/>'
+   +'<path d="M6 100l10-5v10zM194 100l-10-5v10z" fill="#ff2d55"/>'
+   +'<g stroke="#ff9db0">'+lash+'</g>'
+   +'<g>'+embers+'</g>'
+   +star(100,100,0,'#fff')+'</svg>';
+  return {godlike,secret};
+})();
+const ART={godlike:ART_OLD.godlike,secret:ART_NEW.secret};
 function shake(kind){
   if(reduce) return;
   const el=document.querySelector('.wrap'); if(!el) return;
@@ -1837,18 +2163,6 @@ function tierFx(t){
   const n=t==='mythic'?3:t==='anomaly'?2:t==='epic'?1:0;
   if(n&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ const el=document.querySelector('.wrap')||document.body; el.classList.remove('shk1','shk2','shk3'); void el.offsetWidth; el.classList.add('shk'+n); setTimeout(()=>el.classList.remove('shk'+n),700); }
 }
-function sfxCoin(){
-  const c=ac(); if(!c) return;
-  try{
-    const t=c.currentTime;
-    [[1318.5,0],[1760,0.09],[2093,0.18],[2637,0.27]].forEach(([f,d])=>{
-      const o=c.createOscillator(), o2=c.createOscillator(), g=c.createGain(), at=t+d;
-      o.type='square'; o2.type='sine'; o.frequency.value=f; o2.frequency.value=f*2;
-      g.gain.setValueAtTime(0.0001,at); g.gain.exponentialRampToValueAtTime(0.13,at+0.008); g.gain.exponentialRampToValueAtTime(0.0001,at+0.42);
-      o.connect(g); o2.connect(g); g.connect(c.destination); o.start(at); o2.start(at); o.stop(at+0.45); o2.stop(at+0.45);
-    });
-  }catch(e){}
-}
 $('pane-q').addEventListener('click',e=>{
   const cb=e.target.closest('button[data-act="qclaim"]');
   if(cb&&S.q){ const q=S.q.list[+cb.dataset.i];
@@ -1888,6 +2202,11 @@ const AWAKEN=[
  {item:'it9',mat:{id:'m6',name:'Genie Ember',n:3},ab:{id:'wish',name:'Third Wish',rolls:5,base:10000,frac:0.006,desc:'Triples the EP from your next 5 rolls.'}},
  {item:'it12',mat:{id:'m7',name:'Fate Thread',n:3},ab:{id:'weave',name:'Weave Fate',rolls:1,floor:6,base:100000,frac:0.01,desc:'Your next roll is guaranteed to be Mythic.'}}
 ];
+const ABCD={coin:12,hop:8,rig:25,streak:35,star:45,wish:60,weave:100};
+const fmtCd=sec=>sec>=60?Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0'):sec+'s';
+AWAKEN.forEach(a=>{ a.ab.cd=ABCD[a.ab.id]||30; a.ab.desc+=' Cooldown '+fmtCd(a.ab.cd)+'.'; });
+const abReady=id=>!(S.abCd&&S.abCd[id]>Date.now());
+const abLeft=id=>Math.max(0,Math.ceil(((S.abCd&&S.abCd[id])||0)/1000-Date.now()/1000));
 const abCost=a=>Math.round(Math.max(a.ab.base,qRef()*a.ab.frac));
 let dropT=0;
 function showDrop(t){ const el=$('dropNote'); el.textContent=t; el.hidden=false; clearTimeout(dropT); dropT=setTimeout(()=>{ el.hidden=true; },9000); }
@@ -1902,22 +2221,30 @@ function rollDrops(res,fresh){
   if(Math.random()<1/500){ dropMat('lucky drop'); return; }
   for(const i of fresh){ const ch={rare:0.12,epic:0.25,anomaly:0.5,mythic:1}[B[i].tier]; if(ch&&Math.random()<ch){ dropMat('new '+TL[B[i].tier].toLowerCase()+' badge'); return; } }
 }
+const petActCost=p=>Math.round(Math.max(p.act.base,qRef()*p.act.frac));
+function petActs(){ return S.petEq.slice(0,petSlots()).map(id=>PETD[id]).filter(p=>p&&p.act&&petLv(p.id)); }
 function renderAbil(){
   const el=$('abil'); const list=AWAKEN.map((a,i)=>({a,i})).filter(x=>S.awake[x.a.item]&&S.owned[x.a.item]);
-  if(!list.length){ el.hidden=true; return; }
+  const pa=petActs();
+  if(!list.length&&!pa.length){ el.hidden=true; return; }
   el.hidden=false;
-  el.innerHTML=list.map(({a,i})=>{ const c=abCost(a), on=S.fx[a.ab.id]>0;
-    return '<button type="button" class="btn" data-ab="'+i+'"'+((S.ep<c||on)?' disabled':'')+' title="'+a.ab.desc+'"><kbd>'+(i+1)+'</kbd>'+a.ab.name+' &middot; '+fe(c)+' EP</button>'+(on?'<span class="fx">'+a.ab.name+' active ('+S.fx[a.ab.id]+')</span>':''); }).join('');
+  const ph=pa.map(p=>{ const c=petActCost(p), on=S.petForce===p.act.t;
+    return '<button type="button" class="btn" data-pab="'+p.id+'"'+((S.ep<c||S.petForce||!abReady(p.act.name))?' disabled':'')+' title="'+p.ab+'">'+p.name+': '+p.act.name+' &middot; '+fe(c)+' EP'+(abReady(p.act.name)?'':' &middot; '+fmtCd(abLeft(p.act.name)))+'</button>'+(on?'<span class="fx">'+p.act.name+' ready: next roll is '+TL[p.act.t]+'</span>':''); }).join('');
+  el.innerHTML=ph+list.map(({a,i})=>{ const c=abCost(a), on=S.fx[a.ab.id]>0;
+    return '<button type="button" class="btn" data-ab="'+i+'"'+((S.ep<c||on||!abReady(a.ab.id))?' disabled':'')+' title="'+a.ab.desc+'"><kbd>'+(i+1)+'</kbd>'+a.ab.name+' &middot; '+fe(c)+' EP'+(abReady(a.ab.id)?'':' &middot; '+fmtCd(abLeft(a.ab.id)))+'</button>'+(on?'<span class="fx">'+a.ab.name+' active ('+S.fx[a.ab.id]+')</span>':''); }).join('');
 }
 function activate(i){
-  const a=AWAKEN[i]; if(!a||!S.awake[a.item]||!S.owned[a.item]||S.fx[a.ab.id]>0) return;
+  const a=AWAKEN[i]; if(!a||!S.awake[a.item]||!S.owned[a.item]||S.fx[a.ab.id]>0||!abReady(a.ab.id)) return;
   const c=abCost(a); if(S.ep<c) return;
-  S.ep-=c;
+  S.ep-=c; if(!S.abCd) S.abCd={}; S.abCd[a.ab.id]=Date.now()+a.ab.cd*1000;
   if(a.ab.id==='hop'){ nextAt=0; setNote('Quick Hop: cooldown cleared.'); }
   else { S.fx[a.ab.id]=a.ab.rolls; setNote(a.ab.name+' ready. '+a.ab.desc); }
   save(); renderAll();
 }
-$('abil').addEventListener('click',e=>{ const b=e.target.closest('button[data-ab]'); if(b&&!b.disabled) activate(+b.dataset.ab); });
+$('abil').addEventListener('click',e=>{
+  const pb=e.target.closest('button[data-pab]');
+  if(pb&&!pb.disabled){ const p=PETD[pb.dataset.pab], c=p&&p.act?petActCost(p):0;
+    if(p&&p.act&&!S.petForce&&abReady(p.act.name)&&S.ep>=c&&S.petEq.indexOf(p.id)>=0){ S.ep-=c; if(!S.abCd) S.abCd={}; S.abCd[p.act.name]=Date.now()+p.act.cd*1000; S.petForce=p.act.t; setNote(p.name+': '+p.act.name+'. Your next roll is guaranteed '+TL[p.act.t]+'.'); save(); renderAll(); } return; } const b=e.target.closest('button[data-ab]'); if(b&&!b.disabled) activate(+b.dataset.ab); });
 function renderAwakening(){
   const mats=AWAKEN.filter(a=>(S.mats[a.mat.id]||0)>0);
   let h='<div class="luckbox"><span class="big">Awakening</span><small>Some lucky items can be awakened with a special material. An awakened item gives '+Math.round((AWAKE_MULT-1)*100)+'% more luck and unlocks an ability. Press its number key (or its button under the roll) to pay EP and use it. Awakening is permanent, even across rebirths, but you need to own the item for it to work.</small>'
@@ -1950,7 +2277,7 @@ function buy(id){
   else if(ITEMS.indexOf(d)>=0){ if(S.owned[id]) return; S.ep-=cost; S.owned[id]=1; }
   else if(ACCS.indexOf(d)>=0){ if(S.owned[id]) return; S.ep-=cost; S.owned[id]=1; S.equip[d.slot]=id; }
   else { S.ep-=cost; S.lv[id]=(S.lv[id]||0)+1; }
-  save(); renderAll(); qEvent('buy',{id});
+  sfxChink(); save(); renderAll(); qEvent('buy',{id});
 }
 function drink(id){
   const d=ALL[id]; if(!d||!(S.bag[id]>0)||S.active.length>=potSlots()) return;
@@ -2018,7 +2345,7 @@ $('rbGo').addEventListener('click',()=>$('tab-rb').click());
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
   tab=b.dataset.tab; rbAsk=false;
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b?'true':'false'));
-  ['store','q','aw','pets','rb','col','hist','odds'].forEach(t=>{ $('pane-'+t).hidden=(t!==tab); });
+  ['store','q','aw','pets','rb','col','hist','odds','tr'].forEach(t=>{ $('pane-'+t).hidden=(t!==tab); });
   renderAll();
 }));
 document.querySelectorAll('#colFilter button').forEach(b=>b.addEventListener('click',()=>{
@@ -2121,7 +2448,8 @@ const HOW=[
 ['Goals',['<b>Quests</b> ask for sets of badges and pay out EP and rewards. Some unlock new features.','<b>Badge guide</b> lists every pattern, with examples and hints for the ones you haven\u2019t found.','<b>Odds</b> shows your current chance for each tier.','<b>History</b> keeps your recent rolls.']],
 ['Rebirth',['Spend a big pile of EP to <b>rebirth</b>. Your EP, lucky items and accessories reset, but you keep your badges, upgrades, pets and awakenings.','Each rebirth shortens the cooldown, multiplies luck items and EP, and makes very rare numbers more likely. Higher rebirths also unlock higher tiers.','Rebirths unlock the Auto-Roller, more pet slots and the casino games.']],
 ['Awakening',['Some lucky items can be <b>awakened</b> with a special material found while rolling. They give more luck and a power you can trigger by paying EP. Awakening is permanent.']],
-['Pets',['Buy <b>eggs</b> to hatch pets. Pricier eggs have better odds of rare pets.','Equipped pets gain XP every roll, level up to 10, and give bigger bonuses as they level. Rarer pets have special abilities. You get 1 pet slot, 2 at Rebirth 4 and 3 at Rebirth 6.','Duplicates become spares. Feed a spare to a pet for XP, or <b>fuse</b> 3 spares of one rarity into a random pet of the next rarity.']],
+['Pets',['Buy <b>eggs</b> to hatch pets. Pricier eggs have better odds of rare pets.','Equipped pets gain XP every roll, level up to 10, and give bigger bonuses as they level. Rarer pets have special abilities. You get 1 pet slot, 2 at Rebirth 4 and 3 at Rebirth 6.','From Rebirth 2 you can hatch several eggs at once. Duplicates become spares. Feed a spare to a pet for XP, or <b>fuse</b> 3 spares of one rarity into a random pet of the next rarity.']],
+['Wandering Trader',['Every 15 minutes the trader visits for 5 minutes, with a notification. Open the Trader tab. He has 5 deals, from everyday goods up to mythic ones, and each can be done once per visit.','He asks for potions, pets, lucky items, awakening materials, awakened items or EP, and pays in potions, pets, egg tickets or materials. Rarely, his last deal is for something truly strange, and now and then he sells a Strange Whistle that calls him back once.']],
 ['Surprises',['<b>Mutations:</b> any roll can be Shiny (\u00d71.5), Gold (\u00d72), Rainbow (\u00d75) or Eternal (\u00d725) for bonus EP.','<b>Boosts:</b> now and then a Boost kicks in for 15 seconds. It halves your cooldown and doubles luck and EP.','<b>Jackpot meter:</b> every roll fills it, rare rolls fill it faster. When full it pays out EP and a bonus prize.','<b>Near misses:</b> sometimes a bigger number flashes past before your real roll lands. It\u2019s only for show.']],
 ['Casino',['At Rebirth 2 the Party Wheel opens, Rebirth 4 adds the Slot Machine and Rebirth 6 adds Roulette. You bet EP, and the games are close to fair, so you can win or lose.']],
 ['Saving',['Your progress saves in this browser. Use <b>Save code</b> on the home page to back it up or move it to another device. Clearing site data erases saves, so keep a code. Use the Home button at the top to come back here.']]
@@ -2132,7 +2460,164 @@ function readCode(t){
     const o=JSON.parse(decodeURIComponent(escape(atob(t.slice(4))))); return o&&typeof o.rolls==='number'?o:null; }catch(e){ return null; }
 }
 function closeHome(){ $('home').hidden=true; document.body.classList.remove('homeopen'); renderAll(); }
-function openHome(){ homeView='menu'; homeMsg=''; $('home').hidden=false; document.body.classList.add('homeopen'); renderHome(); }
+function openHome(){ homeView='menu'; homeMsg=''; $('home').hidden=false; document.body.classList.add('homeopen'); buildHomeBg(); renderHome(); }
+
+/* wandering trader */
+const TR_EVERY=15*60000, TR_STAY=5*60000;
+const RAR_N=['Common','Uncommon','Rare','Epic','Mythic','Divine','Cosmic'];
+const PRANK={}; RAR_N.forEach((r,i)=>PRANK[r]=i);
+const rq={ pot:(n,min)=>({k:'pot',n,min}), pet:(n,min)=>({k:'pet',n,min}), item:(n,min)=>({k:'item',n,min}), mat:n=>({k:'mat',n}), awk:n=>({k:'awk',n}),
+  ep:(frac,base)=>({k:'ep',a:Math.round(Math.max(base,qRef()*frac))}) };
+const pickf=a=>a[Math.floor(Math.random()*a.length)];
+const TR_T=[
+ [()=>({req:[rq.pot(6,0)],give:{t:'tix',egg:'e1',n:2}}),
+  ()=>({req:[rq.pet(2,0)],give:{t:'pot',id:'pot3',n:1}}),
+  ()=>({req:[rq.pot(2,0),rq.ep(0.004,5000)],give:{t:'mat',n:1}})],
+ [()=>({req:[rq.pot(3,1),rq.pet(1,1)],give:{t:'pet',id:pickf(['pp6','pp7'])}}),
+  ()=>({req:[rq.pet(3,1)],give:{t:'tix',egg:'e2',n:2}}),
+  ()=>({req:[rq.item(1,2),rq.pot(2,1)],give:{t:'pot',id:'pot4',n:1}})],
+ [()=>({req:[rq.pot(2,2),rq.pet(2,2)],give:{t:'tix',egg:'e3',n:1}}),
+  ()=>({req:[rq.mat(1),rq.pot(3,2)],give:{t:'pet',id:pickf(['pp8','pp9'])}}),
+  ()=>({req:[rq.pet(4,1),rq.ep(0.02,50000)],give:{t:'pot',id:'pot5',n:2}})],
+ [()=>({req:[rq.pet(1,3),rq.pot(2,3),rq.ep(0.05,200000)],give:{t:'tix',egg:'e3',n:3}}),
+  ()=>({req:[rq.pot(3,3),rq.item(2,5)],give:{t:'mat',n:2}}),
+  ()=>({req:[rq.pet(2,3),rq.mat(1)],give:{t:'pet',id:'pp10'}})],
+ [()=>({req:[rq.pet(1,4),rq.pot(4,4),rq.ep(0.25,2000000)],give:{t:'tix',egg:'e4',n:1}}),
+  ()=>({req:[rq.pot(3,4),rq.mat(2),rq.ep(0.25,2000000)],give:{t:'pet',id:'pp12'}}),
+  ()=>({req:[rq.pot(6,5),rq.ep(0.4,5000000)],give:{t:'pet',id:'pp11'}})]];
+const TR_BOSS=()=>({req:[rq.ep(2,300000000),rq.pet(2,4),rq.pot(5,5),rq.awk(1)],give:{t:'pet',id:'pp13'},boss:true});
+const TR_LBL=['Everyday goods','Better goods','Rare goods','Epic goods','Mythic goods','Strange goods'];
+function genTrades(){
+  const l=TR_T.map((a,i)=>{ const t=(i===4&&Math.random()<1/25)?TR_BOSS():pickf(a)(); t.done=false; return t; });
+  if(!(S.whistle>0)&&Math.random()<1/5) l.push({req:[rq.pot(3,3),rq.pet(1,2),rq.ep(0.1,1000000)],give:{t:'whistle'},whistle:true,done:false});
+  return l;
+}
+function petUnits(min){
+  const eq=S.petEq, u=[];
+  PETS.filter(p=>PRANK[p.rar]>=min).sort((a,b)=>PRANK[a.rar]-PRANK[b.rar]).forEach(p=>{ for(let k=0;k<(S.spare[p.id]||0);k++) u.push({id:p.id,main:false}); });
+  PETS.filter(p=>PRANK[p.rar]>=min&&S.pets[p.id]&&eq.indexOf(p.id)<0).sort((a,b)=>PRANK[a.rar]-PRANK[b.rar]||petLv(a.id)-petLv(b.id)).forEach(p=>u.push({id:p.id,main:true}));
+  return u;
+}
+function trAvail(r){
+  switch(r.k){
+    case 'pot': return POTIONS.reduce((t,p,i)=>i>=r.min?t+(S.bag[p.id]||0):t,0);
+    case 'pet': return petUnits(r.min).length;
+    case 'item': return ITEMS.filter((d,i)=>i>=r.min&&S.owned[d.id]).length;
+    case 'mat': return Object.keys(S.mats||{}).reduce((t,k)=>t+(S.mats[k]||0),0);
+    case 'awk': return AWAKEN.filter(a=>S.awake[a.item]).length;
+    case 'ep': return S.ep;
+  }
+  return 0;
+}
+const trNeed=r=>r.k==='ep'?r.a:r.n;
+function trUsesMain(t){ return t.req.some(r=>r.k==='pet'&&petUnits(r.min).slice(0,r.n).some(u=>u.main)); }
+function trTake(r){
+  if(r.k==='pot'){ let n=r.n; for(let i=r.min;i<POTIONS.length&&n>0;i++){ const id=POTIONS[i].id, t=Math.min(n,S.bag[id]||0); S.bag[id]=(S.bag[id]||0)-t; n-=t; } }
+  else if(r.k==='pet'){ petUnits(r.min).slice(0,r.n).forEach(u=>{ if(!u.main) S.spare[u.id]--; else { delete S.pets[u.id]; delete S.pxp[u.id]; S.petEq=S.petEq.filter(x=>x!==u.id); } }); }
+  else if(r.k==='item'){ ITEMS.filter((d,i)=>i>=r.min&&S.owned[d.id]).slice(0,r.n).forEach(d=>{ delete S.owned[d.id]; }); }
+  else if(r.k==='mat'){ let n=r.n; Object.keys(S.mats).forEach(k=>{ const t=Math.min(n,S.mats[k]||0); S.mats[k]-=t; n-=t; }); }
+  else if(r.k==='awk'){ AWAKEN.filter(a=>S.awake[a.item]).slice(0,r.n).forEach(a=>{ S.awake[a.item]=false; delete S.fx[a.ab.id]; }); }
+  else if(r.k==='ep'){ S.ep-=r.a; }
+}
+function trGrant(g){
+  if(g.t==='pot'){ S.bag[g.id]=(S.bag[g.id]||0)+g.n; return g.n+' '+ALL[g.id].name+(g.n>1?'s':''); }
+  if(g.t==='tix'){ S.tix[g.egg]=(S.tix[g.egg]||0)+g.n; return g.n+' '+EGGS.find(e=>e.id===g.egg).name+' ticket'+(g.n>1?'s':''); }
+  if(g.t==='pet'){ const id=g.id;
+    if(!S.pets[id]){ S.pets[id]=1; S.pxp[id]=0; if(S.petEq.length<petSlots()) S.petEq.push(id); } else S.spare[id]=(S.spare[id]||0)+1;
+    return PETD[id].name; }
+  if(g.t==='whistle'){ S.whistle=(S.whistle||0)+1; return 'a Strange Whistle'; }
+  if(g.t==='mat'){ let got=0; for(let i=0;i<g.n;i++) if(dropMat('the trader')) got++; if(got<g.n){ const v=Math.round(qRef()*0.03*(g.n-got)); S.ep+=v; S.life+=v; return got+' awakening material'+(got===1?'':'s')+' and '+fe(v)+' EP'; } return g.n+' awakening material'+(g.n>1?'s':''); }
+  return '';
+}
+let trConfirm=-1;
+function trDo(i){
+  const tr=S.tr; if(!tr||!tr.list||Date.now()>=tr.until) return; const t=tr.list[i]; if(!t||t.done) return;
+  if(!t.req.every(r=>trAvail(r)>=trNeed(r))) return;
+  if(trUsesMain(t)&&trConfirm!==i){ trConfirm=i; renderAll(); return; }
+  trConfirm=-1;
+  t.req.forEach(trTake); const msg=trGrant(t.give); t.done=true;
+  sfxCoin(); setNote('Trade complete. You received '+msg+'.'); save(); renderAll();
+}
+function trLeft(){ return S.tr&&S.tr.list?Math.max(0,S.tr.until-Date.now()):0; }
+function trToast(){
+  let el=$('trToast'); if(!el){ el=document.createElement('button'); el.id='trToast'; el.type='button'; el.hidden=true; document.body.appendChild(el);
+    el.addEventListener('click',()=>{ el.hidden=true; $('tab-tr').click(); setTimeout(()=>{ try{ $('pane-tr').scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ window.scrollTo(0,$('pane-tr').offsetTop); } },60); }); }
+  el.textContent='The Wandering Trader has arrived! Tap to trade'; el.hidden=false; clearTimeout(trToast.t); trToast.t=setTimeout(()=>{ el.hidden=true; },20000);
+}
+function trArrive(){
+  sfxBell3(); trToast();
+  try{ if(window.Notification&&Notification.permission==='granted'&&document.hidden) new Notification('The Wandering Trader has arrived!',{body:'He stays for a few minutes.'}); }catch(e){}
+}
+function trSummon(){
+  if(!(S.whistle>0)||!S.tr||S.tr.list) return;
+  S.whistle--; S.tr.list=genTrades(); S.tr.until=Date.now()+TR_STAY; trConfirm=-1;
+  sfxBell3(); setNote('You blow the Strange Whistle. The Wandering Trader hurries over.'); save(); renderAll();
+}
+function trTick(){
+  if(MODE===null&&homeOpen&&homeOpen()) return;
+  const now=Date.now(); let ch=false;
+  if(!S.tr){ S.tr={next:now+3*60000,until:0,list:null}; ch=true; }
+  const tr=S.tr;
+  if(tr.list&&now>=tr.until){ tr.list=null; trConfirm=-1; ch=true; }
+  if(!tr.list&&now>=tr.next){
+    while(tr.next+TR_STAY<=now) tr.next+=TR_EVERY;
+    if(now>=tr.next){ tr.list=genTrades(); tr.until=tr.next+TR_STAY; tr.next+=TR_EVERY; ch=true; trArrive(); }
+  }
+  const tb=$('tab-tr');
+  if(tb){ const here=!!tr.list; const lbl=here?'Trader • '+fmtClock(tr.until-now):'Trader'; if(tb.textContent!==lbl) tb.textContent=lbl; tb.classList.toggle('glow',here); }
+  if(S.abCd&&Object.keys(S.abCd).some(k=>S.abCd[k]>now-1500)) renderAbil();
+  const te=$('trTimer'); if(te) te.textContent=fmtClock((tr.list?tr.until:tr.next)-now);
+  if(ch){ save(); if(tab==='tr') renderAll(); }
+}
+setInterval(trTick,1000);
+function trReqTxt(r){
+  switch(r.k){
+    case 'pot': return r.n+' × '+(r.min>0?POTIONS[r.min].name+' or better':'any potion');
+    case 'pet': return r.n+' × '+(r.min>0?RAR_N[r.min]+' or better pet':'any pet');
+    case 'item': return r.n+' × lucky item ('+ITEMS[r.min].name+' or better)';
+    case 'mat': return r.n+' × awakening material';
+    case 'awk': return r.n+' × awakened item (it loses its awakening)';
+    case 'ep': return fe(r.a)+' EP';
+  }
+  return '';
+}
+function trGiveTxt(g){
+  if(g.t==='pot') return g.n+' × '+ALL[g.id].name;
+  if(g.t==='tix') return g.n+' × '+EGGS.find(e=>e.id===g.egg).name+' ticket';
+  if(g.t==='pet'){ const p=PETD[g.id]; return (p.hid&&!S.pets[g.id])?'??????':p.name; }
+  if(g.t==='mat') return g.n+' × awakening material';
+  if(g.t==='whistle') return 'Strange Whistle (call the trader back once)';
+  return '';
+}
+function trGiveImg(g){
+  const id=g.t==='pet'?g.id:g.t==='pot'?g.id:g.t==='tix'?g.egg:g.t==='whistle'?'whistle':'';
+  const i=id&&ICONS[id]; if(!i) return '';
+  const dim=g.t==='pet'&&PETD[g.id].hid&&!S.pets[g.id];
+  return '<div class="cimg'+(dim?' dim':'')+'">'+i+'</div>';
+}
+function renderTrader(){
+  const tr=S.tr||{next:Date.now(),list:null}, here=!!tr.list;
+  const perm=window.Notification?Notification.permission:'denied';
+  let h='<div class="luckbox"><span class="big">Wandering Trader</span><small>'+(here?'He is here for <b id="trTimer">'+fmtClock(tr.until-Date.now())+'</b>. Each deal can be done once per visit.':'He is away. He is back in <b id="trTimer">'+fmtClock(tr.next-Date.now())+'</b>.')+'</small>'
+    +'<small>He turns up every 15 minutes and stays for 5. He will take potions, pets (spares first, then pets you are not using), lucky items, awakening materials, awakened items and EP, and he gives rare things back.</small>'
+    +(S.whistle>0?'<small>You have a <b>Strange Whistle</b>. Blow it to call him back right now, once.</small><div><button type="button" class="buy" data-act="whistle"'+(here?' disabled':'')+'>'+(here?'He is already here':'Blow the whistle')+'</button></div>':'')
+    +(window.Notification&&perm==='default'?'<div><button type="button" class="buy alt" data-act="tralert">Enable browser alerts</button></div>':'')+'</div>';
+  if(here){
+    h+='<div class="grid">'+tr.list.map((t,i)=>{
+      const ok=t.req.every(r=>trAvail(r)>=trNeed(r)), main=trUsesMain(t);
+      return '<div class="card'+(t.boss?' bossdeal':'')+(t.done?' qdone':'')+'"><div class="card-h"><h3>Deal '+(i+1)+(t.boss?' ★':'')+'</h3><span class="slot">'+TR_LBL[i]+'</span></div>'
+        +'<div class="trh">He wants</div><ul class="eggodds">'+t.req.map(r=>{ const have=trAvail(r), good=have>=trNeed(r); return '<li class="'+(good?'trok':'trno')+'">'+trReqTxt(r)+' <small>(you have '+(r.k==='ep'?fe(have):have)+')</small></li>'; }).join('')+'</ul>'
+        +'<div class="trh">He gives</div><div class="trgive">'+trGiveImg(t.give)+'<b>'+trGiveTxt(t.give)+'</b></div>'
+        +(t.done?'<div class="ex">Done</div>':'<div class="buyrow"><span class="price">'+(main&&ok&&trConfirm===i?'Uses a pet you own':'')+'</span><button type="button" class="buy" data-act="trade" data-i="'+i+'"'+(ok?'':' disabled')+'>'+(trConfirm===i?'Confirm trade':'Trade')+'</button></div>')+'</div>'; }).join('')+'</div>';
+  }
+  $('pane-tr').innerHTML=h;
+}
+$('pane-tr').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-act]'); if(!b||b.disabled) return;
+  if(b.dataset.act==='trade') trDo(+b.dataset.i);
+  else if(b.dataset.act==='whistle') trSummon();
+  else if(b.dataset.act==='tralert'){ try{ Notification.requestPermission().then(()=>renderAll()); }catch(_){} }
+});
 
 /* unlock popups */
 const UNL=[
@@ -2200,22 +2685,59 @@ async function loadLb(){
   renderHome();
 }
 
+
+function heroHtml(){ return '<div class="hero"><div class="hero-k">The number game</div><div class="home-title">Endless Roll</div><div class="hero-box"><div class="hero-num" id="heroNum">0</div><div class="hero-lab" id="heroLab">&nbsp;</div></div><div class="home-sub" style="margin:2px 0 0">Roll a number. Chase the rare ones.</div></div>'; }
+function paradeHtml(){ return PETS.filter(p=>p.id!=='pp13'&&ICONS[p.id]).map(p=>'<span>'+ICONS[p.id]+'</span>').join(''); }
+let heroTm=null;
+const HC={trash:'#8B95A5',common:'#93A9C0',uncommon:'#53C98A',rare:'#6AA2FF',epic:'#B08AFF',anomaly:'#FF7DBF',mythic:'#F5C650',godlike:'#4FE3F5',secret:'#FF3B5C'};
+function heroLoop(){
+  clearInterval(heroTm); if($('home').hidden||homeView!=='menu') return;
+  const num=$('heroNum'), lab=$('heroLab'); if(!num) return;
+  const rl=n=>{ let s=''; for(let i=0;i<n;i++) s+=Math.floor(Math.random()*10); return s.replace(/\\B(?=(\\d{3})+(?!\\d))/g,','); };
+  const picks=[['common',4],['uncommon',5],['rare',6],['epic',7],['anomaly',8],['mythic',9],['godlike',10],['secret',12]];
+  let n=0, cur=null, phase=0;
+  const step=()=>{
+    if($('home').hidden||homeView!=='menu'||!$('heroNum')){ clearInterval(heroTm); return; }
+    n++;
+    if(phase===0){ const len=3+Math.floor(Math.random()*8); num.textContent=rl(len); num.classList.remove('land'); num.style.setProperty('--hc','#fff'); lab.textContent=''; if(n>16){ phase=1; n=0; } }
+    else if(phase===1){ const w=Math.random(), pk=picks[w<.2?0:w<.38?1:w<.56?2:w<.72?3:w<.84?4:w<.93?5:w<.98?6:7]; cur=pk; num.textContent=rl(pk[1]); num.style.fontSize=''; num.style.setProperty('--hc',HC[pk[0]]); lab.textContent=TL[pk[0]]; void num.offsetWidth; num.classList.add('land'); phase=2; n=0; }
+    else if(n>22){ phase=0; n=0; }
+  };
+  step(); heroTm=setInterval(step,90);
+}
+function buildHomeBg(){
+  const b=$('homeBg'); if(!b||b.firstChild) return;
+  let s='<div class="au a1"></div><div class="au a2"></div><div class="au a3"></div><div class="stars">';
+  for(let i=0;i<70;i++) s+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*100).toFixed(1)+'%;animation-delay:-'+(Math.random()*3).toFixed(1)+'s;animation-duration:'+(2+Math.random()*3).toFixed(1)+'s"></i>';
+  s+='</div><div class="grid"></div>';
+  const cols=['#ffd34d','#ff6bd6','#7cf4ff','#b08aff','#6aff9a'];
+  for(let i=0;i<14;i++){ const L=1+Math.floor(Math.random()*6); let d=''; for(let k=0;k<L;k++) d+=Math.floor(Math.random()*10); s+='<span class="fl" style="left:'+(Math.random()*92).toFixed(0)+'%;color:'+cols[i%5]+';animation-duration:'+(14+Math.random()*16).toFixed(0)+'s;animation-delay:-'+(Math.random()*24).toFixed(0)+'s">'+d+'</span>'; }
+  b.innerHTML=s;
+}
 function renderHome(){
   const el=$('home'); if(el.hidden) return;
   const card=(id,ico,name,desc,badge)=>'<button type="button" class="hcard" data-h="'+id+'"'+(homeBusy?' disabled':'')+'><span class="hi">'+ico+'</span><b>'+name+'</b><small>'+desc+'</small>'+(badge?'<em>'+badge+'</em>':'')+'</button>';
-  let h='<div class="home-in"><div class="home-title">Endless Roll</div><div class="home-sub">Roll a number. Chase the rare ones.</div>';
+  let h='<div class="home-in">';
+  if(homeView==='menu') h+=heroHtml(); else h+='<div class="home-title" style="font-size:clamp(1.8rem,8vw,2.6rem)">Endless Roll</div>';
   if(homeMsg) h+='<div class="home-msg">'+esc(homeMsg)+'</div>';
   if(homeView==='menu'){
     const st=(MODE==='account'||MODE==='local')?dailyState():null;
-    h+='<div class="home-grid">'
-      +(MODE?card('resume','▶','Continue',MODE==='account'?'Back to your game':MODE==='local'?'Back to your saved game':'Back to your guest game',''):'')
-      +(hasClaude()?card('signin','\u{1F511}',MODE==='account'?'Play with your account':'Sign in and play','Cloud save, leaderboard and daily reward',''):card('local','▶',MODE==='local'?'Play':(LOCAL0?'Continue saved game':'New game'),'Progress saves in this browser.',''))
-      +card('guest','\u{1F464}','Play as guest','Start fresh. Progress is not saved.','')
-      +(hasClaude()?card('lb','\u{1F3C6}','Leaderboard','See the top players.',''):'')
-      +card('daily','\u{1F381}','Daily reward',(MODE==='account'||MODE==='local')?(st.can?'Your reward is ready!':'Claimed. Come back tomorrow.'):(hasClaude()?'Needs an account. Tap to sign in.':'Tap to start a saved game and claim.'),(MODE==='account'||MODE==='local')&&st.can?'READY':'')
-      +card('how','\u{2753}','How to play','Every basic mechanic explained.','')
-      +card('code','\u{1F4CB}','Save code','Copy or load your progress as text.','')
-      +'</div>';
+    const sv0=MODE?S:LOCAL0, cta=(id,name,sub)=>'<button type="button" class="hcta" data-h="'+id+'"'+(homeBusy?' disabled':'')+'>'+name+'<small>'+sub+'</small></button>';
+    if(sv0&&typeof sv0.rolls==='number'){
+      h+='<div class="hstats"><div><b>'+(sv0.rb||0)+'</b><small>Rebirth</small></div><div><b>'+fe(sv0.rolls||0)+'</b><small>Rolls</small></div><div><b>'+Object.keys(sv0.pets||{}).length+'</b><small>Pets</small></div><div><b>'+Object.keys(sv0.badges||{}).length+'</b><small>Badges</small></div></div>';
+    }
+    h+=MODE?cta('resume','Continue',MODE==='account'?'Back to your game':MODE==='local'?'Back to your saved game':'Back to your guest game')
+        :(hasClaude()?cta('signin','Sign in and play','Cloud save, leaderboard and daily reward'):cta('local',LOCAL0?'Continue':'Play',LOCAL0?'Pick up your saved game':'Progress saves in this browser.'));
+    h+='<div class="home-grid two">'
+      +(MODE?(hasClaude()?card('signin','\u{1F511}',MODE==='account'?'Play with your account':'Sign in and play','Cloud save and leaderboard',''):card('local','\u{1F4BE}',MODE==='local'?'Play':(LOCAL0?'Continue saved game':'New game'),'Saves in this browser.','')):'')
+      +card('guest','\u{1F464}','Play as guest','Start fresh. Not saved.','')
+      +(hasClaude()?card('lb','\u{1F3C6}','Leaderboard','Top players.',''):'')
+      +card('daily','\u{1F381}','Daily reward',(MODE==='account'||MODE==='local')?(st.can?'Ready to claim!':'Come back tomorrow.'):(hasClaude()?'Sign in to claim.':'Start a saved game.'),(MODE==='account'||MODE==='local')&&st.can?'READY':'')
+      +card('how','\u{2753}','How to play','Every mechanic.','')
+      +card('code','\u{1F4CB}','Save code','Back up as text.','')
+      +'</div>'
+      +'<div class="ribbon">'+TIERS.map(k=>'<span style="--rc:'+HC[k]+'">'+TL[k]+'</span>').join('')+'</div>'
+      +'<div class="parade"><div class="parade-t">'+paradeHtml()+paradeHtml()+'</div></div>';
   } else if(homeView==='lb'){
     h+='<div class="home-panel"><div class="hp-head"><h2>Leaderboard</h2><button type="button" class="hback" data-h="menu">Back</button></div>'
       +'<div class="hsort">'+LB_SORTS.map(s=>'<button type="button" data-lbs="'+s[0]+'" class="'+(lbSort===s[0]?'on':'')+'">'+s[1]+'</button>').join('')+'</div>';
@@ -2241,6 +2763,7 @@ function renderHome(){
   }
   h+='<div class="home-foot">'+''+'</div></div>';
   el.innerHTML=h;
+  if(homeView==='menu') heroLoop(); else clearInterval(heroTm);
 }
 $('home').addEventListener('click',async e=>{
   const lb=e.target.closest('[data-lbs]'); if(lb){ lbSort=lb.dataset.lbs; loadLb(); return; }
