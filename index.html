@@ -339,6 +339,102 @@ body.boosting #rollBtn{animation:brbtn .6s ease-in-out infinite alternate;backgr
 .legend2 .lg b{margin-left:auto;font-family:var(--f-mono)}
 .queued{margin-top:12px;padding:8px 12px;border-radius:8px;font-weight:600;background:linear-gradient(90deg,#ffd34d33,#ff6bd633);border:1px solid #ff6bd6}
 .queued[hidden]{display:none}
+
+/* ===== casino: Vegas art-deco style (felt, velvet, brass, neon) ===== */
+.casino{--gold:#e8c46a;--gold2:#a8791f;--felt:#0c4a2e;--velvet:#6b0f1f;font-family:Georgia,'Times New Roman',serif;color:#f6ecd0;
+ background:radial-gradient(ellipse at 50% 30%,#13693f 0%,#0c4a2e 45%,#052416 100%);padding-top:44px;padding-bottom:54px}
+.casino::before{content:"";position:fixed;left:0;right:0;top:0;height:30px;z-index:3;background:linear-gradient(180deg,#4a0a14,#7a1020);border-bottom:3px solid var(--gold);box-shadow:0 4px 14px #000a;
+ background-image:radial-gradient(circle at 10px 15px,#fff6c9 0 3px,transparent 4px),linear-gradient(180deg,#4a0a14,#7a1020);background-size:28px 30px,100% 100%;animation:marq .8s steps(2) infinite}
+.casino::after{content:"";position:fixed;left:0;right:0;bottom:0;height:30px;z-index:3;background:linear-gradient(0deg,#4a0a14,#7a1020);border-top:3px solid var(--gold);box-shadow:0 -4px 14px #000a;
+ background-image:radial-gradient(circle at 24px 15px,#fff6c9 0 3px,transparent 4px),linear-gradient(0deg,#4a0a14,#7a1020);background-size:28px 30px,100% 100%;animation:marq .8s steps(2) infinite reverse}
+@keyframes marq{50%{background-position:14px 0,0 0}}
+.casbox{position:relative;padding:8px 4px}
+.casbox::before{content:"\2660  \2665  \2666  \2663";position:absolute;top:-6px;left:0;right:0;text-align:center;color:#ffffff1a;font-size:2.2rem;letter-spacing:.6em;pointer-events:none}
+.casino .cas-title{font:900 clamp(2rem,9vw,3.4rem) Georgia,serif;font-style:italic;letter-spacing:.04em;text-transform:none;background:none;color:#ffe9a8;-webkit-text-fill-color:#ffe9a8;animation:neon 3.2s ease-in-out infinite;
+ text-shadow:0 0 4px #fff,0 0 12px #ff3b5c,0 0 26px #ff3b5c,0 0 48px #c4122f;filter:none;margin-top:8px}
+.casino .cas-title::after{content:"";display:block;height:3px;margin:8px auto 0;width:70%;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+@keyframes neon{0%,18%,22%,100%{opacity:1}20%{opacity:.55}55%{opacity:.92}}
+.casino .cas-sub{color:#d8e8d2;font-style:italic;max-width:40ch}
+.casino .casgames{gap:14px;max-width:440px}
+.casino .casgame{position:relative;grid-template-columns:64px 1fr;gap:2px 14px;border:0;border-radius:6px;padding:16px 18px;color:#fff3cf;
+ background:linear-gradient(135deg,#7a1020,#4a0a14 70%);box-shadow:0 0 0 2px var(--gold),0 0 0 5px #4a0a14,0 0 0 6px var(--gold2),0 10px 24px #000a,inset 0 0 30px #0008;transition:transform .15s,filter .15s}
+.casino .casgame::before{content:"";position:absolute;inset:6px;border:1px solid #e8c46a66;border-radius:3px;pointer-events:none}
+.casino .casgame:hover:not(:disabled){transform:translateY(-3px) scale(1.01);filter:brightness(1.12)}
+.casino .casgame .gi{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;background:radial-gradient(circle at 35% 30%,#fff,#e8e0c8 55%,#a89a70);box-shadow:0 0 0 3px var(--gold),0 4px 8px #000a;color:#111}
+.casino .casgame b{font:800 1.25rem Georgia,serif;font-style:italic;letter-spacing:.03em;color:#ffe9a8}
+.casino .casgame small{color:#f2d9c0;font-style:italic}
+.casino .cas-price{border-radius:4px;border:2px solid var(--gold);background:linear-gradient(180deg,#1b1b1b,#050505);box-shadow:inset 0 0 18px #000,0 0 0 4px #3a2a08,0 6px 14px #0009}
+.casino .cas-price span{color:var(--gold);font-family:Georgia,serif;letter-spacing:.2em}
+.casino .cas-price b{font:700 1.8rem 'Courier New',monospace;color:#ffdf6b;text-shadow:0 0 10px #ffb800}
+.casino .cas-price em{color:#bfae80}
+.casino .spinbtn{border-radius:6px;font:900 1.25rem Georgia,serif;font-style:italic;letter-spacing:.14em;color:#fff6d0;background:linear-gradient(180deg,#e0243d,#8a0f20);border:2px solid var(--gold);box-shadow:0 5px 0 #4a0a14,0 0 20px #ff3b5c88,inset 0 2px 0 #ff9aa8}
+.casino .spinbtn:active:not(:disabled){box-shadow:0 2px 0 #4a0a14,0 0 12px #ff3b5c88}
+.casino .leavebtn{border-radius:6px;border:2px solid var(--gold2);color:var(--gold);font-family:Georgia,serif;font-style:italic;background:#0006}
+.casino .cas-have{color:var(--gold);font-style:italic;letter-spacing:.04em}
+.casino .cas-result{font-family:Georgia,serif;font-style:italic;color:#ffe9a8}
+.casino .legend2 .lg{border-radius:3px;background:#0007;border:1px solid #e8c46a44}
+.casino .burst{background:repeating-conic-gradient(from 0deg,#ffd34d2a 0 5deg,transparent 5deg 15deg)}
+.casino .slotbox{position:relative;border-radius:14px;padding:22px 20px 18px;border:0;gap:8px;background:linear-gradient(180deg,#a3182c,#5c0a16 55%,#3a0610);box-shadow:0 0 0 3px var(--gold),0 0 0 7px #4a0a14,0 0 0 9px var(--gold2),0 14px 30px #000b,inset 0 0 26px #000a}
+.casino .slotbox::before{content:"";position:absolute;left:14px;right:14px;top:6px;height:8px;background:radial-gradient(circle at 6px 4px,#fff6c9 0 2.4px,transparent 3px);background-size:16px 8px;animation:marq .8s steps(2) infinite}
+.casino .slotbox::after{content:"";position:absolute;right:-26px;top:34px;width:12px;height:90px;border-radius:6px;background:linear-gradient(90deg,#c9c9c9,#fff,#8a8a8a);box-shadow:0 3px 6px #0008}
+.casino .reel{background:linear-gradient(180deg,#b8b09a 0,#fffdf3 22%,#fffdf3 78%,#b8b09a 100%);border:3px solid #2a1a04;border-radius:6px;box-shadow:inset 0 0 14px #0009,0 0 0 2px var(--gold)}
+@media (max-width:480px){.casino .slotbox::after{display:none}}
+
+.adm-sec{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px;background:var(--surface2)}
+.adm-sec h3{margin:0 0 10px;font:700 .72rem var(--f-display);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.adm-row{display:grid;grid-template-columns:minmax(90px,28%) 1fr auto;gap:8px;align-items:center;margin-bottom:8px}
+.adm-row>span{font-size:.88rem}
+.adm-row input[type=number],.adm-row select{width:100%;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+.adm-btns{display:flex;gap:6px;flex-wrap:wrap}
+.adm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.adm-grid .buy{width:100%}
+.adm-top{display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:-18px;background:var(--surface);padding:8px 0 10px;margin:-8px 0 0;z-index:1;border-bottom:1px solid var(--line)}
+.adm-top h2{margin:0;font:800 1.2rem var(--f-display)}
+.adm-top small{color:var(--muted);display:block}
+.adm-msg{position:sticky;bottom:-18px;background:var(--surface);color:var(--good);margin-top:10px;padding:8px 0;min-height:1.2em;font-weight:600}
+@media (max-width:480px){.adm-row{grid-template-columns:1fr;gap:4px}}
+
+.helibtn{position:fixed;right:12px;bottom:12px;z-index:60;border:0;border-radius:999px;padding:10px 18px;font:800 .85rem var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:#10202e;background:linear-gradient(180deg,#ffe27a,#ffb800);box-shadow:0 4px 0 #8a5a00,0 6px 16px #0006;cursor:pointer}
+.helibtn.locked{background:var(--surface);color:var(--muted);border:1px solid var(--line);box-shadow:none;font-weight:600;cursor:not-allowed}
+.helibtn:not(.locked):hover{transform:translateY(-2px)}
+.helisure{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.helisure[hidden],.heli-fly[hidden]{display:none}
+.helisure .hbox{background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:20px;max-width:360px;width:100%;text-align:center;display:flex;flex-direction:column;gap:14px}
+.helisure h3{margin:0;font:800 1.2rem var(--f-display)}
+.helisure .row{display:flex;gap:10px;justify-content:center}
+.heli-fly{position:fixed;inset:0;z-index:310;overflow:hidden;background:linear-gradient(180deg,#2a7fd0 0%,#7cc4ff 55%,#ffe9b8 100%);opacity:0;transition:opacity .8s ease}
+.heli-fly.on{opacity:1}
+.hf-cloud{position:absolute;width:160px;height:46px;border-radius:50px;background:#fff;opacity:.85;filter:blur(1px);animation:hfc 26s linear infinite}
+.hf-cloud::before,.hf-cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.hf-cloud::before{width:70px;height:70px;left:24px;top:-34px}.hf-cloud::after{width:54px;height:54px;left:84px;top:-22px}
+@keyframes hfc{from{transform:translateX(-240px)}to{transform:translateX(calc(100vw + 240px))}}
+.hf-pad{position:absolute;left:50%;top:62%;width:210px;height:210px;margin:-105px 0 0 -105px;border-radius:50%;background:radial-gradient(circle,#3b4650 0 62%,#2a333b 63% 100%);border:6px solid #f4d34a;box-shadow:0 10px 30px #0006;display:flex;align-items:center;justify-content:center;font:900 5.2rem var(--f-display);color:#f4d34a;transform:scaleY(.42);transition:opacity 1.2s}
+.hf-pad span{display:block;transform:scaleY(2.38)}
+.hf-heli{position:absolute;left:50%;top:62%;width:230px;margin:-150px 0 0 -115px;transform-origin:50% 90%;filter:drop-shadow(0 18px 14px #0005)}
+.hf-heli svg{width:100%;height:auto;overflow:visible;display:block}
+.hf-blade{transform-box:fill-box;transform-origin:50% 50%}
+.hf-heli.spin .hf-blade{animation:blade .09s linear infinite}
+.hf-heli.spin .hf-tail{animation:blade .07s linear infinite;transform-box:fill-box;transform-origin:50% 50%}
+@keyframes blade{0%{transform:scaleX(1)}50%{transform:scaleX(.18)}100%{transform:scaleX(1)}}
+.hf-heli.lift{animation:hlift 2.2s ease-in forwards}
+@keyframes hlift{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(-70px) rotate(-3deg)}}
+.hf-heli.away{animation:haway 2.8s cubic-bezier(.5,0,.9,.6) forwards}
+@keyframes haway{0%{transform:translate(0,-70px) rotate(-3deg) scale(1)}25%{transform:translate(4vw,-90px) rotate(10deg) scale(1)}100%{transform:translate(70vw,-95vh) rotate(14deg) scale(.35)}}
+.hf-txt{position:absolute;left:0;right:0;top:36%;text-align:center;color:#fff;font:900 clamp(2rem,9vw,4rem) var(--f-display);letter-spacing:.06em;text-shadow:0 4px 0 #1d5a9a,0 0 26px #0a3a6a;opacity:0;transition:opacity 1.6s ease;padding:0 12px}
+.hf-txt.on{opacity:1}
+.hf-back{position:absolute;left:50%;top:52%;transform:translateX(-50%);opacity:0;pointer-events:none;transition:opacity .8s ease;border:0;border-radius:999px;padding:14px 30px;font:800 1.05rem var(--f-display);letter-spacing:.08em;color:#10202e;background:linear-gradient(180deg,#ffe27a,#ffb800);box-shadow:0 5px 0 #8a5a00,0 8px 20px #0005;cursor:pointer}
+.hf-back.on{opacity:1;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){.hf-cloud{animation:none}}
+
+.hin{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ffffff55;background:#00000044;color:#fff;font:inherit}
+.hin::placeholder{color:#cdb3ee}
+.hrow{display:flex;gap:10px}.hrow .hclaim{flex:1;padding:12px 10px;font-size:1rem}
+.hclaim.alt{background:linear-gradient(180deg,#c9b8ff,#8f6bff);box-shadow:0 5px 0 #4a2bb0;color:#1b0b4a}
+.mkrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}
+.mkrow .cimg{width:44px;height:44px}.mkrow b{display:block}.mkrow small{color:var(--muted)}
+.mkform{display:grid;grid-template-columns:1fr 90px 140px auto;gap:8px;align-items:center}
+.mkform select,.mkform input{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+@media (max-width:560px){.mkform{grid-template-columns:1fr 1fr}.mkform select{grid-column:span 2}.mkform .buy{grid-column:span 2}}
 .adminbtn{position:fixed;top:10px;right:10px;z-index:50;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:var(--muted)}
 .adminmodal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px}
 .adminmodal[hidden],.cine[hidden]{display:none}
@@ -429,6 +525,9 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
 <button class="adminbtn" id="adminBtn" type="button">Admin</button>
 <button class="casinobtn locked" id="casinoBtn" type="button">Enter the casino</button>
 <div class="whiteout" id="whiteout"></div>
+<button class="helibtn locked" id="heliBtn" type="button">Helipad</button>
+<div class="helisure" id="heliSure" hidden role="dialog" aria-label="Travel to the next island"><div class="hbox"><h3>Are you sure you want to travel to the next island?</h3><div class="row"><button type="button" class="buy" id="heliYes">Yes</button><button type="button" class="buy alt" id="heliNo">No</button></div></div></div>
+<div class="heli-fly" id="heliFly" hidden aria-live="polite"><div class="hf-cloud" style="top:10%;animation-duration:30s;animation-delay:-6s"></div><div class="hf-cloud" style="top:24%;animation-duration:22s;animation-delay:-16s;transform:scale(.7)"></div><div class="hf-cloud" style="top:74%;animation-duration:34s;animation-delay:-4s;transform:scale(1.2)"></div><div class="hf-pad" id="hfPad"><span>H</span></div><div class="hf-heli" id="hfHeli"></div><div class="hf-txt" id="hfTxt">Island 2<br>Coming Soon</div><button type="button" class="hf-back" id="hfBack">Return to Island 1</button></div>
 <div class="homebg" id="homeBg" aria-hidden="true"></div><div class="home" id="home"></div>
 <div class="casino" id="casino" hidden role="dialog" aria-label="Casino"><div class="casbox" id="casinoBox"></div></div>
 <div class="cine" id="cine" hidden role="dialog" aria-label="Rare roll"><div class="cine-art" id="cineArt"></div><div class="cine-txt" id="cineTxt"></div><button class="cine-skip" id="cineSkip" type="button">Skip</button></div>
@@ -483,6 +582,7 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
       <button class="tab" role="tab" id="tab-hist" aria-selected="false" aria-controls="pane-hist" data-tab="hist">History</button>
       <button class="tab" role="tab" id="tab-odds" aria-selected="false" aria-controls="pane-odds" data-tab="odds">Odds</button>
       <button class="tab" role="tab" id="tab-tr" aria-selected="false" aria-controls="pane-tr" data-tab="tr">Trader</button>
+      <button class="tab" role="tab" id="tab-mk" aria-selected="false" aria-controls="pane-mk" data-tab="mk" hidden>Market</button>
     </div>
 
     <div id="pane-store" class="pane" role="tabpanel" aria-labelledby="tab-store"></div>
@@ -513,6 +613,7 @@ footer{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;color:var(--
     <div id="pane-aw" class="pane" role="tabpanel" aria-labelledby="tab-aw" hidden></div>
 
     <div id="pane-tr" class="pane" role="tabpanel" aria-labelledby="tab-tr" hidden></div>
+    <div id="pane-mk" class="pane" role="tabpanel" aria-labelledby="tab-mk" hidden></div>
     <div id="pane-odds" class="pane" role="tabpanel" aria-labelledby="tab-odds" hidden>
       <div class="odds">
         <div class="sums" id="sums"></div>
@@ -736,15 +837,15 @@ const ALL={}; [].concat(POTIONS,ITEMS,ACCS,UPS).forEach(d=>ALL[d.id]=d);
 const SLOTS={ring:'Ring',amulet:'Amulet',charm:'Charm'};
 const REBIRTHS=[
  {ep:1000,req:['sandwich','happy','niven','bookends']},
- {ep:30000,req:['prime','ticket','blackjack','nice']},
- {ep:80000,req:['twinprime','climb','slide','triplet']},
- {ep:2000000,req:['palin','stairs','countdown','quad','binpal'],reward:'Unlocks the Auto-Roller'},
- {ep:4000000,req:['echo','pairs','square','rounder','thousandone']},
- {ep:25000000,req:['hexword','leet','brother','roundest']},
- {ep:45000000,req:['pi','euler','golden','palprime','cube']},
- {ep:70000000,req:['kaprekar','taxi','repdigit','highc','fib']},
- {ep:105000000,req:['pow2','fullbits','mirror2','catalan','lucas']},
- {ep:150000000,req:['perfect','password','zero','million']}
+ {ep:40000,req:['prime','ticket','blackjack','nice']},
+ {ep:150000,req:['twinprime','climb','slide','triplet']},
+ {ep:4200000,req:['palin','stairs','countdown','quad','binpal'],reward:'Unlocks the Auto-Roller'},
+ {ep:3000000,req:['echo','pairs','square']},
+ {ep:55000000,req:['hexword','leet','brother','roundest']},
+ {ep:72000000,req:['pi','euler','golden','palprime','cube']},
+ {ep:175000000,req:['kaprekar','taxi','repdigit','highc','fib']},
+ {ep:190000000,req:['pow2','fullbits','mirror2','catalan','lucas']},
+ {ep:230000000,req:['perfect','password','zero','million']}
 ];
 const BYKEY={}; B.forEach(b=>BYKEY[b.k]=b);
 const REQLVL={}; REBIRTHS.forEach((r,i)=>r.req.forEach(k=>REQLVL[k]=i+1));
@@ -818,6 +919,7 @@ function commit(res,gain,fresh){
   S.tiers[res.tier]=(S.tiers[res.tier]||0)+1;
   res.ids.forEach(i=>{ const k=B[i].k; S.badges[k]=(S.badges[k]||0)+1; S.run[k]=1; });
   S.hist.unshift(res.n); if(S.hist.length>100) S.hist.length=100;
+  if(!Array.isArray(S.histG)) S.histG=[]; S.histG.unshift(gain); if(S.histG.length>100) S.histG.length=100;
   S.active.forEach(a=>a.left--); S.active=S.active.filter(a=>a.left>0);
   petTick();
   save();
@@ -921,7 +1023,7 @@ function doRoll(animate,onDone){
   let L=(luckParts().total)*(S.fx.streak>0?2:1);
   if(petProc('pp9',0.03)){ L*=3; notes.push('Star Dragon: Star Wish (luck \u00d73)'); }
   let res=analyze(rollNumber(L));
-  if(TIERS.indexOf(res.tier)<=1&&petProc('pp10',0.25)){ res=analyze(rollNumber(L)); notes.push('Fate Phoenix: Rebirth Flame (free reroll)'); }
+  if(TIERS.indexOf(res.tier)<=2&&petProc('pp10',0.15)){ res=analyze(numberOfTier(4)); notes.push('Fate Phoenix: Rebirth Flame (free Epic)'); }
   if(petProc('pp7',0.03)){ const r3=analyze(rollNumber(L)); if(r3.ep>res.ep) res=r3; notes.push('Ember Fox: Cinder Rerun'); }
   if(S.fx.coin>0){ const r2=analyze(rollNumber(L)); if(r2.ep>res.ep) res=r2; }
   AWAKEN.forEach(a=>{
@@ -1015,8 +1117,8 @@ function renderHeader(){
   $('autoBtn').hidden=!hasAuto; $('stopWrap').hidden=!hasAuto;
 }
 function renderAll(){
-  renderHeader();
-  if(tab==='store') renderStore(); else if(tab==='q') renderQuests(); else if(tab==='aw') renderAwakening(); else if(tab==='pets') renderPets(); else if(tab==='rb') renderRebirth(); else if(tab==='col') renderCollection(); else if(tab==='hist') renderHist(); else if(tab==='tr') renderTrader(); else renderOdds();
+  renderHeader(); heliSync(); { const mk=$('tab-mk'); if(mk) mk.hidden=!(MODE==='account'&&SB_ON()); }
+  if(tab==='store') renderStore(); else if(tab==='q') renderQuests(); else if(tab==='aw') renderAwakening(); else if(tab==='pets') renderPets(); else if(tab==='rb') renderRebirth(); else if(tab==='col') renderCollection(); else if(tab==='hist') renderHist(); else if(tab==='tr') renderTrader(); else if(tab==='mk') renderMarket(); else renderOdds();
 }
 
 
@@ -1125,7 +1227,7 @@ const PETS=[
  {id:'pp7',name:'Ember Fox',rar:'Rare',luck:0.15,desc:'Warm paws, warmer odds.',ab:'Cinder Rerun: 3% chance each roll to roll again and keep the better number.'},
  {id:'pp8',name:'Storm Owl',rar:'Epic',cd:0.25,desc:'Rolls arrive with thunder.',ab:'Thunderclap: 5% chance each roll that there is no cooldown.'},
  {id:'pp9',name:'Star Dragon',rar:'Epic',luck:0.30,desc:'Hoards wishes instead of gold.',ab:'Star Wish: 3% chance each roll to triple your luck for that roll.'},
- {id:'pp10',name:'Fate Phoenix',rar:'Mythic',luck:0.25,ep:0.25,desc:'Rises whenever luck runs out.',ab:'Rebirth Flame: 25% chance to reroll a Trash or Common roll for free.'},
+ {id:'pp10',name:'Fate Phoenix',rar:'Mythic',luck:0.25,ep:0.25,desc:'Rises whenever luck runs out.',ab:'Rebirth Flame: 15% chance each roll to turn a Trash, Common or Uncommon roll into a free Epic.'},
  {id:'pp11',name:'Infernal Demon',rar:'Divine',luck:0.4,ep:1.0,cd:0.2,desc:'Bargains hard and pays in EP.'},
  {id:'pp12',name:'Angel',rar:'Divine',luck:0.5,ep:0.3,desc:'A blessing you can call on.',ab:'Divine Light: pay EP and your next roll is guaranteed Godlike. Cooldown 1:30.',act:{t:'godlike',frac:0.06,base:5000000,name:'Divine Light',cd:90}},
  {id:'pp13',name:'Destroyer of Worlds',rar:'Cosmic',luck:0.75,ep:0.5,cd:0.3,hid:true,desc:'What was hidden behind the question marks.',ab:'World Ender: pay a huge amount of EP and your next roll is guaranteed Secret. Cooldown 2:30.',act:{t:'secret',frac:1.1,base:25000000,name:'World Ender',cd:150}}
@@ -1219,12 +1321,12 @@ function hatchMulti(eggId,ids,done){
 let hbN=1;
 const hatchOpts=()=>{ const o=[1]; if(S.rb>=2) o.push(3); if(S.rb>=4) o.push(5); if(S.rb>=6) o.push(10); return o; };
 function hatch(eid){
-  const e=EGGS.find(x=>x.id===eid); if(!e||hatching||(e.rb||0)>S.rb) return;
+  const e=EGGS.find(x=>x.id===eid); if(!e||hatching||((e.rb||0)>S.rb&&!ADM.ok)) return;
   const n=hatchOpts().indexOf(hbN)>=0?hbN:1;
   const c=eggCost(e), tix=S.tix[eid]||0, useT=Math.min(tix,n), pay=(n-useT)*c; if(S.ep<pay) return;
   S.tix[eid]=tix-useT; S.ep-=pay;
   let t=0; for(const k in e.w) t+=e.w[k];
-  const res=[]; for(let q=0;q<n;q++){ let r=Math.random()*t, got=null; for(const k in e.w){ r-=e.w[k]; if(r<0){ got=k; break; } } res.push(got||Object.keys(e.w)[0]); }
+  const res=[]; for(let q=0;q<n;q++){ let r=Math.random()*t, got=null; for(const k in e.w){ r-=e.w[k]; if(r<0){ got=k; break; } } res.push(ADM.pet&&PETD[ADM.pet]?ADM.pet:(got||Object.keys(e.w)[0])); }
   let best=res[0]; res.forEach(id=>{ if(PRANK[PETD[id].rar]>PRANK[PETD[best].rar]) best=id; });
   const had=S.pets[best]?petLv(best):0, cnt={}, fresh=[];
   res.forEach(id=>{ cnt[id]=(cnt[id]||0)+1;
@@ -1324,7 +1426,7 @@ function renderHist(){
   $('hist').innerHTML=rows.map((n,idx)=>{
     const r=analyze(n);
     const names=r.ids.length?r.ids.slice().sort((a,b)=>B[b].ep-B[a].ep).map(i=>B[i].name).join(', '):'No badges';
-    return '<div class="row" data-tier="'+r.tier+'"><span class="no">#'+fmt(S.rolls-idx)+'</span><span class="n">'+fmt(n)+'</span><span class="t">'+TL[r.tier]+'</span><span class="e">'+fe(r.ep)+' EP</span><span class="b">'+names+'</span></div>';
+    return '<div class="row" data-tier="'+r.tier+'"><span class="no">#'+fmt(S.rolls-idx)+'</span><span class="n">'+fmt(n)+'</span><span class="t">'+TL[r.tier]+'</span><span class="e">'+(S.histG&&S.histG[idx]!=null?'+'+fe(S.histG[idx]):fe(r.ep))+' EP</span><span class="b">'+names+'</span></div>';
   }).join('');
 }
 function renderOdds(){
@@ -1371,7 +1473,7 @@ $('pane-rb').addEventListener('click',e=>{
 
 
 /* ---------- tier caps, godlike and secret ---------- */
-const ADM={ok:false,force:-1,luck:0,noCd:false,vr:''};
+const ADM={ok:false,force:-1,luck:0,noCd:false,vr:'',pet:''};
 const tidx=n=>TIERS.indexOf(analyze(n).tier);
 function numberOfTier(i){
   const t=TIERS[i];
@@ -1381,18 +1483,20 @@ function numberOfTier(i){
   for(let k=0;k<60000;k++){ const n=randInt(); if(analyze(n).tier===t) return n; }
   return randInt();
 }
-const godP=L=>0.003+0.07*(1-Math.exp(-Math.max(0,L)/40000));
-const secP=L=>0.0008+0.012*(1-Math.exp(-Math.max(0,L)/30000));
+const godP=L=>(L>0?0.003:0)+0.07*(1-Math.exp(-Math.max(0,L)/40000));
+const secP=L=>(L>0?0.0008:0)+0.012*(1-Math.exp(-Math.max(0,L)/30000));
 function rollNumber(L){
   const rb=S.rb, free=ADM.luck>0;   /* admin extra luck lifts the rebirth gates so everything can be tested */
   let limit=free?7:rb===0?3:rb<=2?5:rb<=4?6:7;
+  if(!free&&L<=0) limit=Math.min(limit,2);   /* with no luck at all you only see Trash and Common */
   if(rb===0&&!S.fb){
     if(S.rolls>60) S.fb=1;
     else { if(!S.fbAt) S.fbAt=18+Math.floor(Math.random()*11);
       if(S.rolls>=S.fbAt){ S.fb=1; return numberOfTier(4); } }
   }
-  if(!free&&rb<=2&&Math.random()<0.01) return numberOfTier(limit);   /* the one-in-a-hundred best case */
-  if(!free&&(rb===3||rb===4)&&Math.random()<0.08) return numberOfTier(6);   /* a small Mythic chance so the badges those rebirths ask for stay reachable */
+  const lk=Math.min(1,Math.max(0,L)/25);   /* the rebirth safety nets fade to nothing at zero luck */
+  if(!free&&rb<=2&&Math.random()<0.01*Math.min(1,Math.max(0,L)/10)) return numberOfTier(limit);   /* the one-in-a-hundred best case */
+  if(!free&&(rb===3||rb===4)&&Math.random()<0.08*lk) return numberOfTier(6);   /* a small Mythic chance so the badges those rebirths ask for stay reachable */
   let n=draw(L), idx=tidx(n), Lk=L;
   for(let i=0;i<60&&idx>=limit;i++){ if(i%5===4) Lk=Lk/2; n=draw(Lk); idx=tidx(n); }
   for(let i=0;i<3000&&idx>=limit;i++){ n=randInt(); idx=tidx(n); }
@@ -1746,36 +1850,164 @@ function cinematic(kind,done){
   $('cineSkip').onclick=cut;
 }
 
+
+
+/* ---------- player market (Supabase) ---------- */
+let mkRows=null, mkMine=null, mkMsg='', mkBusy=false, mkLoadedAt=0;
+const MK_FEE=0.05;
+function mkItem(k,id){ return k==='pet'?PETD[id]:k==='pot'?ALL[id]:EGGS.find(e=>e.id===id); }
+function mkName(r){ const d=mkItem(r.kind,r.item); return d?(d.name+(r.kind==='tix'?' ticket':'')):r.item; }
+function mkIcon(r){ const i=ICONS[r.item]; return i?'<div class="cimg">'+i+'</div>':'<div class="cimg"></div>'; }
+function mkHave(k,id){ return k==='pet'?(S.spare[id]||0):k==='pot'?(S.bag[id]||0):(S.tix[id]||0); }
+function mkAdd(k,id,n){
+  if(k==='pot') S.bag[id]=(S.bag[id]||0)+n;
+  else if(k==='tix') S.tix[id]=(S.tix[id]||0)+n;
+  else { for(let i=0;i<n;i++){ if(!S.pets[id]){ S.pets[id]=1; S.pxp[id]=0; if(S.petEq.length<petSlots()) S.petEq.push(id); } else S.spare[id]=(S.spare[id]||0)+1; } }
+}
+function mkTake(k,id,n){ if(k==='pot') S.bag[id]-=n; else if(k==='tix') S.tix[id]-=n; else S.spare[id]-=n; }
+async function mkLoad(){
+  if(MODE!=='account'||!SB_ON()) return;
+  mkBusy=true; renderMarket();
+  try{
+    mkRows=await sbReq('/rest/v1/trades?status=eq.open&select=*&order=created_at.desc&limit=60');
+    mkMine=await sbReq('/rest/v1/trades?seller=eq.'+sbSess.uid+'&status=in.(open,sold)&select=*&order=created_at.desc');
+    mkMsg='';
+  }catch(e){ mkMsg='Could not load the market: '+((e&&e.message)||'error'); }
+  mkBusy=false; mkLoadedAt=Date.now(); renderMarket();
+}
+function renderMarket(){
+  const el=$('pane-mk'); if(!el) return;
+  if(MODE!=='account'||!SB_ON()){ el.innerHTML='<div class="empty">Sign in to use the player market.</div>'; return; }
+  const opts=[];
+  PETS.forEach(p=>{ const n=S.spare[p.id]||0; if(n>0) opts.push('<option value="pet:'+p.id+'">'+p.name+' (spare \u00d7'+n+')</option>'); });
+  POTIONS.forEach(p=>{ const n=S.bag[p.id]||0; if(n>0) opts.push('<option value="pot:'+p.id+'">'+p.name+' (\u00d7'+n+')</option>'); });
+  EGGS.forEach(e=>{ const n=S.tix[e.id]||0; if(n>0) opts.push('<option value="tix:'+e.id+'">'+e.name+' ticket (\u00d7'+n+')</option>'); });
+  let h='<div class="luckbox"><span class="big">Player market</span><small>Sell spare pets, potions and egg tickets to other players for EP, or buy what they list. When your item sells, press Claim to collect the EP (the market keeps '+Math.round(MK_FEE*100)+'%). Listed items are held until they sell or you cancel.</small>'
+    +'<div><button type="button" class="buy alt" data-mk="refresh"'+(mkBusy?' disabled':'')+'>'+(mkBusy?'Loading...':'Refresh')+'</button></div>'+(mkMsg?'<small style="color:var(--accent)">'+esc(mkMsg)+'</small>':'')+'</div>';
+  h+='<h3 class="sub">Sell something</h3>'+(opts.length
+    ?'<div class="mkform"><select id="mkItem">'+opts.join('')+'</select><input id="mkQty" type="number" min="1" value="1" aria-label="Quantity"><input id="mkPrice" type="number" min="1" placeholder="Total price (EP)" aria-label="Total price in EP"><button type="button" class="buy" data-mk="list"'+(mkBusy?' disabled':'')+'>List</button></div>'
+    :'<div class="empty" style="border:0">You have nothing to sell. Spare pets, potions and egg tickets can be listed.</div>');
+  const mine=mkMine||[];
+  h+='<h3 class="sub">Your listings</h3>'+(mine.length?'<div class="grid">'+mine.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+fe(r.price)+' EP \u00b7 '+(r.status==='sold'?'Sold! Claim '+fe(Math.floor(r.price*(1-MK_FEE)))+' EP':'Waiting for a buyer')+'</small></div>'
+      +(r.status==='sold'?'<button type="button" class="buy" data-mk="claim" data-id="'+r.id+'">Claim</button>':'<button type="button" class="buy alt" data-mk="cancel" data-id="'+r.id+'">Cancel</button>')+'</div>').join('')+'</div>':'<div class="empty" style="border:0">No active listings.</div>');
+  const open=(mkRows||[]).filter(r=>!sbSess||r.seller!==sbSess.uid);
+  h+='<h3 class="sub">For sale</h3>'+(mkRows===null?'<div class="empty" style="border:0">Loading...</div>':open.length?'<div class="grid">'+open.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+esc(r.seller_name)+' \u00b7 '+fe(r.price)+' EP</small></div><button type="button" class="buy" data-mk="buy" data-id="'+r.id+'"'+(S.ep<r.price||mkBusy?' disabled':'')+'>'+(S.ep<r.price?'Need EP':'Buy')+'</button></div>').join('')+'</div>':'<div class="empty" style="border:0">Nothing is for sale right now.</div>');
+  el.innerHTML=h;
+}
+$('pane-mk').addEventListener('click',async e=>{
+  const b=e.target.closest('[data-mk]'); if(!b||b.disabled||mkBusy) return;
+  const a=b.dataset.mk, id=b.dataset.id;
+  if(a==='refresh'){ mkLoad(); return; }
+  mkBusy=true; mkMsg='';
+  try{
+    if(a==='list'){
+      const sel=($('mkItem')||{}).value||'', [k,item]=sel.split(':'), qty=Math.floor(Number(($('mkQty')||{}).value)), price=Math.floor(Number(($('mkPrice')||{}).value));
+      if(!item||!(qty>=1)||!(price>=1)){ mkMsg='Choose an item, a quantity and a price of at least 1 EP.'; }
+      else if(mkHave(k,item)<qty){ mkMsg='You do not have that many.'; }
+      else { mkTake(k,item,qty); save();
+        try{ await sbReq('/rest/v1/rpc/list_trade',{method:'POST',body:JSON.stringify({p_kind:k,p_item:item,p_qty:qty,p_price:price})}); mkMsg='Listed.'; cloudSave(true); }
+        catch(er){ mkAdd(k,item,qty); save(); throw er; } }
+    } else if(a==='buy'){
+      const r=(mkRows||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
+      if(S.ep<r.price) throw new Error('You do not have enough EP.');
+      await sbReq('/rest/v1/rpc/buy_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
+      S.ep-=r.price; mkAdd(r.kind,r.item,r.qty); save(); cloudSave(true); mkMsg='Bought '+mkName(r)+' \u00d7'+r.qty+'.';
+    } else if(a==='cancel'){
+      const r=(mkMine||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
+      await sbReq('/rest/v1/rpc/cancel_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
+      mkAdd(r.kind,r.item,r.qty); save(); cloudSave(true); mkMsg='Listing cancelled. Your item is back.';
+    } else if(a==='claim'){
+      const r=(mkMine||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
+      await sbReq('/rest/v1/rpc/claim_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
+      const v=Math.floor(r.price*(1-MK_FEE)); S.ep+=v; S.life+=v; save(); cloudSave(true); mkMsg='Collected '+fe(v)+' EP.'; sfxCoin();
+    }
+  }catch(er){ mkMsg=(er&&er.message)||'Something went wrong.'; }
+  mkBusy=false; renderAll(); mkLoad();
+});
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.tab==='mk') mkLoad(); }));
+
+/* ---------- helipad ---------- */
+const HELI_SVG='<svg viewBox="0 0 230 150" aria-hidden="true"><g stroke-linejoin="round" stroke-linecap="round">'
+ +'<path d="M150 70L222 52 224 62 154 88Z" fill="#b3202f" stroke="#5a0f18" stroke-width="3"/><path d="M214 40l10-4 2 26-10 2z" fill="#8f1624" stroke="#5a0f18" stroke-width="3"/>'
+ +'<g class="hf-tail"><rect x="206" y="28" width="6" height="34" rx="3" fill="#2a2a2a"/></g>'
+ +'<rect x="108" y="30" width="10" height="20" fill="#444"/>'
+ +'<g class="hf-blade"><path d="M8 28Q115 18 222 28Q115 36 8 28Z" fill="#2a2a2a" stroke="#111" stroke-width="2"/></g>'
+ +'<ellipse cx="108" cy="84" rx="66" ry="40" fill="#d8283a" stroke="#5a0f18" stroke-width="4"/>'
+ +'<path d="M54 84C54 60 80 50 112 50 124 50 130 56 130 66L130 86 56 96Z" fill="#9fdcff" stroke="#5a0f18" stroke-width="4"/>'
+ +'<path d="M62 76C66 62 82 56 104 56L104 82 60 88Z" fill="#d9f4ff" opacity=".7"/>'
+ +'<path d="M110 54L110 92" stroke="#5a0f18" stroke-width="4"/>'
+ +'<path d="M60 112H170M84 114L80 104M152 114L148 104" stroke="#333" stroke-width="5" fill="none"/>'
+ +'<path d="M62 112Q50 112 46 118" stroke="#333" stroke-width="5" fill="none"/>'
+ +'<rect x="132" y="70" width="22" height="12" rx="3" fill="#ffd34d" stroke="#5a0f18" stroke-width="2"/></g></svg>';
+function heliSync(){ const b=$('heliBtn'); if(!b) return; const ok=S.rb>=REBIRTHS.length; b.classList.toggle('locked',!ok); b.title=ok?'Travel to the next island':'Unlocks at Rebirth '+REBIRTHS.length; }
+let heliBusy=false;
+function heliSfx(sec){
+  const c=ac(); if(!c||S.mute) return;
+  try{
+    const t=c.currentTime, o=c.createOscillator(), l=c.createOscillator(), lg=c.createGain(), g=c.createGain(), f=c.createBiquadFilter();
+    o.type='sawtooth'; o.frequency.setValueAtTime(30,t); o.frequency.linearRampToValueAtTime(52,t+sec*0.5);
+    l.frequency.setValueAtTime(8,t); l.frequency.linearRampToValueAtTime(20,t+sec*0.5); lg.gain.value=0.5; l.connect(lg);
+    f.type='lowpass'; f.frequency.value=380; g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(0.5,t+0.8); g.gain.setValueAtTime(0.5,t+sec*0.6); g.gain.linearRampToValueAtTime(0.0001,t+sec);
+    lg.connect(g.gain); o.connect(f); f.connect(g); g.connect(c.destination); o.start(t); l.start(t); o.stop(t+sec+0.1); l.stop(t+sec+0.1);
+  }catch(e){}
+}
+function heliGo(){
+  if(heliBusy) return; heliBusy=true;
+  const fly=$('heliFly'), h=$('hfHeli'), pad=$('hfPad'), tx=$('hfTxt'), bk=$('hfBack');
+  h.innerHTML=HELI_SVG; h.className='hf-heli'; pad.style.opacity=1; tx.classList.remove('on'); bk.classList.remove('on');
+  fly.hidden=false; void fly.offsetWidth; fly.classList.add('on');
+  const q=reduce?0.4:1;
+  setTimeout(()=>{ h.classList.add('spin'); heliSfx(7*q); },900*q);
+  setTimeout(()=>h.classList.add('lift'),2000*q);
+  setTimeout(()=>{ h.classList.remove('lift'); h.classList.add('away'); pad.style.opacity=.75; },4300*q);
+  setTimeout(()=>{ tx.classList.add('on'); },7000*q);
+  setTimeout(()=>{ bk.classList.add('on'); },9600*q);
+}
+function heliBack(){
+  const fly=$('heliFly'); fly.classList.remove('on'); $('hfBack').classList.remove('on');
+  setTimeout(()=>{ fly.hidden=true; heliBusy=false; },800);
+}
+$('heliBtn').addEventListener('click',()=>{ if(S.rb<REBIRTHS.length){ setNote('The helipad unlocks at Rebirth '+REBIRTHS.length+'.'); return; } $('heliSure').hidden=false; });
+$('heliNo').addEventListener('click',()=>{ $('heliSure').hidden=true; });
+$('heliYes').addEventListener('click',()=>{ $('heliSure').hidden=true; heliGo(); });
+$('hfBack').addEventListener('click',heliBack);
+
 /* ---------- admin panel ---------- */
 const ADMIN_PW='123abc123';
 function admOpen(){ $('admin').hidden=false; renderAdmin(); }
 function admClose(){ $('admin').hidden=true; }
 function renderAdmin(){
-  const box=$('adminBox');
+  const box=$('adminBox'), pe=($('admEgg')||{}).value, pp=($('admPet')||{}).value;
   if(!ADM.ok){
     box.innerHTML='<h2 style="margin:0">Admin</h2><p style="color:var(--muted);margin:6px 0">Enter the password.</p><div class="potrow"><input id="admPw" type="password" autocomplete="off" style="padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)"><button type="button" class="buy" data-adm="login">Enter</button><button type="button" class="buy alt" data-adm="close">Cancel</button></div><div id="admMsg" class="danger"></div>';
     const i=$('admPw'); if(i&&i.focus) i.focus();
     return;
   }
   const tierOpts='<option value="-1">Normal</option>'+TIERS.map((t,i)=>'<option value="'+i+'"'+(ADM.force===i?' selected':'')+'>'+TL[t]+'</option>').join('');
-  box.innerHTML='<div class="qhead"><h2 style="margin:0">Admin panel</h2><button type="button" class="buy alt" data-adm="close">Close</button></div>'
-   +'<div class="admgrid">'
-   +'<label>EP <input id="admEp" type="number" value="1000000"></label><div class="potrow"><button type="button" class="buy" data-adm="epadd">Add EP</button><button type="button" class="buy alt" data-adm="epset">Set EP</button></div>'
-   +'<label>Extra luck <input id="admLuck" type="number" value="'+ADM.luck+'"></label><div class="potrow"><button type="button" class="buy" data-adm="luck">Apply luck</button></div>'
-   +'<label>Rebirth level <input id="admRb" type="number" min="0" max="10" value="'+S.rb+'"></label><div class="potrow"><button type="button" class="buy" data-adm="rb">Set rebirth</button></div>'
-   +'<label>Force roll tier <select id="admForce">'+tierOpts+'</select></label><div class="potrow"><button type="button" class="buy" data-adm="force">Apply</button></div>'
-   +'<label>Force mutation <select id="admVr"><option value="">Normal</option>'+VARIANTS.slice().reverse().map(v=>'<option value="'+v.id+'"'+(ADM.vr===v.id?' selected':'')+'>'+v.name+' (\u00d7'+v.m+')</option>').join('')+'</select></label><div class="potrow"><button type="button" class="buy" data-adm="vr">Apply</button></div>'
-   +'<label><input type="checkbox" id="admCd"'+(ADM.noCd?' checked':'')+'> No cooldown</label><div class="potrow"><button type="button" class="buy" data-adm="cd">Apply</button></div>'
-   +'</div><div class="potrow" style="margin-top:12px">'
-   +'<button type="button" class="buy alt" data-adm="items">Give all items and accessories</button>'
-   +'<button type="button" class="buy alt" data-adm="awake">Awaken all, +5 of each material</button>'
-   +'<button type="button" class="buy alt" data-adm="badges">Find every badge</button>'
-   +'<button type="button" class="buy alt" data-adm="pots">+3 of each potion</button>'
-   +'<button type="button" class="buy alt" data-adm="upg">Max all upgrades</button>'
-   +'<button type="button" class="buy alt" data-adm="qdone">Complete quests</button>'
-   +'<button type="button" class="buy alt" data-adm="qnew">New quests</button>'
-   +'<button type="button" class="buy alt" data-adm="rebirthnow">Rebirth now (free)</button>'
-   +'</div><div id="admMsg" style="color:var(--good);margin-top:8px;min-height:1.2em"></div>';
+  const eggOpts=EGGS.map(e=>'<option value="'+e.id+'">'+e.name+'</option>').join('');
+  const petOpts='<option value="">Random (normal)</option>'+EGGS.map(e=>'<optgroup label="'+e.name+'">'+Object.keys(e.w).map(id=>'<option value="'+id+'"'+(ADM.pet===id?' selected':'')+'>'+PETD[id].name+' ('+e.w[id]+'%)</option>').join('')+'</optgroup>').join('')
+    +'<optgroup label="Other pets">'+PETS.filter(p=>!EGGS.some(e=>e.w[p.id])).map(p=>'<option value="'+p.id+'"'+(ADM.pet===p.id?' selected':'')+'>'+p.name+'</option>').join('')+'</optgroup>';
+  const row=(lab,ctl,btns)=>'<div class="adm-row"><span>'+lab+'</span>'+ctl+'<div class="adm-btns">'+btns+'</div></div>';
+  const bt=(a,txt,alt)=>'<button type="button" class="buy'+(alt?' alt':'')+'" data-adm="'+a+'">'+txt+'</button>';
+  box.innerHTML='<div class="adm-top"><div><h2>Admin panel</h2><small>Rebirth '+S.rb+' &middot; '+fe(S.ep)+' EP</small></div>'+bt('close','Close',1)+'</div>'
+   +'<div class="adm-sec"><h3>Resources</h3>'
+   +row('EP','<input id="admEp" type="number" value="1000000">',bt('epadd','Add')+bt('epset','Set',1))
+   +row('Extra luck','<input id="admLuck" type="number" value="'+ADM.luck+'">',bt('luck','Apply'))
+   +row('Rebirth level','<input id="admRb" type="number" min="0" max="10" value="'+S.rb+'">',bt('rb','Set'))+'</div>'
+   +'<div class="adm-sec"><h3>Rolls</h3>'
+   +row('Force tier','<select id="admForce">'+tierOpts+'</select>',bt('force','Apply'))
+   +row('Force mutation','<select id="admVr"><option value="">Normal</option>'+VARIANTS.slice().reverse().map(v=>'<option value="'+v.id+'"'+(ADM.vr===v.id?' selected':'')+'>'+v.name+' (×'+v.m+')</option>').join('')+'</select>',bt('vr','Apply'))
+   +row('No cooldown','<label><input type="checkbox" id="admCd"'+(ADM.noCd?' checked':'')+'> On</label>',bt('cd','Apply'))+'</div>'
+   +'<div class="adm-sec"><h3>Eggs and pets</h3>'
+   +row('Egg','<select id="admEgg">'+eggOpts+'</select>',bt('egg1','+1 ticket')+bt('egg5','+5',1)+bt('egg20','+20',1))
+   +row('Pet in egg','<select id="admPet">'+petOpts+'</select>',bt('petforce','Force hatch')+bt('petgive','Give pet',1))
+   +'<div class="adm-btns">'+bt('eggsall','+5 of every egg ticket',1)+bt('petsall','Give every pet',1)+'</div>'
+   +'<small style="color:var(--muted);display:block;margin-top:8px">Force hatch makes every egg you hatch give the chosen pet'+(ADM.pet?' (now: <b>'+PETD[ADM.pet].name+'</b>)':'')+'. Choose Random to turn it off. The admin can hatch eggs that are still locked.</small></div>'
+   +'<div class="adm-sec"><h3>Collection and progress</h3><div class="adm-grid">'
+   +bt('items','All items and accessories',1)+bt('awake','Awaken all, +5 materials',1)+bt('badges','Find every badge',1)+bt('pots','+3 of each potion',1)+bt('upg','Max all upgrades',1)
+   +bt('qdone','Complete quests',1)+bt('qnew','New quests',1)+bt('rebirthnow','Rebirth now (free)',1)+'</div></div>'
+   +'<div id="admMsg" class="adm-msg"></div>';
+  if(pe&&$('admEgg')) $('admEgg').value=pe; if(pp&&$('admPet')&&!ADM.pet) $('admPet').value=pp;
 }
 function admMsg(t){ const e=$('admMsg'); if(e) e.textContent=t; }
 $('adminBtn').addEventListener('click',admOpen);
@@ -1800,6 +2032,11 @@ $('admin').addEventListener('click',e=>{
   else if(a==='upg'){ UPS.forEach(u=>S.lv[u.id]=u.max); }
   else if(a==='qdone'){ if(S.q) S.q.list.forEach(q=>{ if(!q.done){ q.done=true; q.prog=q.target; S.ep+=q.ep; if(q.pot) S.bag[q.pot]=(S.bag[q.pot]||0)+1; } }); }
   else if(a==='qnew'){ S.q=null; }
+  else if(a==='egg1'||a==='egg5'||a==='egg20'){ const id=($('admEgg')||{}).value; if(id) S.tix[id]=(S.tix[id]||0)+(a==='egg1'?1:a==='egg5'?5:20); }
+  else if(a==='eggsall'){ EGGS.forEach(e=>S.tix[e.id]=(S.tix[e.id]||0)+5); }
+  else if(a==='petforce'){ ADM.pet=($('admPet')||{}).value||''; }
+  else if(a==='petgive'){ const id=($('admPet')||{}).value; if(id&&PETD[id]){ if(!S.pets[id]){ S.pets[id]=1; S.pxp[id]=0; if(S.petEq.length<petSlots()) S.petEq.push(id); } else S.spare[id]=(S.spare[id]||0)+1; } }
+  else if(a==='petsall'){ PETS.forEach(p=>{ if(!S.pets[p.id]){ S.pets[p.id]=1; S.pxp[p.id]=0; if(S.petEq.length<petSlots()) S.petEq.push(p.id); } }); }
   else if(a==='rebirthnow'){ if(S.rb<REBIRTHS.length){ S.rb++; S.ep=0; S.owned={}; S.equip={}; S.run={}; S.fx={}; } }
   save(); renderAll(); renderAdmin(); admMsg('Done.');
 });
@@ -2048,7 +2285,7 @@ function spinRoulette(){
 }
 function renderLobby(){
   const g=(id,name,desc,rb,ico)=>'<button type="button" class="casgame'+(S.rb<rb?' locked':'')+'" data-go="'+id+'"'+(S.rb<rb?' disabled':'')+'><span class="gi">'+ico+'</span><b>'+name+'</b><small>'+(S.rb<rb?'Unlocks at Rebirth '+rb:desc)+'</small></button>';
-  $('casinoBox').innerHTML='<div class="cas-title">Lucky Casino</div><div class="cas-sub">Pick a game.</div><div class="casgames">'
+  $('casinoBox').innerHTML='<div class="cas-title">Lucky Casino</div><div class="cas-sub">Welcome, high roller. The house is open all night.</div><div class="casgames">'
     +g('wheel','Party Wheel','Spin for the rarity of your next roll.',CASINO_RB,'\u{1F3A1}')
     +g('slots','Slot Machine','Match symbols to win EP.',SLOT_RB,'\u{1F3B0}')
     +g('roul','Roulette','Bet on colours, numbers and dozens.',ROUL_RB,'\u{1F3B2}')
@@ -2345,7 +2582,7 @@ $('rbGo').addEventListener('click',()=>$('tab-rb').click());
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
   tab=b.dataset.tab; rbAsk=false;
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b?'true':'false'));
-  ['store','q','aw','pets','rb','col','hist','odds','tr'].forEach(t=>{ $('pane-'+t).hidden=(t!==tab); });
+  ['store','q','aw','pets','rb','col','hist','odds','tr','mk'].forEach(t=>{ $('pane-'+t).hidden=(t!==tab); });
   renderAll();
 }));
 document.querySelectorAll('#colFilter button').forEach(b=>b.addEventListener('click',()=>{
@@ -2368,13 +2605,76 @@ $('resetYes').addEventListener('click',()=>{
 /* ---------- accounts, home page, daily reward, leaderboard, jackpot ---------- */
 let MODE=null, DB=null, USR=null, UID=null, cloudOk=false, myName='', cloudErr='';
 const hasClaude=()=>typeof claude!=='undefined'&&claude&&typeof claude.use==='function';
+/* ---------- Supabase backend (used when the page is not running inside claude.ai) ---------- */
+const SB_URL='https://vwezdjsddxlfgybslney.supabase.co', SB_KEY='sb_publishable_7Z5EDBa-pIEsrqtGNCHObg_qesgm7Bx';
+const SB_ON=()=>!hasClaude()&&!!SB_URL&&!!SB_KEY;
+const acct=()=>hasClaude()||SB_ON();
+let sbSess=null;
+try{ sbSess=JSON.parse(localStorage.getItem('er-sb')||'null'); }catch(e){}
+function sbStore(s){ sbSess=s; try{ if(s) localStorage.setItem('er-sb',JSON.stringify(s)); else localStorage.removeItem('er-sb'); }catch(e){} }
+async function sbRaw(path,opt,token){
+  const r=await fetch(SB_URL+path,Object.assign({},opt,{headers:Object.assign({apikey:SB_KEY,'Content-Type':'application/json',Authorization:'Bearer '+(token||SB_KEY)},opt&&opt.headers)}));
+  let j=null; try{ j=await r.json(); }catch(e){}
+  if(!r.ok){ const er=new Error((j&&(j.msg||j.message||j.error_description||j.error))||('Request failed ('+r.status+')')); er.code=r.status; throw er; }
+  return j;
+}
+function sbSession(j){
+  const u=j.user||{}, md=u.user_metadata||{};
+  sbStore({access_token:j.access_token,refresh_token:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000-60000,uid:u.id||(sbSess&&sbSess.uid),name:md.name||(sbSess&&sbSess.name)||'Player'});
+}
+async function sbRefresh(){
+  if(!sbSess||!sbSess.refresh_token) throw new Error('Please sign in again.');
+  try{ sbSession(await sbRaw('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:JSON.stringify({refresh_token:sbSess.refresh_token})})); }
+  catch(e){ sbStore(null); cloudOk=false; throw new Error('Your session ended. Please sign in again.'); }
+}
+async function sbReq(path,opt){
+  if(!sbSess) throw new Error('Please sign in.');
+  if(Date.now()>sbSess.exp) await sbRefresh();
+  try{ return await sbRaw(path,opt,sbSess.access_token); }
+  catch(e){ if(e.code===401){ await sbRefresh(); return sbRaw(path,opt,sbSess.access_token); } throw e; }
+}
+async function sbSignUp(name,email,pw){
+  const j=await sbRaw('/auth/v1/signup',{method:'POST',body:JSON.stringify({email,password:pw,data:{name}})});
+  if(!j||!j.access_token) throw new Error('Account created. Check your email to confirm it, then sign in.');
+  sbSession(j);
+}
+async function sbSignIn(email,pw){ sbSession(await sbRaw('/auth/v1/token?grant_type=password',{method:'POST',body:JSON.stringify({email,password:pw})})); }
+const sbNames={};
+function sbShim(){
+  USR={ id:async()=>sbSess.uid, me:async()=>({name:sbSess.name}), can:async()=>true, profiles:async ids=>{ const o={}; ids.forEach(i=>o[i]={name:sbNames[i]||'Player'}); return o; } };
+  DB={
+    doc:p=>({
+      get:async()=>{ const r=await sbReq('/rest/v1/saves?user_id=eq.'+sbSess.uid+'&select=data'); return r&&r.length?{exists:true,data:()=>({json:JSON.stringify(r[0].data)})}:{exists:false}; },
+      set:async v=>{ await sbReq('/rest/v1/saves?on_conflict=user_id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({user_id:sbSess.uid,data:JSON.parse(v.json),updated_at:new Date().toISOString()})}); }
+    }),
+    collection:c=>({
+      doc:id=>({ set:async v=>{ await sbReq('/rest/v1/profiles?on_conflict=user_id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({user_id:sbSess.uid,name:sbSess.name,life:v.life,rolls:v.rolls,rb:v.rb,best:v.best,secrets:v.secrets,godlikes:v.godlikes,pets:v.pets,shinies:v.shinies,updated_at:new Date().toISOString()})}); } }),
+      orderBy:f=>({ limit:n=>({ get:async()=>{
+        const col=['life','best','rolls','rb','secrets','pets','shinies','godlikes'].indexOf(f)>=0?f:'life';
+        const r=await sbReq('/rest/v1/profiles?select=*&order='+col+'.desc&limit='+n);
+        return {docs:(r||[]).map(x=>{ sbNames[x.user_id]=x.name; return {id:x.user_id,data:()=>x}; })};
+      } }) })
+    })
+  };
+}
+async function sbSignOut(){
+  try{ if(MODE==='account') await cloudSave(true); }catch(e){}
+  sbStore(null); cloudOk=false; DB=null; USR=null; UID=null; myName='';
+  if(MODE==='account'){ MODE=null; applyState(LOCAL0||fresh0()); }
+  homeMsg='Signed out.'; renderMode(); renderHome();
+}
+
 const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let homeView='menu', homeMsg='', homeBusy=false, lbSort='life', lbRows=null;
 const homeOpen=()=>!$('home').hidden;
 
 async function connectCloud(){
   if(cloudOk) return true;
-  if(!hasClaude()){ homeMsg='Accounts are only available on the published page, signed in to claude.ai.'; return false; }
+  if(!hasClaude()){
+    if(!SB_ON()){ homeMsg='Accounts are not set up on this page.'; return false; }
+    if(!sbSess){ return false; }
+    sbShim(); UID=sbSess.uid; myName=sbSess.name||''; cloudOk=true; return true;
+  }
   try{
     USR=await claude.use('user'); DB=await claude.use('db');
     if(USR&&DB){ UID=await USR.id(); const me=await USR.me(); myName=(me&&me.name)||''; }
@@ -2413,7 +2713,9 @@ function applyState(o){
   nextAt=0; current=null; bootGame();
 }
 async function enterAccount(){
-  if(homeBusy) return false; homeBusy=true; homeMsg='Connecting...'; renderHome();
+  if(homeBusy) return false;
+  if(!hasClaude()&&SB_ON()&&!sbSess){ homeView='auth'; homeMsg=''; renderHome(); return false; }
+  homeBusy=true; homeMsg='Connecting...'; renderHome();
   let ok=false;
   try{
     if(await connectCloud()){
@@ -2470,22 +2772,22 @@ const rq={ pot:(n,min)=>({k:'pot',n,min}), pet:(n,min)=>({k:'pet',n,min}), item:
   ep:(frac,base)=>({k:'ep',a:Math.round(Math.max(base,qRef()*frac))}) };
 const pickf=a=>a[Math.floor(Math.random()*a.length)];
 const TR_T=[
- [()=>({req:[rq.pot(6,0)],give:{t:'tix',egg:'e1',n:2}}),
+ [()=>({req:[rq.pot(8,0)],give:{t:'tix',egg:'e1',n:2}}),
   ()=>({req:[rq.pet(2,0)],give:{t:'pot',id:'pot3',n:1}}),
-  ()=>({req:[rq.pot(2,0),rq.ep(0.004,5000)],give:{t:'mat',n:1}})],
- [()=>({req:[rq.pot(3,1),rq.pet(1,1)],give:{t:'pet',id:pickf(['pp6','pp7'])}}),
+  ()=>({req:[rq.pot(3,0),rq.ep(0.012,15000)],give:{t:'mat',n:1}})],
+ [()=>({req:[rq.pot(4,1),rq.pet(1,1),rq.ep(0.05,50000)],give:{t:'pet',id:pickf(['pp6','pp7'])}}),
   ()=>({req:[rq.pet(3,1)],give:{t:'tix',egg:'e2',n:2}}),
-  ()=>({req:[rq.item(1,2),rq.pot(2,1)],give:{t:'pot',id:'pot4',n:1}})],
+  ()=>({req:[rq.item(1,2),rq.pot(3,1)],give:{t:'pot',id:'pot4',n:1}})],
  [()=>({req:[rq.pot(2,2),rq.pet(2,2)],give:{t:'tix',egg:'e3',n:1}}),
-  ()=>({req:[rq.mat(1),rq.pot(3,2)],give:{t:'pet',id:pickf(['pp8','pp9'])}}),
+  ()=>({req:[rq.mat(1),rq.pot(3,3),rq.ep(0.4,400000)],give:{t:'pet',id:pickf(['pp8','pp9'])}}),
   ()=>({req:[rq.pet(4,1),rq.ep(0.02,50000)],give:{t:'pot',id:'pot5',n:2}})],
  [()=>({req:[rq.pet(1,3),rq.pot(2,3),rq.ep(0.05,200000)],give:{t:'tix',egg:'e3',n:3}}),
-  ()=>({req:[rq.pot(3,3),rq.item(2,5)],give:{t:'mat',n:2}}),
+  ()=>({req:[rq.pot(3,3),rq.item(2,5),rq.ep(0.04,60000)],give:{t:'mat',n:2}}),
   ()=>({req:[rq.pet(2,3),rq.mat(1)],give:{t:'pet',id:'pp10'}})],
  [()=>({req:[rq.pet(1,4),rq.pot(4,4),rq.ep(0.25,2000000)],give:{t:'tix',egg:'e4',n:1}}),
-  ()=>({req:[rq.pot(3,4),rq.mat(2),rq.ep(0.25,2000000)],give:{t:'pet',id:'pp12'}}),
-  ()=>({req:[rq.pot(6,5),rq.ep(0.4,5000000)],give:{t:'pet',id:'pp11'}})]];
-const TR_BOSS=()=>({req:[rq.ep(2,300000000),rq.pet(2,4),rq.pot(5,5),rq.awk(1)],give:{t:'pet',id:'pp13'},boss:true});
+  ()=>({req:[rq.pet(1,4),rq.pot(4,4),rq.mat(3),rq.ep(1,100000000)],give:{t:'pet',id:'pp12'}}),
+  ()=>({req:[rq.pot(6,5),rq.ep(0.6,8000000)],give:{t:'pet',id:'pp11'}})]];
+const TR_BOSS=()=>({req:[rq.ep(3,400000000),rq.pet(2,4),rq.pot(6,5),rq.awk(2)],give:{t:'pet',id:'pp13'},boss:true});
 const TR_LBL=['Everyday goods','Better goods','Rare goods','Epic goods','Mythic goods','Strange goods'];
 function genTrades(){
   const l=TR_T.map((a,i)=>{ const t=(i===4&&Math.random()<1/25)?TR_BOSS():pickf(a)(); t.done=false; return t; });
@@ -2673,6 +2975,7 @@ let dailyMsg='';
 /* leaderboard */
 const LB_SORTS=[['life','Lifetime EP'],['best','Best roll'],['rolls','Rolls'],['rb','Rebirth'],['secrets','Secrets'],['pets','Pets'],['shinies','Mutations']];
 async function loadLb(){
+  if(!hasClaude()&&SB_ON()&&!sbSess){ homeView='auth'; homeMsg='Sign in to see the leaderboard.'; renderHome(); return; }
   lbRows=null; renderHome();
   if(!(await connectCloud())){ lbRows={err:true}; renderHome(); return; }
   try{
@@ -2727,14 +3030,16 @@ function renderHome(){
       h+='<div class="hstats"><div><b>'+(sv0.rb||0)+'</b><small>Rebirth</small></div><div><b>'+fe(sv0.rolls||0)+'</b><small>Rolls</small></div><div><b>'+Object.keys(sv0.pets||{}).length+'</b><small>Pets</small></div><div><b>'+Object.keys(sv0.badges||{}).length+'</b><small>Badges</small></div></div>';
     }
     h+=MODE?cta('resume','Continue',MODE==='account'?'Back to your game':MODE==='local'?'Back to your saved game':'Back to your guest game')
-        :(hasClaude()?cta('signin','Sign in and play','Cloud save, leaderboard and daily reward'):cta('local',LOCAL0?'Continue':'Play',LOCAL0?'Pick up your saved game':'Progress saves in this browser.'));
+        :(acct()?cta('signin',sbSess&&!hasClaude()?'Play as '+esc(sbSess.name||'player'):'Sign in and play','Cloud save, leaderboard, market and daily reward'):cta('local',LOCAL0?'Continue':'Play',LOCAL0?'Pick up your saved game':'Progress saves in this browser.'));
     h+='<div class="home-grid two">'
-      +(MODE?(hasClaude()?card('signin','\u{1F511}',MODE==='account'?'Play with your account':'Sign in and play','Cloud save and leaderboard',''):card('local','\u{1F4BE}',MODE==='local'?'Play':(LOCAL0?'Continue saved game':'New game'),'Saves in this browser.','')):'')
+      +(MODE?(acct()?card('signin','\u{1F511}',MODE==='account'?'Play with your account':'Sign in and play','Cloud save and leaderboard',''):card('local','\u{1F4BE}',MODE==='local'?'Play':(LOCAL0?'Continue saved game':'New game'),'Saves in this browser.','')):'')
+      +(SB_ON()&&MODE!=='local'?card('local','\u{1F4BE}',LOCAL0?'Play offline':'Play offline','Saves in this browser only.',''):'')
       +card('guest','\u{1F464}','Play as guest','Start fresh. Not saved.','')
-      +(hasClaude()?card('lb','\u{1F3C6}','Leaderboard','Top players.',''):'')
+      +(acct()?card('lb','\u{1F3C6}','Leaderboard','Top players.',''):'')
       +card('daily','\u{1F381}','Daily reward',(MODE==='account'||MODE==='local')?(st.can?'Ready to claim!':'Come back tomorrow.'):(hasClaude()?'Sign in to claim.':'Start a saved game.'),(MODE==='account'||MODE==='local')&&st.can?'READY':'')
       +card('how','\u{2753}','How to play','Every mechanic.','')
       +card('code','\u{1F4CB}','Save code','Back up as text.','')
+      +(SB_ON()&&sbSess?card('signout','\u{1F6AA}','Sign out','Leave '+esc(sbSess.name||'your account')+'.',''):'')
       +'</div>'
       +'<div class="ribbon">'+TIERS.map(k=>'<span style="--rc:'+HC[k]+'">'+TL[k]+'</span>').join('')+'</div>'
       +'<div class="parade"><div class="parade-t">'+paradeHtml()+paradeHtml()+'</div></div>';
@@ -2742,10 +3047,18 @@ function renderHome(){
     h+='<div class="home-panel"><div class="hp-head"><h2>Leaderboard</h2><button type="button" class="hback" data-h="menu">Back</button></div>'
       +'<div class="hsort">'+LB_SORTS.map(s=>'<button type="button" data-lbs="'+s[0]+'" class="'+(lbSort===s[0]?'on':'')+'">'+s[1]+'</button>').join('')+'</div>';
     if(lbRows===null) h+='<p class="hnote">Loading...</p>';
-    else if(lbRows.err) h+='<p class="hnote">The leaderboard is not available'+(lbRows.code?' ('+esc(lbRows.code)+')':'')+'. You need to be signed in to claude.ai.</p>';
+    else if(lbRows.err) h+='<p class="hnote">The leaderboard is not available'+(lbRows.code?' ('+esc(lbRows.code)+')':'')+'. Check your connection and that you are signed in.</p>';
     else if(!lbRows.rows.length) h+='<p class="hnote">No players yet. Sign in and play to appear here.</p>';
     else h+='<ol class="lbl">'+lbRows.rows.map((r,i)=>'<li class="'+(r.me?'me':'')+'"><span class="rk">'+(i+1)+'</span><span class="nm">'+esc(r.name)+(r.me?' (you)':'')+'</span><b>'+(lbSort==='life'||lbSort==='best'?fe(r[lbSort]||0):fmt(r[lbSort]||0))+'</b></li>').join('')+'</ol>';
     h+='<p class="hnote small">Players appear after they sign in and play. Stats update about every 30 seconds.</p></div>';
+  } else if(homeView==='auth'){
+    h+='<div class="home-panel"><div class="hp-head"><h2>Account</h2><button type="button" class="hback" data-h="menu">Back</button></div>'
+      +'<p class="hnote">Sign in to save to the cloud, join the leaderboard and use the player market. New here? Fill in a display name too and press Create account.</p>'
+      +'<input class="hin" id="auName" type="text" maxlength="16" placeholder="Display name (for new accounts)" autocomplete="nickname">'
+      +'<input class="hin" id="auMail" type="email" placeholder="Email" autocomplete="email">'
+      +'<input class="hin" id="auPw" type="password" placeholder="Password (6 or more characters)" autocomplete="current-password">'
+      +'<div class="hrow"><button type="button" class="hclaim" data-h="auin"'+(homeBusy?' disabled':'')+'>Sign in</button><button type="button" class="hclaim alt" data-h="auup"'+(homeBusy?' disabled':'')+'>Create account</button></div>'
+      +'<p class="hnote small">Your email is only used to sign in. Your display name is shown on the leaderboard and market.</p></div>';
   } else if(homeView==='how'){
     h+='<div class="home-panel"><div class="hp-head"><h2>How to play</h2><button type="button" class="hback" data-h="menu">Back</button></div>'+HOW+'</div>';
   } else if(homeView==='code'){
@@ -2775,9 +3088,18 @@ $('home').addEventListener('click',async e=>{
   else if(a==='guest'){ playGuest(); }
   else if(a==='local'){ playLocal(); }
   else if(a==='how'){ homeView='how'; homeMsg=''; renderHome(); }
+  else if(a==='signout'){ await sbSignOut(); }
+  else if(a==='auin'||a==='auup'){
+    const nm=(($('auName')||{}).value||'').trim().replace(/[^\w \-.]/g,'').slice(0,16), em=(($('auMail')||{}).value||'').trim(), pw=($('auPw')||{}).value||'';
+    if(!em||pw.length<6){ homeMsg='Enter your email and a password of at least 6 characters.'; renderHome(); return; }
+    if(a==='auup'&&nm.length<2){ homeMsg='Pick a display name (2 to 16 characters) to create an account.'; renderHome(); return; }
+    homeBusy=true; homeMsg=a==='auup'?'Creating your account...':'Signing in...'; renderHome();
+    try{ if(a==='auup') await sbSignUp(nm,em,pw); else await sbSignIn(em,pw); homeBusy=false; homeMsg=''; if(await enterAccount()) closeHome(); else renderHome(); }
+    catch(er){ homeBusy=false; homeMsg=(er&&er.message)||'Could not sign in.'; homeView='auth'; renderHome(); }
+  }
   else if(a==='code'){ codeOut=MODE&&MODE!=='guest'?makeCode():''; homeView='code'; homeMsg=''; renderHome(); }
   else if(a==='copycode'){ const t=$('codeOut'); if(t){ t.select(); try{ navigator.clipboard.writeText(t.value); }catch(e){ try{document.execCommand('copy');}catch(_){} } homeMsg='Code copied.'; renderHome(); } }
-  else if(a==='loadcode'){ const o=readCode(($('codeIn')||{}).value||''); if(!o){ homeMsg='That code is not valid.'; renderHome(); } else { if(!MODE||MODE==='guest'){ if(hasClaude()){ homeMsg='Sign in first, then load your code.'; renderHome(); return; } MODE='local'; } applyState(o); save(); if(MODE==='account') cloudSave(true); homeMsg=''; renderMode(); closeHome(); } }
+  else if(a==='loadcode'){ const o=readCode(($('codeIn')||{}).value||''); if(!o){ homeMsg='That code is not valid.'; renderHome(); } else { if(!MODE||MODE==='guest'){ if(acct()){ homeMsg='Sign in first, then load your code.'; renderHome(); return; } MODE='local'; } applyState(o); save(); if(MODE==='account') cloudSave(true); homeMsg=''; renderMode(); closeHome(); } }
   else if(a==='lb'){ homeView='lb'; homeMsg=''; loadLb(); }
   else if(a==='daily'){ homeMsg=''; dailyMsg=''; if(MODE==='account'||MODE==='local'){ homeView='daily'; } else if(!hasClaude()){ playLocal(); openHome(); homeView='daily'; } else if(await enterAccount()){ homeView='daily'; } renderHome(); }
   else if(a==='claim'){ dailyMsg=claimDaily(); renderHome(); }
