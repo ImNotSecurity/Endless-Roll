@@ -432,9 +432,9 @@ body.boosting #rollBtn{animation:brbtn .6s ease-in-out infinite alternate;backgr
 .hclaim.alt{background:linear-gradient(180deg,#c9b8ff,#8f6bff);box-shadow:0 5px 0 #4a2bb0;color:#1b0b4a}
 .mkrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}
 .mkrow .cimg{width:44px;height:44px}.mkrow b{display:block}.mkrow small{color:var(--muted)}
-.mkform{display:grid;grid-template-columns:1fr 90px 140px auto;gap:8px;align-items:center}
+.mkform{display:grid;grid-template-columns:1.4fr 64px 1.4fr 90px auto;gap:8px;align-items:center}
 .mkform select,.mkform input{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
-@media (max-width:560px){.mkform{grid-template-columns:1fr 1fr}.mkform select{grid-column:span 2}.mkform .buy{grid-column:span 2}}
+@media (max-width:640px){.mkform{grid-template-columns:1fr 1fr}.mkform select{grid-column:span 2}.mkform .buy{grid-column:span 2}}
 .adminbtn{position:fixed;top:10px;right:10px;z-index:50;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:var(--muted)}
 .adminmodal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px}
 .adminmodal[hidden],.cine[hidden]{display:none}
@@ -1858,6 +1858,8 @@ const MK_FEE=0.05;
 function mkItem(k,id){ return k==='pet'?PETD[id]:k==='pot'?ALL[id]:EGGS.find(e=>e.id===id); }
 function mkName(r){ const d=mkItem(r.kind,r.item); return d?(d.name+(r.kind==='tix'?' ticket':'')):r.item; }
 function mkIcon(r){ const i=ICONS[r.item]; return i?'<div class="cimg">'+i+'</div>':'<div class="cimg"></div>'; }
+const mkWantTxt=r=>r.want_kind&&r.want_kind!=='ep'?(mkName({kind:r.want_kind,item:r.want_item})+' \u00d7'+r.want_qty):fe(r.price)+' EP';
+const mkCan=r=>r.want_kind&&r.want_kind!=='ep'?mkHave(r.want_kind,r.want_item)>=r.want_qty:S.ep>=r.price;
 function mkHave(k,id){ return k==='pet'?(S.spare[id]||0):k==='pot'?(S.bag[id]||0):(S.tix[id]||0); }
 function mkAdd(k,id,n){
   if(k==='pot') S.bag[id]=(S.bag[id]||0)+n;
@@ -1882,16 +1884,20 @@ function renderMarket(){
   PETS.forEach(p=>{ const n=S.spare[p.id]||0; if(n>0) opts.push('<option value="pet:'+p.id+'">'+p.name+' (spare \u00d7'+n+')</option>'); });
   POTIONS.forEach(p=>{ const n=S.bag[p.id]||0; if(n>0) opts.push('<option value="pot:'+p.id+'">'+p.name+' (\u00d7'+n+')</option>'); });
   EGGS.forEach(e=>{ const n=S.tix[e.id]||0; if(n>0) opts.push('<option value="tix:'+e.id+'">'+e.name+' ticket (\u00d7'+n+')</option>'); });
-  let h='<div class="luckbox"><span class="big">Player market</span><small>Sell spare pets, potions and egg tickets to other players for EP, or buy what they list. When your item sells, press Claim to collect the EP (the market keeps '+Math.round(MK_FEE*100)+'%). Listed items are held until they sell or you cancel.</small>'
+  const wantOpts='<option value="ep:">Ask for: EP</option>'
+    +'<optgroup label="Pets">'+PETS.map(p=>'<option value="pet:'+p.id+'">'+p.name+'</option>').join('')+'</optgroup>'
+    +'<optgroup label="Potions">'+POTIONS.map(p=>'<option value="pot:'+p.id+'">'+p.name+'</option>').join('')+'</optgroup>'
+    +'<optgroup label="Egg tickets">'+EGGS.map(e=>'<option value="tix:'+e.id+'">'+e.name+' ticket</option>').join('')+'</optgroup>';
+  let h='<div class="luckbox"><span class="big">Player market</span><small>Trade spare pets, potions and egg tickets with other players, for EP or for other items. When your listing is taken, press Claim to collect your payment (EP payments lose '+Math.round(MK_FEE*100)+'% to the market). Listed items are held until they sell or you cancel.</small>'
     +'<div><button type="button" class="buy alt" data-mk="refresh"'+(mkBusy?' disabled':'')+'>'+(mkBusy?'Loading...':'Refresh')+'</button></div>'+(mkMsg?'<small style="color:var(--accent)">'+esc(mkMsg)+'</small>':'')+'</div>';
   h+='<h3 class="sub">Sell something</h3>'+(opts.length
-    ?'<div class="mkform"><select id="mkItem">'+opts.join('')+'</select><input id="mkQty" type="number" min="1" value="1" aria-label="Quantity"><input id="mkPrice" type="number" min="1" placeholder="Total price (EP)" aria-label="Total price in EP"><button type="button" class="buy" data-mk="list"'+(mkBusy?' disabled':'')+'>List</button></div>'
+    ?'<div class="mkform"><select id="mkItem" aria-label="Item to sell">'+opts.join('')+'</select><input id="mkQty" type="number" min="1" value="1" aria-label="Quantity to sell"><select id="mkWant" aria-label="What you want in return">'+wantOpts+'</select><input id="mkPrice" type="number" min="1" placeholder="EP price" aria-label="EP price or quantity wanted"><button type="button" class="buy" data-mk="list"'+(mkBusy?' disabled':'')+'>List</button></div><small style="color:var(--muted)">Choose EP to sell for EP, or pick an item to swap. For a swap, the number is how many of that item you want.</small>'
     :'<div class="empty" style="border:0">You have nothing to sell. Spare pets, potions and egg tickets can be listed.</div>');
   const mine=mkMine||[];
-  h+='<h3 class="sub">Your listings</h3>'+(mine.length?'<div class="grid">'+mine.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+fe(r.price)+' EP \u00b7 '+(r.status==='sold'?'Sold! Claim '+fe(Math.floor(r.price*(1-MK_FEE)))+' EP':'Waiting for a buyer')+'</small></div>'
+  h+='<h3 class="sub">Your listings</h3>'+(mine.length?'<div class="grid">'+mine.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+(r.status==='sold'?'Taken! Claim '+(r.want_kind&&r.want_kind!=='ep'?mkWantTxt(r):fe(Math.floor(r.price*(1-MK_FEE)))+' EP'):'Wants '+mkWantTxt(r))+'</small></div>'
       +(r.status==='sold'?'<button type="button" class="buy" data-mk="claim" data-id="'+r.id+'">Claim</button>':'<button type="button" class="buy alt" data-mk="cancel" data-id="'+r.id+'">Cancel</button>')+'</div>').join('')+'</div>':'<div class="empty" style="border:0">No active listings.</div>');
   const open=(mkRows||[]).filter(r=>!sbSess||r.seller!==sbSess.uid);
-  h+='<h3 class="sub">For sale</h3>'+(mkRows===null?'<div class="empty" style="border:0">Loading...</div>':open.length?'<div class="grid">'+open.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+esc(r.seller_name)+' \u00b7 '+fe(r.price)+' EP</small></div><button type="button" class="buy" data-mk="buy" data-id="'+r.id+'"'+(S.ep<r.price||mkBusy?' disabled':'')+'>'+(S.ep<r.price?'Need EP':'Buy')+'</button></div>').join('')+'</div>':'<div class="empty" style="border:0">Nothing is for sale right now.</div>');
+  h+='<h3 class="sub">For sale</h3>'+(mkRows===null?'<div class="empty" style="border:0">Loading...</div>':open.length?'<div class="grid">'+open.map(r=>'<div class="mkrow">'+mkIcon(r)+'<div><b>'+mkName(r)+' \u00d7'+r.qty+'</b><small>'+esc(r.seller_name)+' \u00b7 wants '+mkWantTxt(r)+'</small></div><button type="button" class="buy" data-mk="buy" data-id="'+r.id+'"'+(!mkCan(r)||mkBusy?' disabled':'')+'>'+(!mkCan(r)?(r.want_kind&&r.want_kind!=='ep'?'Need item':'Need EP'):(r.want_kind&&r.want_kind!=='ep'?'Swap':'Buy'))+'</button></div>').join('')+'</div>':'<div class="empty" style="border:0">Nothing is for sale right now.</div>');
   el.innerHTML=h;
 }
 $('pane-mk').addEventListener('click',async e=>{
@@ -1901,17 +1907,22 @@ $('pane-mk').addEventListener('click',async e=>{
   mkBusy=true; mkMsg='';
   try{
     if(a==='list'){
-      const sel=($('mkItem')||{}).value||'', [k,item]=sel.split(':'), qty=Math.floor(Number(($('mkQty')||{}).value)), price=Math.floor(Number(($('mkPrice')||{}).value));
-      if(!item||!(qty>=1)||!(price>=1)){ mkMsg='Choose an item, a quantity and a price of at least 1 EP.'; }
+      const sel=($('mkItem')||{}).value||'', [k,item]=sel.split(':'), qty=Math.floor(Number(($('mkQty')||{}).value)), amt=Math.floor(Number(($('mkPrice')||{}).value));
+      const [wk,wi]=(($('mkWant')||{}).value||'ep:').split(':'), isEp=wk==='ep';
+      if(!item||!(qty>=1)||!(amt>=1)){ mkMsg=isEp?'Choose an item, a quantity and a price of at least 1 EP.':'Choose an item, a quantity, and how many of the item you want.'; }
       else if(mkHave(k,item)<qty){ mkMsg='You do not have that many.'; }
+      else if(!isEp&&wk===k&&wi===item){ mkMsg='Pick a different item to swap for.'; }
       else { mkTake(k,item,qty); save();
-        try{ await sbReq('/rest/v1/rpc/list_trade',{method:'POST',body:JSON.stringify({p_kind:k,p_item:item,p_qty:qty,p_price:price})}); mkMsg='Listed.'; cloudSave(true); }
+        try{ await sbReq('/rest/v1/rpc/list_trade',{method:'POST',body:JSON.stringify({p_kind:k,p_item:item,p_qty:qty,p_price:isEp?amt:0,p_want_kind:wk,p_want_item:isEp?null:wi,p_want_qty:isEp?0:amt})}); mkMsg='Listed.'; cloudSave(true); }
         catch(er){ mkAdd(k,item,qty); save(); throw er; } }
     } else if(a==='buy'){
       const r=(mkRows||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
-      if(S.ep<r.price) throw new Error('You do not have enough EP.');
-      await sbReq('/rest/v1/rpc/buy_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
-      S.ep-=r.price; mkAdd(r.kind,r.item,r.qty); save(); cloudSave(true); mkMsg='Bought '+mkName(r)+' \u00d7'+r.qty+'.';
+      const swap=r.want_kind&&r.want_kind!=='ep';
+      if(!mkCan(r)) throw new Error(swap?'You do not have the item this player wants.':'You do not have enough EP.');
+      if(swap) mkTake(r.want_kind,r.want_item,r.want_qty); else S.ep-=r.price; save();
+      try{ await sbReq('/rest/v1/rpc/buy_trade',{method:'POST',body:JSON.stringify({p_id:r.id})}); }
+      catch(er){ if(swap) mkAdd(r.want_kind,r.want_item,r.want_qty); else S.ep+=r.price; save(); throw er; }
+      mkAdd(r.kind,r.item,r.qty); save(); cloudSave(true); mkMsg=(swap?'Swapped for ':'Bought ')+mkName(r)+' \u00d7'+r.qty+'.';
     } else if(a==='cancel'){
       const r=(mkMine||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
       await sbReq('/rest/v1/rpc/cancel_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
@@ -1919,7 +1930,8 @@ $('pane-mk').addEventListener('click',async e=>{
     } else if(a==='claim'){
       const r=(mkMine||[]).find(x=>String(x.id)===id); if(!r) throw new Error('Listing not found.');
       await sbReq('/rest/v1/rpc/claim_trade',{method:'POST',body:JSON.stringify({p_id:r.id})});
-      const v=Math.floor(r.price*(1-MK_FEE)); S.ep+=v; S.life+=v; save(); cloudSave(true); mkMsg='Collected '+fe(v)+' EP.'; sfxCoin();
+      if(r.want_kind&&r.want_kind!=='ep'){ mkAdd(r.want_kind,r.want_item,r.want_qty); save(); cloudSave(true); mkMsg='Collected '+mkWantTxt(r)+'.'; sfxCoin(); }
+      else { const v=Math.floor(r.price*(1-MK_FEE)); S.ep+=v; S.life+=v; save(); cloudSave(true); mkMsg='Collected '+fe(v)+' EP.'; sfxCoin(); }
     }
   }catch(er){ mkMsg=(er&&er.message)||'Something went wrong.'; }
   mkBusy=false; renderAll(); mkLoad();
@@ -1973,7 +1985,7 @@ $('heliYes').addEventListener('click',()=>{ $('heliSure').hidden=true; heliGo();
 $('hfBack').addEventListener('click',heliBack);
 
 /* ---------- admin panel ---------- */
-const ADMIN_PW='123abc123';
+const ADMIN_PW='mf$iS1HS25';
 function admOpen(){ $('admin').hidden=false; renderAdmin(); }
 function admClose(){ $('admin').hidden=true; }
 function renderAdmin(){
